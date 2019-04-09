@@ -1,0 +1,241 @@
+const RecipeSchema = new SimpleSchema({
+  prepTime : String
+  instructions: String,
+  ingredients: {amount:item, amount:item},
+  serving: String,
+  tools: String,
+  owner: String,
+},
+
+French omelet {
+
+Prep Time: 2m (120 seconds)
+
+Instructions: 
+
+-BEAT eggs, water, salt and pepper in small bowl until blended.
+
+-HEAT butter in 6 to 8-inch nonstick omelet pan or skillet over medium-high heat until hot. TILT pan to coat bottom. POUR IN egg mixture. Mixture should set immediately at edges.
+
+-GENTLY PUSH cooked portions from edges toward the center with inverted turner so that uncooked eggs can reach the hot pan surface. CONTINUE cooking, tilting pan and gently moving cooked portions as needed.
+
+-When top surface of eggs is thickened and no visible liquid egg remains, PLACE filling on one side of the omelet. FOLD omelet in half with turner. With a quick flip of the wrist, turn pan and INVERT or SLIDE omelet onto plate. SERVE immediately.
+
+
+Ingredients: {2 : eggs , 2 tbsp: salt, 1/8 tsp : salt, : pepper, 1 tsp. : butter, 1/3 cup : filling}
+
+Tools: Pan (Any), Stove/Grill
+
+}
+
+
+Oven Toasted Bacon {
+
+Prep Time: 12m - 15 minutes
+
+Instructions: 
+
+Set the temperature to 400°F, and lay the bacon slices (we like thick cut here) flat on a baking sheet or your toaster oven pan. 
+Bake, for about 12-15 minutes, or until the bacon is done to your liking.
+If you want to make cleanup as easy as possible, line your pan with aluminum foil or parchment paper prior to placing the bacon slices.
+When your bacon is finished cooking, it will be crispy, but light, in a unique way.
+
+Ingredients: {Bacon}
+
+Serving: 1
+
+Tools: Toaster Oven
+
+}
+
+HOLIDAY ROASTED GREEN BEANS (WITH CRANBERRIES & ALMONDS) {
+
+Prep Time: 12m - 15 minutes
+
+Instructions: 
+
+Drizzle the beans with a little oil and season simply with salt and black pepper.
+If you want add a pinch of crushed red chili pepper.
+Place in oven.
+Look for your beans to be slightly shriveled with light caramelization or brown spots on them.
+Sprinkle your finished green beans with dried cranberries and toasted almonds.
+
+Ingredients: {Green Beans, Cranberries, Almonds}
+
+Serving: 1
+
+Tools: Toaster Oven
+
+}
+
+Roasted Carrots {
+
+Prep Time: 12m - 15 minutes
+
+Instructions: 
+
+Preheat oven to 400 F.  
+
+Line tray with foil and place cut carrots on a pan. Drizzle with olive oil and make sure al pieces are evenly coated.
+Don't be afraid to use your hands. Sprinkle with salt and pepper.  
+Place in oven and bake for 20-25 minutes. 
+Flip the carrots half way through to ensure an even roast on both sides. 
+Increase the temperature to 450F for the last 5-7 minutes to get a little extra browning. 
+Plate and serve. 
+
+Ingredients: {2-3 carrots, washed and diagonally sliced about 1" thick, olive oil, kosher salt, pepper}
+(feel free to add a clove of garlic and some chopped fresh herbs if desired) 
+
+Tools: Toaster Oven
+
+}
+
+
+SMALL BATCH PEANUT BUTTER GRANOLA {
+
+Prep Time: 15-20 minutes
+
+Instructions: 
+
+Preheat oven to 400 F.  
+Place roasting pan in oven or toaster oven and preheat to 450 F.
+In a medium bowl whisk together the olive oil, sriracha sauce and garlic salt. 
+Add chopped red potatoes to bowl and stir well to coat all of the potato chunks. Lightly season with salt and pepper if desired.
+Using oven mitts carefully remove the heated roasting pan from your oven or toaster oven. Carefully add oil coated potatoes to pan (the oil will pop and splatter), use a rubber spatula to scrape all of the oil/Sriracha mixture from the bowl and onto the potatoes. Spread potatoes into an even layer and return pan to oven or toaster oven.
+Roast potatoes at 450 F for 30 to 35 minutes. Stir potatoes about every 10 minutes to keep them from sticking to the pan and assist with even browning.
+Remove potatoes once they are crispy on the outside and fork tender. 
+Transfer cooked potatoes to a bowl, sprinkle with salt, pepper and fresh parsley. Enjoy!
+
+Ingredients: {1 lb red potatoes, washed dried and cut into 1 inch pieces,
+1 tablespoon olive oil, (or substitute your favorite cooking oil),
+2-3 teaspoons Sriracha sauce,
+1/4 teaspoon garlic salt, (optional)
+Salt and Pepper,
+1 tablespoon finely chopped fresh parsley, (optional)}
+
+Serving: 1
+
+Tools: Toaster Oven
+
+}
+
+Roasted Carrots {
+
+Prep Time: 1 HOUR 35 MINUTES
+
+Instructions: 
+
+Adjust your toaster oven’s cooking rack to the bottom position and preheat to 325°F. Line the bottom of a quarter sheet pan with a silicone baking mat. If using a different metal pan, lightly grease the bottom and sides with oil.
+In a microwave-safe bowl combine the oil, peanut butter, maple syrup and brown sugar. Heat in the microwave until warmed and the peanut butter begins to melt, about 20 to 30 seconds. Stir the mixture well to combine and add the vanilla and salt.
+In a large bowl combine the oats, coconut, and peanuts.
+Pour peanut butter mixture over oats and nuts, stir well to make sure everything is coated. Pour into the prepared pan. Use a spatula or the bottom of a heavy measuring cup to press and compact the granola into an even layer.
+Bake at 325°F until the granola is light golden brown all over, about 18 to 22 minutes.
+While granola is still warm sprinkle with chocolate chips. After 1 minutes use an offset spatula to spread the melted chocolate around the top of the granola.
+Allow granola to cool in the pan for at least 1 hour, then break into clumps.
+
+Ingredients: {2 tablespoons neutral oil (like canola oil),
+1/3 cup natural peanut butter,
+2 tablespoons real maple syrup,
+1 tablespoon light or dark brown sugar,
+1 teaspoon vanilla extract,
+½ teaspoon fine sea salt,
+2 cups old-fashioned rolled oats,
+1/2 cup unsweetened coconut chips/large flake coconut,
+1/4 cup dry roasted unsalted peanuts, roughly chopped,
+1/4 cup semi-sweet chocolate chips (optional but highly recommended)}
+
+Serving: 1
+
+Tools: Toaster Oven
+
+}
+
+CRISPY POTATO SKINS STRIPS {
+
+Prep Time: 20 MINUTES
+
+Instructions: 
+
+Adjust your toaster oven cooking rack to the middle position and preheat to 450°F or 425°F if using a convection toaster oven. Insert a small baking rack into a rimmed toaster oven pan.  
+Slice the baked potatoes in half lengthwise and scoop out most of the potato flesh leaving a thin ¼-inch layer attached to the skins.  
+Brush both sides of the potato shells with oil or melted butter and season well. Slice each shell in half or into quarters for thinner strips. 
+Place the strips with their skins facing up on the rack and bake until crispy, about 10 minutes.
+Serve strips warm with your favorite toppings and dips
+
+Ingredients: {2 medium Baked Russet Potatoes
+Oil or Melted Butter
+Seasoned Salt or Fine Sea Salt}
+
+Serving: 1
+
+Tools: Toaster Oven
+
+}
+
+LOAD FRIES FOR TWO {
+
+Prep Time: 30 MINUTES
+
+Instructions: 
+
+FOR THE FRIES:
+In a large bowl combine frozen fries, oil, and seasoning. Stir well to coat.
+Arrange fries in an even layer on a small wire baking rack. Place rack in a pan and cook in your toaster oven according to the package directions. While the fries bake prepare the yogurt sauce.
+FOR THE YOGURT SAUCE:
+In a small bowl, whisk together the yogurt, lemon juice, and garlic powder until smooth. Stir in parsley. Taste and add salt, pepper, and more garlic or lemon as desired. 
+TO ASSEMBLE:
+Place half of the baked fries on a plate, dollop with half of the yogurt and sprinkle with half of the toppings. Create a second layer with remaining fries, sauce, and toppings. 
+Sprinkle with fresh parsley and add lemon wedges for squeezing. Then dig in!
+
+Ingredients: {8 oz frozen crinkle cut fries
+2 teaspoons vegetable oil,
+1/4 teaspoon each dried oregano, cumin, garlic powder, 
+fine sea salt, 
+black pepper,
+1/4 cup plain Greek yogurt, (non-fat, 2% and whole milk will work)
+2 teaspoons lemon juice,
+1/8 teaspoon garlic powder,
+1 tablespoon fresh chopped parsley,
+salt and pepper, to taste,
+1/4 cup crumbled feta, about 1oz
+1 shallot, finely chopped,
+1/4 cup chopped cucumber
+1/4 cup chopped red bell pepper,
+2 tablespoons sliced Kalamata olives,
+fresh parsley, chopped
+lemon wedges}
+
+Serving: 1
+
+Tools: Toaster Oven
+
+}
+
+
+LOAD FRIES FOR TWO {
+
+Prep Time: 40 MINUTES
+
+Instructions: 
+
+FOR THE FRIES:
+Place roasting pan in oven or toaster oven and preheat to 450 F.
+In a medium bowl whisk together the olive oil, sriracha sauce and garlic salt. 
+Add chopped red potatoes to bowl and stir well to coat all of the potato chunks. Lightly season with salt and pepper if desired.
+Using oven mitts carefully remove the heated roasting pan from your oven or toaster oven. Carefully add oil coated potatoes to pan (the oil will pop and splatter), use a rubber spatula to scrape all of the oil/Sriracha mixture from the bowl and onto the potatoes. Spread potatoes into an even layer and return pan to oven or toaster oven.
+Roast potatoes at 450 F for 30 to 35 minutes. Stir potatoes about every 10 minutes to keep them from sticking to the pan and assist with even browning.
+Remove potatoes once they are crispy on the outside and fork tender. 
+Transfer cooked potatoes to a bowl, sprinkle with salt, pepper and fresh parsley. Enjoy!
+
+Ingredients: {1 lb red potatoes, washed dried and cut into 1 inch pieces
+1 tablespoon olive oil, (or substitute your favorite cooking oil)
+2-3 teaspoons Sriracha sauce
+1/4 teaspoon garlic salt, (optional)
+Salt and Pepper
+1 tablespoon finely chopped fresh parsley, (optional)}
+
+Serving: 1
+
+Tools: Toaster Oven
+
+}

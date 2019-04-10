@@ -5,11 +5,11 @@ import { Grid, Image } from 'semantic-ui-react';
 class Landing extends React.Component {
   render() {
     return (
-        <Grid verticalAlign='middle' horizontalAlign='middle' textAlign='center' column={1} stackable container>
+        <Grid verticalAlign='middle' textAlign='center' column={1} stackable container>
 
 
           <Grid.Column width={8}>
-            <Image size='small' circular src="/images/Pan.PNG"/>
+            <Image size='small' verticalAlign='middle' circular src="/images/Pan.PNG"/>
             <p>Make-A-Meal is an application that students can use to create an account for their personal preferences
               which will save information about the user such as dietary restrictions, local food availability, and
               taste preferences.

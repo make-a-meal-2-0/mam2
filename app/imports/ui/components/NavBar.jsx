@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Menu, Dropdown, Header, Image } from 'semantic-ui-react';
+import { Menu, Dropdown, Image } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
   render() {
-    const menuStyle = { marginBottom: '10px', backgroundColor:'#644021'};
+    const menuStyle = { marginBottom: '10px', backgroundColor: '#644021' };
     return (
       <Menu style={menuStyle} attached="top" borderless inverted>
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
@@ -18,12 +18,12 @@ class NavBar extends React.Component {
         {this.props.currentUser ? (
             [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Recipe</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>My Recipe</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/searchR" key='searchR'>Search Recipe</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/searchV" key='searchV'>Search Vendor</Menu.Item>]
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/searchR" key='Recipe'>Recipes</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/searchV" key='Vendor'>Vendors</Menu.Item>]
         ) : ''}
         {this.props.currentUser === '' ? (
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/searchR" key='searchR'>Search Recipe</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/searchV" key='searchV'>Search Vendor</Menu.Item>]
+            [<Menu.Item as={NavLink} activeClassName="active" exact to="/searchR" key='Recipe'>Recipe</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/searchV" key='Vendor'>Vendor</Menu.Item>]
             ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
             <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>

@@ -1,3 +1,6 @@
-body {
-  background-color: darkgreen;
+.Background {
+  background: url('/images/MiddleCenter.jpg') center center no-repeat fixed;;
+  background-size: cover;
+  color: white;
+  font-weight: bold;
 }

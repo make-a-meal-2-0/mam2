@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
 import { Vendors } from '../../api/vendor/vendor';
 
 /** Initialize the database with a default data document. */
@@ -15,5 +14,3 @@ if (Vendors.find().count() === 0) {
     Meteor.settings.defaultVendors.map(data => addData(data));
   }
 }
-
-

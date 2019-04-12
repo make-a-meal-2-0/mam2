@@ -11,9 +11,9 @@ class Landing extends React.Component {
 
             <Grid.Column width={8}>
               <Image size='small' verticalAlign='middle' circular src="/images/Pan.PNG"/>
-              <p>Make-A-Meal is an application that students can use to create an account for their personal preferences
-                which will save information about the user such as dietary restrictions, local food availability, and
-                taste preferences.
+              <p>Make-A-Meal is an application that students can use to create
+                an account for their personal preferences which will save information about the user such as dietary
+                restrictions, local food availability, and taste preferences.
               </p>
             </Grid.Column>
 

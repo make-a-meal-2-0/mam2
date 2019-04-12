@@ -9,5 +9,9 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultVendors": [
+    { "name": "7-Eleven", "address": "2646 S King St, Honolulu, HI 96826", "phone": "808-947-2747", "operation": "24 Hours", "image": "/images/711" }
   ]
 }

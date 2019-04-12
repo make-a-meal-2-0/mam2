@@ -9,5 +9,14 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+  "defaultRecipes": [
+    { "name": "Chicken Quesadilla",
+      "ingredients": "Grilled chicken breast pieces, 1/2 cup fresh diced tomatoes, 1 teaspoon coriander, 2 tablespoons fresh chopped green onions, 1 large flour tortilla, 1/2 cup shredded Mexican cheese, Olive oil to brush tortilla",
+      "time": "20 min",
+      "directions": "Preheat your Foreman Grill for 5 minutes with lid closed. Use the high settings if your grill has the temperature controls.\n\n    Layout tortilla on a flat surface. Cover only half the tortilla with cheese and add chicken, green onions, coriander and tomatoes. Fold other half of the tortilla over the top of the cheese and chicken and then brush both top and bottom with olive oil. Grill for 4 – 6 minutes until cheese is nice and melted and tortilla is golden brown.\n\n    Remove from grill and use a knife or pizza cutter and slice the quesadilla into 4 pieces.\n\n    Serve with sour cream and guacamole.",
+      "owner": "john@foo.com"}
   ]
 }
+
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Image } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react/dist/commonjs/views/Card';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -17,6 +18,13 @@ class Landing extends React.Component {
               </p>
             </Grid.Column>
 
+          </Grid>
+          <Grid verticalAlign='middle' textAlign='center' column={1} stackable container>
+          <div className="ui blue button">
+            SIGN UP NOW TO SAVE RECIPES JUST FOR YOU
+          </div>
+          </Grid>
+          <Grid verticalAlign='middle' textAlign='center' column={2} stackable container>
           </Grid>
         </div>
     );

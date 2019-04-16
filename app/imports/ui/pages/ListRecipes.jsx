@@ -21,6 +21,9 @@ class ListRecipes extends React.Component {
           <Header as="h2" textAlign="center" inverted>List Recipes</Header>
           <Card.Group>
             {this.props.recipes.map((recipe, index) => <Recipe key={index} recipe={recipe}/>)}
+            <div className="ui positive button">
+              Save
+            </div>
           </Card.Group>
         </Container>
     );

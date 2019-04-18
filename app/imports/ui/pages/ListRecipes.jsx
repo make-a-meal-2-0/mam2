@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card } from 'semantic-ui-react';
+import { Container, Header, Loader, Card, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Recipes } from '/imports/api/recipe/recipe';
@@ -17,18 +17,23 @@ class ListRecipes extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
-          <Header as="h2" textAlign="center" inverted>List Recipes</Header>
-          <Card.Group>
-            {this.props.recipes.map((recipe, index) => <Recipe key={index} recipe={recipe}/>)}
-            <div className="ui positive button">
-              Save
-            </div>
-          </Card.Group>
-        </Container>
+        <div className='Background'>
+          <Container>
+            <Header as='h2' textAlign='center' inverted>List Recipes</Header>
+            <Card.Group>
+              {this.props.recipes.map((recipe, index) => <Recipe key={index} recipe={recipe}/>)}
+            </Card.Group>
+            <Card.Content extra>
+              <Button positive>
+                Save
+              </Button>
+            </Card.Content>
+          </Container>
+        </div>
     );
   }
 }
+
 /** Require an array of Stuff documents in the props. */
 ListRecipes.propTypes = {
   recipes: PropTypes.array.isRequired,

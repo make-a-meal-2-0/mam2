@@ -40,25 +40,28 @@ class AddRecipe extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
+    const textStyle = { color: 'white' };
     return (
-        <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">Add Contact</Header>
-            <AutoForm ref={(ref) => {
-              this.formRef = ref;
-            }} schema={RecipeSchema} onSubmit={this.submit}>
-              <Segment>
-                <TextField name='name'/>
-                <TextField name='ingredients'/>
-                <TextField name='time'/>
-                <LongTextField name='directions'/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-                <HiddenField name='owner' value='fakeuser@foo.com'/>
-              </Segment>
-            </AutoForm>
-          </Grid.Column>
-        </Grid>
+        <div className='Background'>
+          <Grid container centered>
+            <Grid.Column>
+              <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
+              <AutoForm ref={(ref) => {
+                this.formRef = ref;
+              }} schema={RecipeSchema} onSubmit={this.submit}>
+                <Segment>
+                  <TextField name='name'/>
+                  <TextField name='ingredients'/>
+                  <TextField name='time'/>
+                  <LongTextField name='directions'/>
+                  <SubmitField value='Submit'/>
+                  <ErrorsField/>
+                  <HiddenField name='owner' value='fakeuser@foo.com'/>
+                </Segment>
+              </AutoForm>
+            </Grid.Column>
+          </Grid>
+        </div>
     );
   }
 }

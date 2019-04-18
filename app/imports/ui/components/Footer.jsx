@@ -11,7 +11,6 @@ class Footer extends React.Component {
           <div style={divStyle} className="ui center aligned container">
             <hr />
               Make A Meal 2.0 <br />
-
           </div>
         </footer>
     );

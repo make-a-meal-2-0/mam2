@@ -6,8 +6,6 @@ class Footer extends React.Component {
 
     const divStyle = { backgroundColor: '#644021', color: 'white',
       height: '300px', width: '2000px' };
-    const divStyle = { paddingTop: '15px', backgroundColor: '#644021', color: 'white',
-      height: '600px', width: '2000px' };
 
     return (
         <footer>

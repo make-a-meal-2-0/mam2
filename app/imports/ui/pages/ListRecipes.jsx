@@ -20,14 +20,15 @@ class ListRecipes extends React.Component {
         <div className='Background'>
           <Container>
             <Header as='h2' textAlign='center' inverted>List Recipes</Header>
-            <Card.Group>
+            <Card.Group content>
               {this.props.recipes.map((recipe, index) => <Recipe key={index} recipe={recipe}/>)}
+
             </Card.Group>
-            <Card.Content extra>
+            <Card.Group extra>
               <Button positive>
                 Save
               </Button>
-            </Card.Content>
+            </Card.Group>
           </Container>
         </div>
     );

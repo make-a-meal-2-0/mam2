@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, Image } from 'semantic-ui-react';
-import { Card } from 'semantic-ui-react/dist/commonjs/views/Card';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {

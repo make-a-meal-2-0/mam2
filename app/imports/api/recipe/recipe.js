@@ -11,7 +11,7 @@ const RecipeSchema = new SimpleSchema({
   ingredients: String,
   time: String,
   directions: String,
-  owner: String,
+  owner: [String],
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

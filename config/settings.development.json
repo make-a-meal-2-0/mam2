@@ -20,7 +20,7 @@
       "ingredients": "Salmon, Cajun seasoning or garlic salt and lemon pepper",
       "time": "30 min",
       "directions": "Eat",
-      "owner": "admin@foo.com"}
+      "owner": ["john@foo.com","admin@foo.com"]}
 
 
     ],

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card, Button } from 'semantic-ui-react';
+import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Recipes } from '/imports/api/recipe/recipe';
@@ -23,11 +23,6 @@ class ListRecipes extends React.Component {
             <Card.Group content>
               {this.props.recipes.map((recipe, index) => <Recipe key={index} recipe={recipe}/>)}
 
-            </Card.Group>
-            <Card.Group extra>
-              <Button positive>
-                Save
-              </Button>
             </Card.Group>
           </Container>
         </div>

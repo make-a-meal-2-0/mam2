@@ -1,1 +1,1 @@
-import './stuff.js';
+import './dietType.js';

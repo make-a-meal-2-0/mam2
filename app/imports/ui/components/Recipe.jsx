@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Button, Card, Label } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -10,14 +10,24 @@ class Recipe extends React.Component {
         <Card>
           <Card.Content>
             <Card.Header>
-              {this.props.recipe.name} {this.props.recipe.time}
+              {this.props.recipe.name}
             </Card.Header>
             <Card.Meta>
-              {this.props.recipe.ingredients}
+              <Label color='red' ribbon>Preperation Time:<div className='detail'>{this.props.recipe.time}</div> </Label>
+            </Card.Meta>
+            <Label color='red' ribbon>Serving Size:<div className='detail'>{this.props.recipe.servingSize}</div>
+            </Label>
+            <Card.Meta>
+              <Label color='red' ribbon>Required Materials:<div>{this.props.recipe.tool}</div></Label>
             </Card.Meta>
             <Card.Description>
               {this.props.recipe.directions}
             </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+              <Button positive>
+                Save
+              </Button>
           </Card.Content>
         </Card>
     );

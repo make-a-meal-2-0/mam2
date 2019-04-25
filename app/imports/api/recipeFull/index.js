@@ -1,1 +1,1 @@
-import './dietType.js';
+import './recipeFull.js';

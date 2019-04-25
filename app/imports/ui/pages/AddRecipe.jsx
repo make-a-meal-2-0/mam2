@@ -1,6 +1,10 @@
 import React from 'react';
 import { Recipes, RecipeSchema } from '/imports/api/recipe/recipe';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Ingredients, IngredientSchema } from '/imports/api/ingredient/ingredient';
+import { DietType, DietTypeSchema } from '/imports/api/dietType/dietType';
+import { RecipeFull, RecipeFullSchema } from '/imports/api/recipeFull/recipeFull';
+import { Grid, Segment, Header, Form } from 'semantic-ui-react';
+import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
@@ -33,9 +37,15 @@ class AddRecipe extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { name, ingredients, time, directions } = data;
+    const { name, time, directions, servingSize, tool } = data;
+/*    const { ingredient, quantity, measurement } = data;
+    const { isAtkins, isZone, isKeto, isVegan, isNonDairy, isNutFree } = data;
+    const { recipe, ingredients, dietType } = data;*/
     const owner = Meteor.user().username;
-    Recipes.insert({ name, ingredients, time, directions, owner }, this.insertCallback);
+ /*   Ingredients.insert({ ingredient, quantity, measurement }, this.insertCallback);
+    DietType.insert({ isAtkins, isZone, isKeto, isVegan, isNonDairy, isNutFree }, this.insertCallback);*/
+    Recipes.insert({ name, time, directions, owner, servingSize, tool }, this.insertCallback);
+    //RecipeFull.insert({ recipe, ingredients, dietType });
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -51,8 +61,18 @@ class AddRecipe extends React.Component {
               }} schema={RecipeSchema} onSubmit={this.submit}>
                 <Segment>
                   <TextField name='name'/>
-                  <TextField name='ingredients'/>
                   <TextField name='time'/>
+                  <TextField name='servingSize'/>
+                  <TextField name='tool' label='Tools Required'/>
+                  <Form.Group grouped>
+                    <label>Diet Type</label>
+                    <Form.Checkbox label='Atkins' control='input' type='checkbox'/>
+                    <Form.Checkbox label='The Zone' control='input' type='checkbox'/>
+                    <Form.Checkbox label='Ketogenic' control='input' type='checkbox'/>
+                    <Form.Checkbox label='Vegetarian/Vegan' control='input' type='checkbox'/>
+                    <Form.Checkbox label='Non-Dairy/Lactose Intolerant' control='input' type='checkbox'/>
+                    <Form.Checkbox label='Nut-Free' control='input' type='checkbox'/>
+                  </Form.Group>
                   <LongTextField name='directions'/>
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
@@ -66,4 +86,20 @@ class AddRecipe extends React.Component {
   }
 }
 
-export default AddRecipe;
+export default withTracker(() => {
+  // Get access to Stuff documents.
+  const subscriptionRecipe = Meteor.subscribe('Recipes');
+  const subscriptionIngredient = Meteor.subscribe('Ingredients');
+  const subscriptionDietType = Meteor.subscribe('DietType');
+  const subscriptionRecipeFull = Meteor.subscribe('RecipeFull');
+  return {
+    recipe: Recipes.find({}).fetch(),
+/*    ingredient: Ingredients.find({}).fetch(),
+    dietType: DietType.find({}).fetch(),
+    recipefull: RecipeFull.find({}).fetch(), */
+    readyRecipe: subscriptionRecipe.ready(),
+/*  readyIngredient: subscriptionIngredient.ready(),
+    readyDietType: subscriptionDietType.ready(),
+    readyRecipeFull: subscriptionRecipeFull.ready(),*/
+  };
+})(AddRecipe);

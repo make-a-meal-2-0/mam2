@@ -12,13 +12,49 @@
   ],
   "defaultRecipes": [
     { "name": "Chicken Quesadilla",
-      "ingredients": "Grilled chicken breast pieces, 1/2 cup fresh diced tomatoes, 1 teaspoon coriander, 2 tablespoons fresh chopped green onions, 1 large flour tortilla, 1/2 cup shredded Mexican cheese, Olive oil to brush tortilla",
       "tool": "Some Grill",
       "servingSize": "1 Quesadilla",
       "time": "20 min",
       "directions": "Preheat your Foreman Grill for 5 minutes with lid closed. Use the high settings if your grill has the temperature controls.\n\n    Layout tortilla on a flat surface. Cover only half the tortilla with cheese and add chicken, green onions, coriander and tomatoes. Fold other half of the tortilla over the top of the cheese and chicken and then brush both top and bottom with olive oil. Grill for 4 – 6 minutes until cheese is nice and melted and tortilla is golden brown.\n\n    Remove from grill and use a knife or pizza cutter and slice the quesadilla into 4 pieces.\n\n    Serve with sour cream and guacamole.",
       "owner": "john@foo.com"}
     ],
+  
+  "defaultIngredients": [
+    { "name": "Chicken Quesadilla",
+      "ingredients": "Grilled chicken breast pieces",
+      "quantity": "",
+      "measurement": ""},
+
+    { "name": "Chicken Quesadilla",
+      "ingredients": "fresh diced tomatoes",
+      "quantity": "1/2",
+      "measurement": "cup"},
+
+    { "name": "Chicken Quesadilla",
+      "ingredients": "coriander",
+      "quantity": "1",
+      "measurement": "teaspoon"},
+
+    { "name": "Chicken Quesadilla",
+      "ingredients": "fresh chopped green onions",
+      "quantity": "2",
+      "measurement": "tablespoons"},
+
+    { "name": "Chicken Quesadilla",
+      "ingredients": "large flour tortilla",
+      "quantity": "1",
+      "measurement": ""},
+
+    { "name": "Chicken Quesadilla",
+      "ingredients": "shredded Mexican cheese",
+      "quantity": "1/2",
+      "measurement": "cup"},
+
+    { "name": "Chicken Quesadilla",
+      "ingredients": "Olive oil to brush tortilla",
+      "quantity": "",
+      "measurement": ""}
+  ],
   "defaultVendors": [
     { "name": "7-Eleven", "address": "2646 S King St, Honolulu, HI 96826", "phone": "808-947-2747", "operation": "24 Hours", "image": "/images/711.png" }
   ]

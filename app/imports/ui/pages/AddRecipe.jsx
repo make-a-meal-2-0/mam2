@@ -3,7 +3,7 @@ import { Recipes, RecipeSchema } from '/imports/api/recipe/recipe';
 import { Ingredients, IngredientSchema } from '/imports/api/ingredient/ingredient';
 import { DietType, DietTypeSchema } from '/imports/api/dietType/dietType';
 import { RecipeFull, RecipeFullSchema } from '/imports/api/recipeFull/recipeFull';
-import { Grid, Segment, Header, Form } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form, Input } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
@@ -38,12 +38,12 @@ class AddRecipe extends React.Component {
   /** On submit, insert the data. */
   submit(data) {
     const { name, time, directions, servingSize, tool } = data;
-/*    const { ingredient, quantity, measurement } = data;
-    const { isAtkins, isZone, isKeto, isVegan, isNonDairy, isNutFree } = data;
+    const { ingredient, quantity, measurement } = data;
+    /*  const { isAtkins, isZone, isKeto, isVegan, isNonDairy, isNutFree } = data;
     const { recipe, ingredients, dietType } = data;*/
     const owner = Meteor.user().username;
- /*   Ingredients.insert({ ingredient, quantity, measurement }, this.insertCallback);
-    DietType.insert({ isAtkins, isZone, isKeto, isVegan, isNonDairy, isNutFree }, this.insertCallback);*/
+    Ingredients.insert({ name, ingredient, quantity, measurement }, this.insertCallback);
+/*    DietType.insert({ isAtkins, isZone, isKeto, isVegan, isNonDairy, isNutFree }, this.insertCallback);*/
     Recipes.insert({ name, time, directions, owner, servingSize, tool }, this.insertCallback);
     //RecipeFull.insert({ recipe, ingredients, dietType });
   }
@@ -64,6 +64,11 @@ class AddRecipe extends React.Component {
                   <TextField name='time'/>
                   <TextField name='servingSize'/>
                   <TextField name='tool' label='Tools Required'/>
+                  <Input name ='food'
+                  icon='food'
+                  label=>
+
+                  </Input>
                   <Form.Group grouped>
                     <label>Diet Type</label>
                     <Form.Checkbox label='Atkins' control='input' type='checkbox'/>
@@ -98,8 +103,8 @@ export default withTracker(() => {
     dietType: DietType.find({}).fetch(),
     recipefull: RecipeFull.find({}).fetch(), */
     readyRecipe: subscriptionRecipe.ready(),
-/*  readyIngredient: subscriptionIngredient.ready(),
-    readyDietType: subscriptionDietType.ready(),
+    readyIngredient: subscriptionIngredient.ready(),
+    /* readyDietType: subscriptionDietType.ready(),
     readyRecipeFull: subscriptionRecipeFull.ready(),*/
   };
 })(AddRecipe);

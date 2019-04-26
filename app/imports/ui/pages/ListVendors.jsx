@@ -32,7 +32,7 @@ class ListVendors extends React.Component {
 /** Require an array of Stuff documents in the props. */
 ListVendors.propTypes = {
   vendors: PropTypes.array.isRequired,
-  ready: PropTypes.bool.isRequired,
+  // ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */

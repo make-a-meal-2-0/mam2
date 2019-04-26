@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
-import { Recipes, RecipeSchema } from '/imports/api/recipe/recipe';
+import { Card, Segment } from 'semantic-ui-react';
+import { Recipes, OwnerSchema } from '/imports/api/recipe/recipe';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import AutoForm from 'uniforms-semantic/AutoForm';
@@ -8,6 +8,8 @@ import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
+import ErrorsField from 'uniforms-semantic/ErrorsField';
+
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Recipe extends React.Component {
@@ -31,7 +33,12 @@ class Recipe extends React.Component {
   /** On submit, insert the data. */
   submit() {
     const newOwner = Meteor.user().username;
-    this.props.recipe.owner.add(newOwner, this.insertCallback);
+    Recipes.update(
+        { _id: this.props.recipe._id },
+        {
+          $addToSet: { owner: newOwner },
+        },
+    );
   }
 
   render() {
@@ -49,8 +56,11 @@ class Recipe extends React.Component {
             </Card.Description>
             <AutoForm ref={(ref) => {
               this.formRef = ref;
-            }} schema={RecipeSchema} onSubmit={this.submit}>
+            }} schema={OwnerSchema}
+                onSubmit={this.submit}>
                 <SubmitField value='Save'/>
+              <ErrorsField/>
+              <HiddenField name='owner' value='fakeuser@foo.com'/>
             </AutoForm>
           </Card.Content>
         </Card>

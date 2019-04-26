@@ -18,24 +18,14 @@ class ListRecipes extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-<<<<<<< HEAD
         <div className='Background'>
           <Container>
             <Header as='h2' textAlign='center' inverted>List Recipes</Header>
             <Card.Group content>
               {this.props.recipes.map((recipe, index) => <Recipe key={index} recipe={recipe}/>)}
-
             </Card.Group>
           </Container>
         </div>
-=======
-        <Container>
-          <Header as="h2" textAlign="center" inverted>List Recipes</Header>
-          <Card.Group>
-            {this.props.recipes.map((recipe, index) => <Recipe key={index} recipe={recipe}/>)}
-          </Card.Group>
-        </Container>
->>>>>>> 5c2e05ad0c2b4fc8c4afd7ba51301201ef58d53f
     );
   }
 }

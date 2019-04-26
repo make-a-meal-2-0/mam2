@@ -54,23 +54,24 @@ class AddRecipe extends React.Component {
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
-    const textStyle = { color: 'red' };
+    const textStyle = { color: 'black' };
     return (
         <div className='Background'>
           <Grid container centered>
             <Grid.Column>
-              <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
               <AutoForm ref={(ref) => {
                 this.formRef = ref;
               }} schema={RecipeSchema} onSubmit={this.submit}>
                 <Segment>
-                  <TextField name='name'/>
-                  <TextField name='time'/>
-                  <TextField name='servingSize'/>
-                  <TextField name='tool' label='Tools Required'/>
+                  <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
+                  <TextField name='name' placeholder='Grilled Cheese'/>
+                  <TextField name='time' placeholder='40-60 minutes'/>
+                  <TextField name='servingSize' label='Serving Size' placeholder='1 Grilled Cheese'/>
+                  <TextField name='tool' label='Tools Required' placeholder='Pan, Knife'/>
                   <AutoForm ref={(ref) => {
                     this.formRef = ref;
                   }} schema={IngredientSchema} onSubmit={this.addIng}>
+                    <Segment>
                       <Input color='red'
                              name='ingredient'
                              icon='food'
@@ -85,6 +86,7 @@ class AddRecipe extends React.Component {
                              label='Measurement'
                              placeholder='lb, ounces, nothing...'/>
                     <SubmitField value='Submit' name='Add Ingredient' icon='plus'/>
+                    </Segment>
                   </AutoForm>
                   <Form.Group grouped>
                     <label>Diet Type</label>
@@ -95,7 +97,7 @@ class AddRecipe extends React.Component {
                     <Form.Checkbox label='Non-Dairy/Lactose Intolerant' control='input' type='checkbox'/>
                     <Form.Checkbox label='Nut-Free' control='input' type='checkbox'/>
                   </Form.Group>
-                  <LongTextField name='directions'/>
+                  <LongTextField name='directions' placeholder='Add Sauce'/>
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
                   <HiddenField name='owner' value='fakeuser@foo.com'/>

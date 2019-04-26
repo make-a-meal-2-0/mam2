@@ -22,9 +22,9 @@ class Recipe extends React.Component {
   /** Notify the user of the results of the submit. If successful, clear the form. */
   insertCallback(error) {
     if (error) {
-      Bert.alert({ type: 'danger', message: `Add failed: ${error.message}` });
+      Bert.alert({ type: 'danger', message: `Save failed: ${error.message}` });
     } else {
-      Bert.alert({ type: 'success', message: 'Add succeeded' });
+      Bert.alert({ type: 'success', message: 'Save succeeded' });
       this.formRef.reset();
     }
   }
@@ -36,7 +36,7 @@ class Recipe extends React.Component {
         { _id: this.props.recipe._id },
         {
           $addToSet: { owner: newOwner },
-        },
+        }, this.insertCallback,
     );
   }
 
@@ -62,8 +62,8 @@ class Recipe extends React.Component {
             </Card.Meta>
             <Card.Content>
               <Label ribbon color='red'>
-                Ingredients: <div className='detail'>{this.props.ingredients.quantity}
-                {this.props.ingredients.ingredient} {this.props.ingredients.measurement}</div>
+                Ingredients: <div className='detail'>{this.props.recipe.quantity}
+                {this.props.recipe.ingredient} {this.props.recipe.measurement}</div>
               </Label>
             </Card.Content>
             <Card.Description>
@@ -73,15 +73,12 @@ class Recipe extends React.Component {
               this.formRef = ref;
             }} schema={OwnerSchema}
                       onSubmit={this.submit}>
-              <SubmitField value='Save'/>
+              <Card.Content extra>
+                <SubmitField value='Save'/>
+              </Card.Content>
               <ErrorsField/>
               <HiddenField name='owner' value='fakeuser@foo.com'/>
             </AutoForm>
-          </Card.Content>
-          <Card.Content extra>
-            <Button positive>
-              Save
-            </Button>
           </Card.Content>
         </Card>
     );
@@ -91,7 +88,7 @@ class Recipe extends React.Component {
 /** Require a document to be passed to this component. */
 Recipe.propTypes = {
   recipe: PropTypes.object.isRequired,
-  ingredients: PropTypes.object.isRequired,
+  //ingredients: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

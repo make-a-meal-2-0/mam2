@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Proxima+Nova+Soft');
+
 .Background {
   background: url('/images/MiddleCenter.jpg') center center no-repeat fixed;;
   background-size: cover;
   color: white;
   font-weight: bold;
-  height: 1250px;
-
+  height: 650px;
+  font-family: 'proxima-nova-soft', sans-serif;
 }

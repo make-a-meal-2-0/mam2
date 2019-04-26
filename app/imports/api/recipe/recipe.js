@@ -10,17 +10,13 @@ const RecipeSchema = new SimpleSchema({
   name: String,
   tool: String,
   time: String,
-  directions: String,
-<<<<<<< HEAD
   servingSize: String,
-  owner: String,
-=======
+  directions: String,
   owner: [String],
 }, { tracker: Tracker });
 
 const OwnerSchema = new SimpleSchema({
   owner: [String],
->>>>>>> 5c2e05ad0c2b4fc8c4afd7ba51301201ef58d53f
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

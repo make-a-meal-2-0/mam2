@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Image, Header } from 'semantic-ui-react';
+import { Grid, Image, Icon } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import { Dropdown } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 
@@ -9,9 +9,7 @@ class Landing extends React.Component {
     const logoStyle = { color: 'yellow' };
     return (
         <div className='Background'>
-          <Grid verticalAlign='middle' textAlign='center' column={2} stackable container>
-            <Grid.Column width={4}>
-            </Grid.Column>
+          <Grid verticalAlign='middle' textAlign='center' column={1} stackable container>
             <Grid.Column width={4}>
               <Image centered size='small' src="/images/Icon.PNG" rounded/>
               <p>Make A Meal 2.0 is an application that students can use to create
@@ -19,11 +17,12 @@ class Landing extends React.Component {
                 restrictions, local food availability, and taste preferences.
               </p>
             </Grid.Column>
-
           </Grid>
           <Grid verticalAlign='middle' textAlign='center' column={1} stackable container>
           </Grid>
           <Grid verticalAlign='middle' textAlign='center' column={2} stackable container>
+            /*<Icon name='utensils'/>
+            <p>In Make A Meal 2.0, you as a user are able to create and save recipes. For that</p> */
           </Grid>
         </div>
     );

@@ -11,7 +11,7 @@ class ListVendors extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     // return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
-    return this.renderPage();
+     return this.renderPage();
   }
 
   /** Render the page once subscriptions have been received. */
@@ -38,8 +38,8 @@ ListVendors.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-   // const subscription = Meteor.subscribe('Vendors');
-  Meteor.subscribe('Vendors');
+  // const subscription = Meteor.subscribe('Vendors');
+   Meteor.subscribe('Vendors');
   return {
     vendors: Vendors.find({}).fetch(),
    // ready: subscription.ready(),

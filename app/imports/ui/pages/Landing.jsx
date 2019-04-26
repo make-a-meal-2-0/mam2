@@ -21,8 +21,6 @@ class Landing extends React.Component {
           <Grid verticalAlign='middle' textAlign='center' column={1} stackable container>
           </Grid>
           <Grid verticalAlign='middle' textAlign='center' column={2} stackable container>
-            /*<Icon name='utensils'/>
-            <p>In Make A Meal 2.0, you as a user are able to create and save recipes. For that</p> */
           </Grid>
         </div>
     );

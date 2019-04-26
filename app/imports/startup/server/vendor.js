@@ -16,9 +16,5 @@ if (Vendors.find().count() === 0) {
 }
 
 Meteor.publish('Vendors', function publish() {
-  // if (this.userId === '') {
-   // const username = Meteor.users.findOne(this.userId).username;
-    return Vendors.find({});
-  // }
-  // return this.ready();
+    return Vendors.find();
 });

@@ -21,11 +21,12 @@ class Recipe extends React.Component {
               <Label color='red' ribbon>Required Materials:<div className='detail'>{this.props.recipe.tool}</div>
               </Label>
             </Card.Meta>
-             /*<Card.Content>
+             <Card.Content>
                  <Label ribbon color='red'>
-                   <div className ='detail'>{this.props.ingredients.name}</div>
+                   Ingredients: <div className ='detail'>{this.props.ingredients.quantity}
+                   {this.props.ingredients.ingredient} {this.props.ingredients.measurement}</div>
                  </Label>
-             </Card.Content> */
+             </Card.Content>
             <Card.Description>
               {this.props.recipe.directions}
             </Card.Description>
@@ -43,11 +44,9 @@ class Recipe extends React.Component {
 /** Require a document to be passed to this component. */
 Recipe.propTypes = {
   recipe: PropTypes.object.isRequired,
-};
-
-Ingredients.propTypes = {
   ingredients: PropTypes.object.isRequired,
 };
+
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
 export default withRouter(Recipe);

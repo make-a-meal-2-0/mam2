@@ -21,6 +21,7 @@ class AddRecipe extends React.Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
+    this.addIng = this.addIng.bind(this);
     this.insertCallback = this.insertCallback.bind(this);
     this.formRef = null;
   }
@@ -35,22 +36,25 @@ class AddRecipe extends React.Component {
     }
   }
 
+  addIng(data) {
+    const { name, ingredient, quantity, measurement } = data;
+    Ingredients.insert({ name, ingredient, quantity, measurement }, this.insertCallback);
+  }
+
   /** On submit, insert the data. */
   submit(data) {
     const { name, time, directions, servingSize, tool } = data;
-    const { ingredient, quantity, measurement } = data;
     /*  const { isAtkins, isZone, isKeto, isVegan, isNonDairy, isNutFree } = data;
-    const { recipe, ingredients, dietType } = data;*/
+    const { recipe, ingredients, dietType } = data; */
     const owner = Meteor.user().username;
-    Ingredients.insert({ name, ingredient, quantity, measurement }, this.insertCallback);
-/*    DietType.insert({ isAtkins, isZone, isKeto, isVegan, isNonDairy, isNutFree }, this.insertCallback);*/
+    /*    DietType.insert({ isAtkins, isZone, isKeto, isVegan, isNonDairy, isNutFree }, this.insertCallback); */
     Recipes.insert({ name, time, directions, owner, servingSize, tool }, this.insertCallback);
-    //RecipeFull.insert({ recipe, ingredients, dietType });
+    // RecipeFull.insert({ recipe, ingredients, dietType });
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
-    const textStyle = { color: 'white' };
+    const textStyle = { color: 'red' };
     return (
         <div className='Background'>
           <Grid container centered>
@@ -64,11 +68,24 @@ class AddRecipe extends React.Component {
                   <TextField name='time'/>
                   <TextField name='servingSize'/>
                   <TextField name='tool' label='Tools Required'/>
-                  <Input name ='food'
-                  icon='food'
-                  label=>
-
-                  </Input>
+                  <AutoForm ref={(ref) => {
+                    this.formRef = ref;
+                  }} schema={IngredientSchema} onSubmit={this.addIng}>
+                      <Input color='red'
+                             name='ingredient'
+                             icon='food'
+                             label='Ingredient'
+                             placeholder='Egg'/>
+                      <Input color='red'
+                             name='quantity'
+                             label='Quantity'
+                             placeholder='1,2,3...'/>
+                      <Input color='red'
+                             name='measurement'
+                             label='Measurement'
+                             placeholder='lb, ounces, nothing...'/>
+                    <SubmitField value='Submit' name='Add Ingredient' icon='plus'/>
+                  </AutoForm>
                   <Form.Group grouped>
                     <label>Diet Type</label>
                     <Form.Checkbox label='Atkins' control='input' type='checkbox'/>
@@ -99,12 +116,12 @@ export default withTracker(() => {
   const subscriptionRecipeFull = Meteor.subscribe('RecipeFull');
   return {
     recipe: Recipes.find({}).fetch(),
-/*    ingredient: Ingredients.find({}).fetch(),
-    dietType: DietType.find({}).fetch(),
+    ingredient: Ingredients.find({}).fetch(),
+    /*dietType: DietType.find({}).fetch(),
     recipefull: RecipeFull.find({}).fetch(), */
     readyRecipe: subscriptionRecipe.ready(),
     readyIngredient: subscriptionIngredient.ready(),
     /* readyDietType: subscriptionDietType.ready(),
-    readyRecipeFull: subscriptionRecipeFull.ready(),*/
+    readyRecipeFull: subscriptionRecipeFull.ready(), */
   };
 })(AddRecipe);

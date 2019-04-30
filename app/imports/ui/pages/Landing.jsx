@@ -11,10 +11,24 @@ class Landing extends React.Component {
         <div className='Background'>
           <Grid verticalAlign='middle' textAlign='center' column={1} stackable container>
             <Grid.Column width={4}>
+              <Icon name='utensils' size='huge' color='black'/>
+              <h2>Add your own recipes</h2>
+              <p>Make A Meal 2.0 is allows you to create your own recipes to share to the whole world, allowing
+                other users to access and create on their own.
+              </p>
+            </Grid.Column>
+            <Grid.Column width={4}>
               <Image centered size='small' src="/images/Icon.PNG" rounded/>
+              <p> </p>
               <p>Make A Meal 2.0 is an application that students can use to create
                 an account for their personal preferences which will save information about the user such as dietary
                 restrictions, local food availability, and taste preferences.
+              </p>
+            </Grid.Column>
+            <Grid.Column width={4}>
+              <Icon name='pin' size='huge' color='black'/>
+              <h2>Filter and Save your own recipes</h2>
+              <p>Make A Meal 2.0 is allows you search for other user recipes and filter them by your preferred diet.
               </p>
             </Grid.Column>
           </Grid>

@@ -8,3 +8,16 @@
   height: 700px;
   font-family: 'proxima-nova-soft', sans-serif;
 }
+
+.AddBackground {
+  background: url('/images/MiddleCenter.jpg') center center no-repeat fixed;;
+  background-size: cover;
+  color: white;
+  font-weight: bold;
+  height: 1250px;
+  font-family: 'proxima-nova-soft', sans-serif;
+}
+
+.Navbar {
+  font-family: 'proxima-nova-soft', sans-serif;
+}

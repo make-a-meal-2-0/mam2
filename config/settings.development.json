@@ -21,6 +21,12 @@
       "ingredients": "Salmon, Cajun seasoning or garlic salt and lemon pepper",
       "time": "30 min",
       "directions": "Eat",
+      "isVegetarian": false,
+      "isVegan": false,
+      "isNonDairy": false,
+      "isNutAllergySafe": true,
+      "isDairyAllergySafe": false,
+      "isSeafoodAllergySafe": true,
       "owner": ["john@foo.com","admin@foo.com"]}
 
 

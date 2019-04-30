@@ -7,6 +7,7 @@ const DietType = new Mongo.Collection('DietType');
 
 /** Create a schema to constrain the structure of documents associated with this collection. */
 const DietTypeSchema = new SimpleSchema({
+  name: String,
   isAtkins: Boolean,
   isZone: Boolean,
   isKeto: Boolean,

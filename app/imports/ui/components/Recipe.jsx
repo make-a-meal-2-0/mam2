@@ -78,8 +78,7 @@ class Recipe extends React.Component {
               </Label>
             </Card.Meta>
             <Card.Meta>
-                {this.props.ingredients.map((ingredients, index) => <Ingredient
-                    key={index} ingredients={ingredients}/>)}
+                {console.log(this.props.ingredients[0])}
             </Card.Meta>
             <Card.Description>
               {this.props.recipe.directions}

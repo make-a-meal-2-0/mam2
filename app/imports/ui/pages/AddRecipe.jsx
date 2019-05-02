@@ -13,7 +13,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import Ingredient from '../components/Recipe';
-import AddIngredient from './AddIngredient';
+import AddIngredient from '../components/AddIngredient';
 
 /** Renders the Page for adding a document. */
 class AddRecipe extends React.Component {

@@ -5,10 +5,10 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Recipes } from '/imports/api/recipe/recipe';
 import { Ingredients } from '/imports/api/ingredient/ingredient';
-import Recipe from '../components/Recipe';
+import RecipesAdmin from '../components/RecipesAdmin';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListRecipes extends React.Component {
+class ListRecipesAdmin extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -23,7 +23,7 @@ class ListRecipes extends React.Component {
           <Container>
             <Header as='h2' textAlign='center' inverted>List Recipes</Header>
             <Card.Group content>
-              {this.props.recipes.map((recipe, index) => <Recipe
+              {this.props.recipes.map((recipe, index) => <RecipesAdmin
                   key={index}
                   recipe={recipe}
                   ingredients={this.props.ingredients.filter(ingredients => (ingredients.name === recipe.name))}/>)}
@@ -35,7 +35,7 @@ class ListRecipes extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-ListRecipes.propTypes = {
+ListRecipesAdmin.propTypes = {
   recipes: PropTypes.array.isRequired,
   ingredients: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
@@ -46,10 +46,10 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscriptionR = Meteor.subscribe('Recipes');
   const subscriptionI = Meteor.subscribe('Ingredients');
-  Meteor.subscribe('ListRecipes');
+  Meteor.subscribe('ListRecipesAdmin');
   return {
     ingredients: Ingredients.find({}).fetch(),
     recipes: Recipes.find({}).fetch(),
     ready: subscriptionR.ready() && subscriptionI.ready(),
   };
-})(ListRecipes);
+})(ListRecipesAdmin);

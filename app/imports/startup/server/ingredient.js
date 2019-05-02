@@ -25,10 +25,4 @@ Meteor.publish('Ingredients', function publish() {
   return this.ready();
 });
 
-/** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
-Meteor.publish('IngredientsAdmin', function publish() {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Ingredients.find();
-  }
-  return this.ready();
-});
+

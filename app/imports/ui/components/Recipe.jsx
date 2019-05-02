@@ -17,8 +17,6 @@ class Recipe extends React.Component {
     super(props);
     this.submit = this.submit.bind(this);
     this.insertCallback = this.insertCallback.bind(this);
-    this.delete = this.delete.bind(this);
-    this.deleteCallback = this.deleteCallback.bind(this);
     this.formRef = null;
   }
 
@@ -30,20 +28,6 @@ class Recipe extends React.Component {
       Bert.alert({ type: 'success', message: 'Save succeeded' });
       this.formRef.reset();
     }
-  }
-
-  deleteCallback(error) {
-    if (error) {
-      Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` });
-    } else {
-      Bert.alert({ type: 'success', message: 'Delete succeeded' });
-      this.formRef.reset();
-    }
-  }
-
-  delete() {
-    Recipes.remove((this.props.recipe._id),
-        this.deleteCallback);
   }
 
   /** On submit, insert the data. */
@@ -86,7 +70,6 @@ class Recipe extends React.Component {
             </Card.Description>
             <Card.Content extra>
             <Button.Group>
-              <Button onClick={this.delete} name='Delete' color='red'>Delete</Button>
             <AutoForm ref={(ref) => {
               this.formRef = ref;
             }} schema={OwnerSchema}

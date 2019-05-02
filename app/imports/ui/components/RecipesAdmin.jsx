@@ -12,7 +12,7 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import Ingredient from '../components/Ingredient';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class Recipe extends React.Component {
+class RecipesAdmin extends React.Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
@@ -106,11 +106,11 @@ class Recipe extends React.Component {
 }
 
 /** Require a document to be passed to this component. */
-Recipe.propTypes = {
+RecipesAdmin.propTypes = {
   recipe: PropTypes.object.isRequired,
   ingredients: PropTypes.array.isRequired,
 };
 
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(Recipe);
+export default withRouter(RecipesAdmin);

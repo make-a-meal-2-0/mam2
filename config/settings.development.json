@@ -33,6 +33,7 @@
       "ingredient": "Salmon, Cajun seasoning or garlic salt and lemon pepper",
       "time": "30 min",
       "directions": "Eat",
+      "tools": "Some Grill",
       "isVegetarian": false,
       "isVegan": false,
       "isNonDairy": false,
@@ -44,7 +45,7 @@
 
     ],
   
-  "defaultingredient": [
+  "defaultIngredients": [
     { "name": "Chicken Quesadilla",
       "ingredient": "Grilled chicken breast pieces",
       "quantity": "",

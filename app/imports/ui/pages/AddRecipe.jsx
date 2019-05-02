@@ -1,8 +1,7 @@
 import React from 'react';
 import { Recipes, RecipeSchema } from '/imports/api/recipe/recipe';
-import { Ingredients, IngredientSchema } from '/imports/api/ingredient/ingredient';
-import { RecipeFull, RecipeFullSchema } from '/imports/api/recipeFull/recipeFull';
-import { Grid, Segment, Header, Form, Input, Button, Feed } from 'semantic-ui-react';
+import { Ingredients } from '/imports/api/ingredient/ingredient';
+import { Grid, Segment, Header, Form } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
@@ -14,7 +13,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import Ingredient from '../components/Recipe';
-import { Card } from 'semantic-ui-react/dist/commonjs/views/Card';
+import AddIngredient from './AddIngredient';
 
 /** Renders the Page for adding a document. */
 class AddRecipe extends React.Component {
@@ -23,7 +22,6 @@ class AddRecipe extends React.Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
-    this.addIng = this.addIng.bind(this);
     this.insertCallback = this.insertCallback.bind(this);
     this.formRef = null;
   }
@@ -38,30 +36,19 @@ class AddRecipe extends React.Component {
     }
   }
 
-  insertCallbackIng(error) {
-    if (error) {
-      Bert.alert({ type: 'danger', message: `Ingredient Add Failed: ${error.message}` });
-    } else {
-      Bert.alert({ type: 'success', message: 'Added Ingredient' });
-      this.formRef.reset();
-    }
-  }
-
-  addIng(data) {
-    const { name, ingredient, quantity, measurement } = data;
-    Ingredients.insert({ name, ingredient, quantity, measurement }, this.insertCallbackIng);
-    this.formRef.reset();
-  }
-
   /** On submit, insert the data. */
   submit(data) {
-    const { name, time, directions, servingSize, tool, isVegan, isVegetarian, isNutAllergySafe,
-      isNutFree, isDairyAllergySafe } = data;
-    const { recipe, ingredients } = data;
+    const {
+      name, time, directions, servingSize, tool, /*isVegan, isVegetarian, isNutAllergySafe,
+      isNutFree, isDairyAllergySafe,*/
+    } = data;
     const owner = Meteor.user().username;
-    Recipes.insert({ name, time, directions, owner, servingSize, tool, isVegan, isVegetarian, isNutAllergySafe,
-      isNutFree, isDairyAllergySafe }, this.insertCallback);
-    RecipeFull.insert({ recipe, ingredients });
+    Recipes.insert({
+      name, time, directions, owner, servingSize, tool, /*isVegan, isVegetarian, isNutAllergySafe,
+      isNutFree, isDairyAllergySafe,*/
+    }, this.insertCallback);
+    Ingredients.insert(name);
+    this.formRef.reset();
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -73,55 +60,26 @@ class AddRecipe extends React.Component {
             <Grid.Column>
               <AutoForm ref={(ref) => {
                 this.formRef = ref;
-              }} schema={RecipeFullSchema} onSubmit={this.submit}>
-                <AutoForm ref={(ref) => {
-                  this.formRef = ref;
-                }} schema={RecipeSchema} onSubmit={this.submit}>
+              }} schema={RecipeSchema} onSubmit={this.submit}>
                 <Segment>
                   <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
                   <TextField name='name' placeholder='Grilled Cheese'/>
                   <TextField name='time' placeholder='40-60 minutes'/>
                   <TextField name='servingSize' label='Serving Size' placeholder='1 Grilled Cheese'/>
                   <TextField name='tool' label='Tools Required' placeholder='Pan, Knife'/>
-                  <Feed>
-                    {this.props.ingredient.map((ingredient, index) => <Ingredient key={index} ingredient={ingredient} />)}
-                  </Feed>
-                  <AutoForm ref={(ref) => {
-                    this.formRef = ref;
-                  }} schema={IngredientSchema}>
-                    <Segment>
-                      <TextField color='red'
-                             name='ingredient'
-                             icon='food'
-                             label='Ingredient'
-                             placeholder='Egg, Cheese'/>
-                      <TextField color='red'
-                             name='quantity'
-                             label='Quantity'
-                             placeholder='1,2,3...'/>
-                      <TextField color='red'
-                             name='measurement'
-                             label='Measurement'
-                             placeholder='lb, ounces, nothing...'/>
-                      <p>
-                      </p>
-                             <SubmitField value='Submit' label='Add Ingredient' icon='plus' onClick={this.addIng}/>
-                    </Segment>
-
-                  </AutoForm>
+                  <AddIngredient ingredient={this.props.ingredient}/>
                   <Form.Group grouped>
                     <label>Diet Type</label>
                     <Form.Checkbox label='Vegetarian/Vegan' control='input' type='checkbox' value='isVegan'/>
                     <Form.Checkbox label='Non-Dairy/Lactose Intolerant' control='input' type='checkbox'
                                    value='isNonDairy'/>
-                    <Form.Checkbox label='Nut-Free' control='input' type='checkbox' value='isNutFree' />
+                    <Form.Checkbox label='Nut-Free' control='input' type='checkbox' value='isNutFree'/>
                   </Form.Group>
                   <LongTextField name='directions' placeholder='Add Sauce'/>
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
                   <HiddenField name='owner' value='fakeuser@foo.com'/>
                 </Segment>
-                </AutoForm>
               </AutoForm>
             </Grid.Column>
           </Grid>
@@ -138,15 +96,9 @@ AddRecipe.propTypes = {
 
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscriptionRecipe = Meteor.subscribe('Recipes');
   const subscriptionIngredient = Meteor.subscribe('Ingredients');
-  const subscriptionRecipeFull = Meteor.subscribe('RecipeFull');
   return {
-    recipe: Recipes.find({}).fetch(),
     ingredient: Ingredients.find({}).fetch(),
-    recipefull: RecipeFull.find({}).fetch(),
-    readyRecipe: subscriptionRecipe.ready(),
     readyIngredient: subscriptionIngredient.ready(),
-    readyRecipeFull: subscriptionRecipeFull.ready(),
   };
 })(AddRecipe);

@@ -6,9 +6,8 @@ import PropTypes from 'prop-types';
 import { Recipes } from '/imports/api/recipe/recipe';
 import { Ingredients } from '/imports/api/ingredient/ingredient';
 import Recipe from '../components/Recipe';
-import Ingredient from '../components/Ingredient';
 
-/** Renders a table containing all of the St  uff documents. Use <StuffItem> to render each row. */
+/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListRecipes extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -24,8 +23,10 @@ class ListRecipes extends React.Component {
           <Container>
             <Header as='h2' textAlign='center' inverted>List Recipes</Header>
             <Card.Group content>
-              {this.props.recipes.map((recipe, index) => <Recipe key={index} recipe={recipe}
-                                                                 ingredient={this.props.ingredient.filter(ingredient => (ingredient.name === recipe.name))}/>)}
+              {this.props.recipes.map((recipe, index) => <Recipe
+                  key={index}
+                  recipe={recipe}
+                  ingredients={this.props.ingredients.filter(ingredients => (ingredients.name === recipe.name))}/>)}
             </Card.Group>
           </Container>
         </div>
@@ -36,7 +37,7 @@ class ListRecipes extends React.Component {
 /** Require an array of Stuff documents in the props. */
 ListRecipes.propTypes = {
   recipes: PropTypes.array.isRequired,
-  ingredient: PropTypes.array.isRequired,
+  ingredients: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -44,10 +45,10 @@ ListRecipes.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscriptionR = Meteor.subscribe('Recipes');
-  const subscriptionI = Meteor.subscribe('Ingredient');
-  //Meteor.subscribe('ListRecipes');
+  const subscriptionI = Meteor.subscribe('Ingredients');
+  Meteor.subscribe('ListRecipes');
   return {
-    ingredient: Ingredients.find({}).fetch,
+    ingredients: Ingredients.find({}).fetch(),
     recipes: Recipes.find({}).fetch(),
     ready: subscriptionR.ready() && subscriptionI.ready(),
   };

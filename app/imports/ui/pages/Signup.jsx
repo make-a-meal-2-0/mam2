@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+import { Menu } from 'semantic-ui-react/dist/commonjs/collections/Menu';
 
 /**
  * Signup component is similar to signin component, but we attempt to create a new user instead.
@@ -30,6 +31,7 @@ export default class Signup extends React.Component {
         this.setState({ error: err.reason });
       } else {
         // browserHistory.push('/login');
+        to
       }
     });
   }
@@ -37,6 +39,7 @@ export default class Signup extends React.Component {
   /** Display the signup form. */
   render() {
     return (
+        <div className='Background'>
         <Container>
           <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
             <Grid.Column>
@@ -81,6 +84,7 @@ export default class Signup extends React.Component {
             </Grid.Column>
           </Grid>
         </Container>
+        </div>
     );
   }
 }

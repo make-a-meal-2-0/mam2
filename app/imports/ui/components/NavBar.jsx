@@ -11,7 +11,7 @@ class NavBar extends React.Component {
   render() {
     const menuStyle = { backgroundColor: '#dc100f' };
     return (
-        <div className={'Navbar'}>
+        <div className='Navbar'>
           <Menu style={menuStyle} attached="top" borderless inverted>
             <Menu.Item as={NavLink} activeClassName="" exact to="/">
               <Image size='tiny' src="/images/Icon.PNG"/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Label } from 'semantic-ui-react';
+import { Label, Feed} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -7,10 +7,14 @@ import { withRouter } from 'react-router-dom';
 class Ingredient extends React.Component {
   render() {
     return (
-        <Label ribbon color='red'>
+        <Feed>
+          <Feed.Content>
+            <Feed.Summary>
           Ingredients: <div className='detail'>{this.props.ingredients.quantity}
           {this.props.ingredients.ingredient} {this.props.ingredients.measurement}</div>
-        </Label>
+          </Feed.Summary>
+          </Feed.Content>
+        </Feed>
     );
   }
 }

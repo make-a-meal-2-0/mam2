@@ -26,6 +26,7 @@ class AddRecipe extends React.Component {
     this.addIng = this.addIng.bind(this);
     this.insertCallback = this.insertCallback.bind(this);
     this.formRef = null;
+    this.formIng = null;
   }
 
   /** Notify the user of the results of the submit. If successful, clear the form. */
@@ -43,14 +44,13 @@ class AddRecipe extends React.Component {
       Bert.alert({ type: 'danger', message: `Ingredient Add Failed: ${error.message}` });
     } else {
       Bert.alert({ type: 'success', message: 'Added Ingredient' });
-      this.formRef.reset();
+      this.formIng.reset();
     }
   }
 
   addIng(data) {
     const { name, ingredient, quantity, measurement } = data;
     Ingredients.insert({ name, ingredient, quantity, measurement }, this.insertCallbackIng);
-    this.formRef.reset();
   }
 
   /** On submit, insert the data. */
@@ -71,9 +71,6 @@ class AddRecipe extends React.Component {
         <div className='AddBackground'>
           <Grid container centered>
             <Grid.Column>
-              <AutoForm ref={(ref) => {
-                this.formRef = ref;
-              }} schema={RecipeFullSchema} onSubmit={this.submit}>
                 <AutoForm ref={(ref) => {
                   this.formRef = ref;
                 }} schema={RecipeSchema} onSubmit={this.submit}>
@@ -83,32 +80,40 @@ class AddRecipe extends React.Component {
                   <TextField name='time' placeholder='40-60 minutes'/>
                   <TextField name='servingSize' label='Serving Size' placeholder='1 Grilled Cheese'/>
                   <TextField name='tool' label='Tools Required' placeholder='Pan, Knife'/>
-                  <Feed>
+                  {/*                 <Feed>
                     {this.props.ingredient.map((ingredient, index) => <Ingredient key={index} ingredient={ingredient} />)}
-                  </Feed>
-                  <AutoForm ref={(ref) => {
-                    this.formRef = ref;
+                  </Feed>*/}
+                  <div className='ui form segment' ref={(ref) => {
+                    this.formIng = ref;
                   }} schema={IngredientSchema}>
-                    <Segment>
-                      <TextField color='red'
+                    <div className='three fields'>
+                      <div className='field'>
+                        <label>Ingredient Name</label>
+                      <input color='red'
                              name='ingredient'
                              icon='food'
                              label='Ingredient'
                              placeholder='Egg, Cheese'/>
-                      <TextField color='red'
+                            </div>
+                      {/* <div className='field'>
+                        <label>Quantity</label>
+                      <input color='red'
                              name='quantity'
                              label='Quantity'
                              placeholder='1,2,3...'/>
-                      <TextField color='red'
+                      </div>
+                      <div className='field'>
+                        <label>Measurement</label>
+                      <input color='red'
                              name='measurement'
-                             label='Measurement'
+                             label='Quantity'
+                             icon='scale'
                              placeholder='lb, ounces, nothing...'/>
-                      <p>
-                      </p>
-                             <SubmitField value='Submit' label='Add Ingredient' icon='plus' onClick={this.addIng}/>
-                    </Segment>
+                      </div> */}
+                      <Button value='Add Ingredient' label='Add Ingredient' icon='plus' onClick={this.addIng}/>
+                    </div>
 
-                  </AutoForm>
+                  </div>
                   <Form.Group grouped>
                     <label>Diet Type</label>
                     <Form.Checkbox label='Vegetarian/Vegan' control='input' type='checkbox' value='isVegan'/>
@@ -122,7 +127,6 @@ class AddRecipe extends React.Component {
                   <HiddenField name='owner' value='fakeuser@foo.com'/>
                 </Segment>
                 </AutoForm>
-              </AutoForm>
             </Grid.Column>
           </Grid>
         </div>
@@ -140,13 +144,10 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscriptionRecipe = Meteor.subscribe('Recipes');
   const subscriptionIngredient = Meteor.subscribe('Ingredients');
-  const subscriptionRecipeFull = Meteor.subscribe('RecipeFull');
   return {
     recipe: Recipes.find({}).fetch(),
     ingredient: Ingredients.find({}).fetch(),
-    recipefull: RecipeFull.find({}).fetch(),
     readyRecipe: subscriptionRecipe.ready(),
     readyIngredient: subscriptionIngredient.ready(),
-    readyRecipeFull: subscriptionRecipeFull.ready(),
   };
 })(AddRecipe);

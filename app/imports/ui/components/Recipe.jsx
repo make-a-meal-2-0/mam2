@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Label } from 'semantic-ui-react';
+import { Button, Card, Label, Feed } from 'semantic-ui-react';
 import { Recipes, OwnerSchema } from '/imports/api/recipe/recipe';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
@@ -9,7 +9,7 @@ import HiddenField from 'uniforms-semantic/HiddenField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
-
+import Ingredient from '../components/Ingredient'
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Recipe extends React.Component {
   constructor(props) {
@@ -60,6 +60,9 @@ class Recipe extends React.Component {
                 <div className='detail'>{this.props.recipe.tool}</div>
               </Label>
             </Card.Meta>
+            <Feed>
+              {this.props.ingredient.map((ingredient, index) => <Ingredient key={index} ingredient={ingredient} />)}
+            </Feed>
             <Card.Description>
               {this.props.recipe.directions}
             </Card.Description>
@@ -82,7 +85,7 @@ class Recipe extends React.Component {
 /** Require a document to be passed to this component. */
 Recipe.propTypes = {
   recipe: PropTypes.object.isRequired,
-
+  ingredient: PropTypes.array.isRequired,
 };
 
 

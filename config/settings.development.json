@@ -26,7 +26,8 @@
       "isNonDairy": false,
       "isNutAllergySafe": true,
       "isDairyAllergySafe": false,
-      "isSeafoodAllergySafe": false,
+      "isSeafoodAllergySafe": true,
+
       "owner": "john@foo.com"},
 
     { "name": "Salmon",
@@ -43,8 +44,9 @@
 
 
     ],
-  
-  "defaultingredient": [
+
+
+  "defaultIngredients": [
     { "name": "Chicken Quesadilla",
       "ingredient": "Grilled chicken breast pieces",
       "quantity": "",

@@ -27,10 +27,11 @@
       "isNutAllergySafe": true,
       "isDairyAllergySafe": false,
       "isSeafoodAllergySafe": true,
+
       "owner": "john@foo.com"},
 
     { "name": "Salmon",
-      "ingredients": "Salmon, Cajun seasoning or garlic salt and lemon pepper",
+      "ingredient": "Salmon, Cajun seasoning or garlic salt and lemon pepper",
       "time": "30 min",
       "directions": "Eat",
       "isVegetarian": false,
@@ -38,45 +39,51 @@
       "isNonDairy": false,
       "isNutAllergySafe": true,
       "isDairyAllergySafe": false,
-      "isSeafoodAllergySafe": true,
+      "isSeafoodAllergySafe": false,
       "owner": ["john@foo.com","admin@foo.com"]}
 
 
     ],
 
+
   "defaultIngredients": [
     { "name": "Chicken Quesadilla",
-      "ingredients": "Grilled chicken breast pieces",
+      "ingredient": "Grilled chicken breast pieces",
       "quantity": "",
       "measurement": ""},
 
     { "name": "Chicken Quesadilla",
-      "ingredients": "fresh diced tomatoes",
+      "ingredient": "fresh diced tomatoes",
       "quantity": "1/2",
       "measurement": "cup"},
 
     { "name": "Chicken Quesadilla",
-      "ingredients": "coriander",
+      "ingredient": "coriander",
       "quantity": "1",
       "measurement": "teaspoon"},
 
     { "name": "Chicken Quesadilla",
-      "ingredients": "fresh chopped green onions",
+      "ingredient": "fresh chopped green onions",
       "quantity": "2",
       "measurement": "tablespoons"},
 
     { "name": "Chicken Quesadilla",
-      "ingredients": "large flour tortilla",
+      "ingredient": "large flour tortilla",
       "quantity": "1",
       "measurement": ""},
 
     { "name": "Chicken Quesadilla",
-      "ingredients": "shredded Mexican cheese",
+      "ingredient": "shredded Mexican cheese",
       "quantity": "1/2",
       "measurement": "cup"},
 
     { "name": "Chicken Quesadilla",
-      "ingredients": "Olive oil to brush tortilla",
+      "ingredient": "Olive oil to brush tortilla",
+      "quantity": "",
+      "measurement": ""},
+
+    { "name": "Salmon",
+      "ingredient": "Olive oil to brush tortilla",
       "quantity": "",
       "measurement": ""}
   ],

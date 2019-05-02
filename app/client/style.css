@@ -4,7 +4,7 @@
   background: url('/images/MiddleCenter.jpg') center center no-repeat fixed;;
   background-size: cover;
   color: white;
-  font-weight: bold;
+  font-weight: bolder;
   height: 700px;
   font-family: 'proxima-nova-soft', sans-serif;
 }
@@ -20,4 +20,5 @@
 
 .Navbar {
   font-family: 'proxima-nova-soft', sans-serif;
+  font-weight: bold;
 }

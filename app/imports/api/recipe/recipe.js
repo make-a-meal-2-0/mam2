@@ -17,10 +17,6 @@ const RecipeSchema = new SimpleSchema({
   isNutAllergySafe: Boolean,
   isSeafoodAllergySafe: Boolean,
   isDairyAllergySafe: Boolean,
-<<<<<<< HEAD
-  isSeafoodAllergySafe: Boolean,
-=======
->>>>>>> 315be3434d5c31e25fe444690ce786ff92ba49ec
   owner: [String],
 }, { tracker: Tracker });
 

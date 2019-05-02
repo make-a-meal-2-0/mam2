@@ -55,7 +55,7 @@ class AddRecipe extends React.Component {
     const { name, time, directions, servingSize, tool, isVegetarian,
       isNutFree, isNonDairy, isSeaFoodFree } = data;
     const { recipe, ingredients } = data;
-    const isVegan = this.state.vegan;
+    //const isVegan = this.state.vegan;
     const owner = Meteor.user().username;
     Recipes.insert({ name, time, directions, owner, servingSize, tool, isVegan, isVegetarian,
       isNutFree, isNonDairy, isSeaFoodFree }, this.insertCallback);
@@ -103,7 +103,7 @@ class AddRecipe extends React.Component {
                   </AutoForm>
                   <Form.Group grouped>
                     <label>Diet Type</label>
-                    <Form.Checkbox label='Vegan' name = "isVegan" unchecked = {this.state.vegan === false} checked={this.state.vegan === true} onCheck={(e, checked) => this.onChange(checked)}/>
+                    {/*<Form.Checkbox label='Vegan' name = "isVegan" unchecked = {this.state.vegan === false} checked={this.state.vegan === true} onCheck={(e, checked) => this.onChange(checked)}/>*/}
                     {/*<Form.Checkbox label='Vegetarian' control='input' type='checkbox' value='isVegetarian'/>*/}
                     {/*<Form.Checkbox label='Nut-Free' control='input' type='checkbox' value='isNutFree' />*/}
                     {/*<Form.Checkbox label='Non-Dairy/Lactose Intolerant' control='input' type='checkbox'*/}

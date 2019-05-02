@@ -1,16 +1,16 @@
 import React from 'react';
-import { Label } from 'semantic-ui-react';
+import { Segment, Text } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class Ingredient extends React.Component {
+
   render() {
     return (
-        <Label ribbon color='red'>
-          Ingredients: <div className='detail'>{this.props.ingredients.quantity}
-          {this.props.ingredients.ingredient} {this.props.ingredients.measurement}</div>
-        </Label>
+        <Text>
+          {this.props.ingredients.ingredient}
+        </Text>
     );
   }
 }

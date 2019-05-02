@@ -2,7 +2,6 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Recipes } from '/imports/api/recipe/recipe';
 import { Ingredients } from '/imports/api/ingredient/ingredient';
-import { DietType } from '/imports/api/dietType/dietType';
 import { Tracker } from 'meteor/tracker';
 
 /** Create a Meteor collection. */
@@ -12,7 +11,6 @@ const RecipeFull = new Mongo.Collection('RecipeFull');
 const RecipeFullSchema = new SimpleSchema({
   recipe: Recipes,
   ingredients: Ingredients,
-  dietType: DietType,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

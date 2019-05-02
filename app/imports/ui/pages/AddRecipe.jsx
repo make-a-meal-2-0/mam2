@@ -1,9 +1,8 @@
 import React from 'react';
 import { Recipes, RecipeSchema } from '/imports/api/recipe/recipe';
 import { Ingredients, IngredientSchema } from '/imports/api/ingredient/ingredient';
-import { DietType, DietTypeSchema } from '/imports/api/dietType/dietType';
 import { RecipeFull, RecipeFullSchema } from '/imports/api/recipeFull/recipeFull';
-import { Grid, Segment, Header, Form, Input } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form, Input, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
@@ -13,6 +12,7 @@ import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
+import PropTypes from 'prop-types';
 
 /** Renders the Page for adding a document. */
 class AddRecipe extends React.Component {
@@ -36,32 +36,44 @@ class AddRecipe extends React.Component {
     }
   }
 
+  insertCallbackIng(error) {
+    if (error) {
+      Bert.alert({ type: 'danger', message: `Ingredient Add Failed: ${error.message}` });
+    } else {
+      Bert.alert({ type: 'success', message: 'Added Ingredient' });
+      this.formRef.reset();
+    }
+  }
+
   addIng(data) {
     const { name, ingredient, quantity, measurement } = data;
-    Ingredients.insert({ name, ingredient, quantity, measurement }, this.insertCallback);
+    Ingredients.insert({ name, ingredient, quantity, measurement }, this.insertCallbackIng);
   }
 
   /** On submit, insert the data. */
   submit(data) {
-    const { name, time, directions, servingSize, tool } = data;
-    /*  const { isAtkins, isZone, isKeto, isVegan, isNonDairy, isNutFree } = data;
-    const { recipe, ingredients, dietType } = data; */
+    const { name, time, directions, servingSize, tool, isVegan, isVegetarian, isNutAllergySafe,
+      isNutFree, isDairyAllergySafe } = data;
+    const { recipe, ingredients } = data;
     const owner = Meteor.user().username;
-    /*    DietType.insert({ isAtkins, isZone, isKeto, isVegan, isNonDairy, isNutFree }, this.insertCallback); */
-    Recipes.insert({ name, time, directions, owner, servingSize, tool }, this.insertCallback);
-    // RecipeFull.insert({ recipe, ingredients, dietType });
+    Recipes.insert({ name, time, directions, owner, servingSize, tool, isVegan, isVegetarian, isNutAllergySafe,
+      isNutFree, isDairyAllergySafe }, this.insertCallback);
+    RecipeFull.insert({ recipe, ingredients });
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
     const textStyle = { color: 'black' };
     return (
-        <div className='Background'>
+        <div className='AddBackground'>
           <Grid container centered>
             <Grid.Column>
               <AutoForm ref={(ref) => {
                 this.formRef = ref;
-              }} schema={RecipeSchema} onSubmit={this.submit}>
+              }} schema={RecipeFullSchema} onSubmit={this.submit}>
+                <AutoForm ref={(ref) => {
+                  this.formRef = ref;
+                }} schema={RecipeSchema} onSubmit={this.submit}>
                 <Segment>
                   <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
                   <TextField name='name' placeholder='Grilled Cheese'/>
@@ -76,7 +88,7 @@ class AddRecipe extends React.Component {
                              name='ingredient'
                              icon='food'
                              label='Ingredient'
-                             placeholder='Egg'/>
+                             placeholder='Egg, Cheese'/>
                       <Input color='red'
                              name='quantity'
                              label='Quantity'
@@ -85,23 +97,22 @@ class AddRecipe extends React.Component {
                              name='measurement'
                              label='Measurement'
                              placeholder='lb, ounces, nothing...'/>
-                    <SubmitField value='Submit' name='Add Ingredient' icon='plus'/>
                     </Segment>
+                    <Button value='Submit' name='Add Ingredient' icon='plus'/>
                   </AutoForm>
                   <Form.Group grouped>
                     <label>Diet Type</label>
-                    <Form.Checkbox label='Atkins' control='input' type='checkbox'/>
-                    <Form.Checkbox label='The Zone' control='input' type='checkbox'/>
-                    <Form.Checkbox label='Ketogenic' control='input' type='checkbox'/>
-                    <Form.Checkbox label='Vegetarian/Vegan' control='input' type='checkbox'/>
-                    <Form.Checkbox label='Non-Dairy/Lactose Intolerant' control='input' type='checkbox'/>
-                    <Form.Checkbox label='Nut-Free' control='input' type='checkbox'/>
+                    <Input label='Vegetarian/Vegan' control='input' type='checkbox' value='isVegan'/>
+                    <Input label='Non-Dairy/Lactose Intolerant' control='input' type='checkbox'
+                                   value='isNonDairy'/>
+                    <Input label='Nut-Free' control='input' type='checkbox' value='isNutFree' />
                   </Form.Group>
                   <LongTextField name='directions' placeholder='Add Sauce'/>
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
                   <HiddenField name='owner' value='fakeuser@foo.com'/>
                 </Segment>
+                </AutoForm>
               </AutoForm>
             </Grid.Column>
           </Grid>
@@ -110,20 +121,23 @@ class AddRecipe extends React.Component {
   }
 }
 
+/** Require an array of Stuff documents in the props. */
+AddRecipe.propTypes = {
+  ingredient: PropTypes.array.isRequired,
+  // ready: PropTypes.bool.isRequired,
+};
+
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscriptionRecipe = Meteor.subscribe('Recipes');
   const subscriptionIngredient = Meteor.subscribe('Ingredients');
-  const subscriptionDietType = Meteor.subscribe('DietType');
   const subscriptionRecipeFull = Meteor.subscribe('RecipeFull');
   return {
     recipe: Recipes.find({}).fetch(),
     ingredient: Ingredients.find({}).fetch(),
-    /*dietType: DietType.find({}).fetch(),
-    recipefull: RecipeFull.find({}).fetch(), */
+    recipefull: RecipeFull.find({}).fetch(),
     readyRecipe: subscriptionRecipe.ready(),
     readyIngredient: subscriptionIngredient.ready(),
-    /* readyDietType: subscriptionDietType.ready(),
-    readyRecipeFull: subscriptionRecipeFull.ready(), */
+    readyRecipeFull: subscriptionRecipeFull.ready(),
   };
 })(AddRecipe);

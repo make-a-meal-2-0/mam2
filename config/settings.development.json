@@ -43,7 +43,26 @@
   
   "defaultIngredients": [
     { "name": "Chicken Quesadilla",
-      "ingredient": "Grilled chicken breast pieces\n1/2 cup fresh diced tomatoes\n1 teaspoon coriander\n2 tablespoons fresh chopped green onions\n1 large flour tortilla\n1/2 cup shredded Mexican cheese\nOlive oil to brush tortilla"
+      "ingredient": "Grilled chicken breast pieces"
+    },
+    { "name": "Chicken Quesadilla",
+      "ingredient": "1/2 cup fresh diced tomatoes"
+    },
+    {
+      "name": "Chicken Quesadilla",
+      "ingredient": "1 teaspoon coriander"
+    },
+    { "name": "Chicken Quesadilla",
+      "ingredient": "2 tablespoons fresh chopped green onions"
+    },
+    { "name": "Chicken Quesadilla",
+      "ingredient": "1 large flour tortilla"
+    },
+    { "name": "Chicken Quesadilla",
+      "ingredient": "1/2 cup shredded Mexican cheese "
+    },
+    { "name": "Chicken Quesadilla",
+      "ingredient": "Olive oil to brush tortilla"
     }
 
   ],

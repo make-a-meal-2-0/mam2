@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Segment } from 'semantic-ui-react';
+import { List } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -8,9 +8,9 @@ class Ingredient extends React.Component {
 
   render() {
     return (
-        <Segment>
-            {this.props.ingredients.ingredient}
-        </Segment>
+        <List bulleted>
+          <List.Item>{this.props.ingredients.ingredient}</List.Item>
+        </List>
     );
   }
 }

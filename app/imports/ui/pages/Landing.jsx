@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Image, Icon } from 'semantic-ui-react';
+import { Grid, Image, Icon, Container } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import { Dropdown } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Label, Feed } from 'semantic-ui-react';
+import { Button, Card, Label } from 'semantic-ui-react';
 import { Recipes, OwnerSchema } from '/imports/api/recipe/recipe';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';

@@ -8,9 +8,11 @@ class Ingredient extends React.Component {
 
   render() {
     return (
+        <Segment>
         <Text>
           {this.props.ingredients.ingredient}
         </Text>
+        </Segment>
     );
   }
 }

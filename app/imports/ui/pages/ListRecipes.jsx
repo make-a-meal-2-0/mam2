@@ -26,7 +26,7 @@ class ListRecipes extends React.Component {
               {this.props.recipes.map((recipe, index) => <Recipe
                   key={index}
                   recipe={recipe}
-                  ingredients={this.props.ingredients.filter(ingredients => (ingredients.name === recipe.name))}/>)}
+                  ingredient={this.props.ingredients.filter(ingredients => (ingredients.name === recipe.name))}/>)}
             </Card.Group>
           </Container>
         </div>
@@ -50,6 +50,7 @@ export default withTracker(() => {
   return {
     ingredients: Ingredients.find({}).fetch(),
     recipes: Recipes.find({}).fetch(),
-    ready: subscriptionR.ready() && subscriptionI.ready(),
+    readyR: subscriptionR.ready(),
+    readyI: subscriptionI.ready(),
   };
 })(ListRecipes);

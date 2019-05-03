@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'semantic-ui-react';
+import { Text, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -9,9 +9,7 @@ class Ingredient extends React.Component {
   render() {
     return (
         <Segment>
-        <Text>
             {this.props.ingredients.ingredient}
-        </Text>
         </Segment>
     );
   }

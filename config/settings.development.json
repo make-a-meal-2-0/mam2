@@ -21,16 +21,12 @@
       "isSeafoodAllergySafe": true,
       "isDairyAllergySafe": false,
       "directions": "Preheat your Foreman Grill for 5 minutes with lid closed. Use the high settings if your grill has the temperature controls.\n\n    Layout tortilla on a flat surface. Cover only half the tortilla with cheese and add chicken, green onions, coriander and tomatoes. Fold other half of the tortilla over the top of the cheese and chicken and then brush both top and bottom with olive oil. Grill for 4 – 6 minutes until cheese is nice and melted and tortilla is golden brown.\n\n    Remove from grill and use a knife or pizza cutter and slice the quesadilla into 4 pieces.\n\n    Serve with sour cream and guacamole.",
-      "isVegetarian": false,
-      "isVegan": false,
-      "isNonDairy": false,
-      "isNutAllergySafe": true,
-      "isDairyAllergySafe": false,
-      "isSeafoodAllergySafe": false,
       "owner": "john@foo.com"},
 
     { "name": "Salmon",
       "ingredient": "Salmon, Cajun seasoning or garlic salt and lemon pepper",
+      "tool": "Some Grill",
+      "servingSize": "1 Salmon",
       "time": "30 min",
       "directions": "Eat",
       "tools": "Some Grill",
@@ -47,44 +43,9 @@
   
   "defaultIngredients": [
     { "name": "Chicken Quesadilla",
-      "ingredient": "Grilled chicken breast pieces",
-      "quantity": "",
-      "measurement": ""},
+      "ingredient": "Grilled chicken breast pieces\n1/2 cup fresh diced tomatoes\n1 teaspoon coriander\n2 tablespoons fresh chopped green onions\n1 large flour tortilla\n1/2 cup shredded Mexican cheese\nOlive oil to brush tortilla"
+    }
 
-    { "name": "Chicken Quesadilla",
-      "ingredient": "fresh diced tomatoes",
-      "quantity": "1/2",
-      "measurement": "cup"},
-
-    { "name": "Chicken Quesadilla",
-      "ingredient": "coriander",
-      "quantity": "1",
-      "measurement": "teaspoon"},
-
-    { "name": "Chicken Quesadilla",
-      "ingredient": "fresh chopped green onions",
-      "quantity": "2",
-      "measurement": "tablespoons"},
-
-    { "name": "Chicken Quesadilla",
-      "ingredient": "large flour tortilla",
-      "quantity": "1",
-      "measurement": ""},
-
-    { "name": "Chicken Quesadilla",
-      "ingredient": "shredded Mexican cheese",
-      "quantity": "1/2",
-      "measurement": "cup"},
-
-    { "name": "Chicken Quesadilla",
-      "ingredient": "Olive oil to brush tortilla",
-      "quantity": "",
-      "measurement": ""},
-
-    { "name": "Salmon",
-      "ingredient": "Olive oil to brush tortilla",
-      "quantity": "",
-      "measurement": ""}
   ],
   "defaultVendors": [
     { "name": "7-Eleven", "address": "2646 S King St, Honolulu, HI 96826", "phone": "808-947-2747", "operation": "24 Hours", "image": "/images/711.png" }

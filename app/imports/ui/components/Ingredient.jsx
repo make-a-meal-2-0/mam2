@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segment, Text } from 'semantic-ui-react';
+import { Text } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ class Ingredient extends React.Component {
     return (
         <Segment>
         <Text>
-          {this.props.ingredients.ingredient}
+            {this.props.ingredients.ingredient}
         </Text>
         </Segment>
     );
@@ -20,7 +20,7 @@ class Ingredient extends React.Component {
 /** Require a document to be passed to this component. */
 Ingredient.propTypes = {
   ingredients: PropTypes.object.isRequired,
-}
+};
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
 export default withRouter(Ingredient);

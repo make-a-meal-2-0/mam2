@@ -63,6 +63,9 @@
     },
     { "name": "Chicken Quesadilla",
       "ingredient": "Olive oil to brush tortilla"
+    },
+    { "name": "Salmon",
+      "ingredient": "Salmon Fillet"
     }
 
   ],

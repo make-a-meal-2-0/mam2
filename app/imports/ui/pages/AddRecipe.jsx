@@ -13,7 +13,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import Ingredient from '../components/Recipe';
-import AddIngredient from './AddIngredient';
+import AddIngredient from '../components/AddIngredient';
 
 /** Renders the Page for adding a document. */
 class AddRecipe extends React.Component {
@@ -49,6 +49,7 @@ class AddRecipe extends React.Component {
     }, this.insertCallback);
     Ingredients.insert(name);
     this.formRef.reset();
+
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -70,10 +71,14 @@ class AddRecipe extends React.Component {
                   <AddIngredient ingredient={this.props.ingredient}/>
                   <Form.Group grouped>
                     <label>Diet Type</label>
-                    <Form.Checkbox label='Vegetarian/Vegan' control='input' type='checkbox' value='isVegan'/>
-                    <Form.Checkbox label='Non-Dairy/Lactose Intolerant' control='input' type='checkbox'
-                                   value='isNonDairy'/>
-                    <Form.Checkbox label='Nut-Free' control='input' type='checkbox' value='isNutFree'/>
+                    {/*<Form.Checkbox label='Vegan' name = "isVegan" unchecked = {this.state.vegan === false} checked={this.state.vegan === true} onCheck={(e, checked) => this.onChange(checked)}/>*/}
+                    {/*<Form.Checkbox label='Vegetarian' control='input' type='checkbox' value='isVegetarian'/>*/}
+                    {/*<Form.Checkbox label='Nut-Free' control='input' type='checkbox' value='isNutFree' />*/}
+                    {/*<Form.Checkbox label='Non-Dairy/Lactose Intolerant' control='input' type='checkbox'*/}
+                                   {/*value='isNonDairy'/>*/}
+                    {/*<Form.Checkbox label='Seafood Free' control='input' type='checkbox'*/}
+                                   {/*value='isSeaFoodFree'/>*/}
+
                   </Form.Group>
                   <LongTextField name='directions' placeholder='Add Sauce'/>
                   <SubmitField value='Submit'/>

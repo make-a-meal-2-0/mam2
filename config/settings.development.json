@@ -29,6 +29,7 @@
       "servingSize": "1 Salmon",
       "time": "30 min",
       "directions": "Eat",
+      "tools": "Some Grill",
       "isVegetarian": false,
       "isVegan": false,
       "isNonDairy": false,

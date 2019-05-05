@@ -45,7 +45,8 @@ class Recipe extends React.Component {
 
   render() {
     return (
-        <Card>
+        <Card
+        href={`#/r/${this.props.recipe._id}`}>
           <Card.Content>
             <Card.Header>
               {this.props.recipe.name}

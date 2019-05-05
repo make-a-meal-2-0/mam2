@@ -23,8 +23,8 @@ class ListRecipes extends React.Component {
           <Container>
             <Header as='h2' textAlign='center' inverted>List Recipes</Header>
             <Card.Group content>
-              {this.props.recipes.map((recipe, index) => <Recipe
-                  key={index}
+              {this.props.recipes.map((recipe) => <Recipe
+                  key={recipe._id}
                   recipe={recipe}
                   ingredient={this.props.ingredients.filter(ingredients => (ingredients.name === recipe.name))}/>)}
             </Card.Group>

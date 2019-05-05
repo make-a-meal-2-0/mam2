@@ -47,7 +47,6 @@ class AddRecipe extends React.Component {
       name, time, directions, owner, servingSize, tool, /*isVegan, isVegetarian, isNutAllergySafe,
       isNutFree, isDairyAllergySafe,*/
     }, this.insertCallback);
-    Ingredients.insert(name);
     this.formRef.reset();
 
   }
@@ -64,7 +63,7 @@ class AddRecipe extends React.Component {
               }} schema={RecipeSchema} onSubmit={this.submit}>
                 <Segment>
                   <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
-                  <TextField name='name' placeholder='Grilled Cheese'/>
+                  <TextField name='name' label='Recipe Name' placeholder='Grilled Cheese'/>
                   <TextField name='time' placeholder='40-60 minutes'/>
                   <TextField name='servingSize' label='Serving Size' placeholder='1 Grilled Cheese'/>
                   <TextField name='tool' label='Tools Required' placeholder='Pan, Knife'/>
@@ -80,7 +79,7 @@ class AddRecipe extends React.Component {
                                    {/*value='isSeaFoodFree'/>*/}
 
                   </Form.Group>
-                  <LongTextField name='directions' placeholder='Add Sauce'/>
+                  <LongTextField name='directions' placeholder='Preheat Oven to 450 degrees... Cook...'/>
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
                   <HiddenField name='owner' value='fakeuser@foo.com'/>

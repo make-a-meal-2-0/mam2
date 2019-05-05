@@ -243,6 +243,57 @@
       "owner": ["john@foo.com","admin@foo.com"]},
 
 
+    { "name": "HOLIDAY ROASTED GREEN BEANS (WITH CRANBERRIES & ALMONDS)",
+      "tool": "Toaster Oven",
+      "servingSize": "1 serving",
+      "time": "12m - 15 minutes",
+      "directions": "Drizzle the beans with a little oil and season simply with salt and black pepper.\nIf you want add a pinch of crushed red chili pepper.\nPlace in oven.\nLook for your beans to be slightly shriveled with light caramelization or brown spots on them.\nSprinkle your finished green beans with dried cranberries and toasted almonds.",
+      "isVegetarian": true,
+      "isVegan": true,
+      "isNutAllergySafe": false,
+      "isDairyAllergySafe": true,
+      "isSeafoodAllergySafe": true,
+      "owner": ["john@foo.com","admin@foo.com"]},
+
+
+    { "name": "Roasted Carrots",
+      "tool": "Toaster Oven",
+      "servingSize": "1 serving",
+      "time": "12m - 15 minutes",
+      "directions": "Preheat oven to 400 F.  \n\nLine tray with foil and place cut carrots on a pan. Drizzle with olive oil and make sure al pieces are evenly coated.\nDon't be afraid to use your hands. Sprinkle with salt and pepper.  \nPlace in oven and bake for 20-25 minutes. \nFlip the carrots half way through to ensure an even roast on both sides. \nIncrease the temperature to 450F for the last 5-7 minutes to get a little extra browning. \nPlate and serve.",
+      "isVegetarian": true,
+      "isVegan": true,
+      "isNutAllergySafe": true,
+      "isDairyAllergySafe": true,
+      "isSeafoodAllergySafe": true,
+      "owner": ["john@foo.com","admin@foo.com"]},
+
+
+    { "name": "CRISPY POTATO SKINS STRIPS",
+      "tool": "Toaster Oven",
+      "servingSize": "1 serving",
+      "time": "20 minutes",
+      "directions": "Adjust your toaster oven cooking rack to the middle position and preheat to 450°F or 425°F if using a convection toaster oven. Insert a small baking rack into a rimmed toaster oven pan.  \nSlice the baked potatoes in half lengthwise and scoop out most of the potato flesh leaving a thin ¼-inch layer attached to the skins.  \nBrush both sides of the potato shells with oil or melted butter and season well. Slice each shell in half or into quarters for thinner strips. \nPlace the strips with their skins facing up on the rack and bake until crispy, about 10 minutes.\nServe strips warm with your favorite toppings and dips",
+      "isVegetarian": true,
+      "isVegan": true,
+      "isNutAllergySafe": true,
+      "isDairyAllergySafe": false,
+      "isSeafoodAllergySafe": true,
+      "owner": ["john@foo.com","admin@foo.com"]},
+
+
+    { "name": "LOADED FRIES FOR TWO",
+      "tool": "Toaster Oven",
+      "servingSize": "1 serving",
+      "time": "40 minutes",
+      "directions": "Place roasting pan in oven or toaster oven and preheat to 450 F.\nIn a medium bowl whisk together the olive oil, sriracha sauce and garlic salt. \nAdd chopped red potatoes to bowl and stir well to coat all of the potato chunks. Lightly season with salt and pepper if desired.\nUsing oven mitts carefully remove the heated roasting pan from your oven or toaster oven. Carefully add oil coated potatoes to pan (the oil will pop and splatter), use a rubber spatula to scrape all of the oil/Sriracha mixture from the bowl and onto the potatoes. Spread potatoes into an even layer and return pan to oven or toaster oven.\nRoast potatoes at 450 F for 30 to 35 minutes. Stir potatoes about every 10 minutes to keep them from sticking to the pan and assist with even browning.\nRemove potatoes once they are crispy on the outside and fork tender. \nTransfer cooked potatoes to a bowl, sprinkle with salt, pepper and fresh parsley. Enjoy!",
+      "isVegetarian": true,
+      "isVegan": true,
+      "isNutAllergySafe": true,
+      "isDairyAllergySafe": true,
+      "isSeafoodAllergySafe": true,
+      "owner": ["john@foo.com","admin@foo.com"]},
+
 
     { "name": "Oven Toasted Bacon",
       "tool": "Toaster Oven",
@@ -694,12 +745,78 @@
       "ingredient": "2 Tbsp. chopped nuts pecans, walnuts or almonds are nice"
     },
 
+    { "name": "HOLIDAY ROASTED GREEN BEANS (WITH CRANBERRIES & ALMONDS)",
+      "ingredient": "olive oil"
+    },
+    { "name": "HOLIDAY ROASTED GREEN BEANS (WITH CRANBERRIES & ALMONDS)",
+      "ingredient": "salt and black pepper"
+    },
+    { "name": "HOLIDAY ROASTED GREEN BEANS (WITH CRANBERRIES & ALMONDS)",
+      "ingredient": "Green Beans"
+    },
+    { "name": "HOLIDAY ROASTED GREEN BEANS (WITH CRANBERRIES & ALMONDS)",
+      "ingredient": "Cranberries"
+    },
+    { "name": "HOLIDAY ROASTED GREEN BEANS (WITH CRANBERRIES & ALMONDS)",
+      "ingredient": "Almonds"
+    },
+
+
+    { "name": "Roasted Carrots",
+      "ingredient": "2-3 carrots, washed and diagonally sliced about 1\" thick"
+    },
+    { "name": "Roasted Carrots",
+      "ingredient": "olive oil"
+    },
+    { "name": "Roasted Carrots",
+      "ingredient": "kosher salt"
+    },
+    { "name": "Roasted Carrots",
+      "ingredient": "pepper"
+    },
+    { "name": "Roasted Carrots",
+      "ingredient": "(feel free to add a clove of garlic and some chopped fresh herbs if desired)"
+    },
+
+
+    { "name": "CRISPY POTATO SKINS STRIPS",
+      "ingredient": "2 medium Baked Russet Potatoes"
+    },
+    { "name": "CRISPY POTATO SKINS STRIPS",
+      "ingredient": "Oil or Melted Butter"
+    },
+    { "name": "CRISPY POTATO SKINS STRIPS",
+      "ingredient": "Seasoned Salt or Fine Sea Salt"
+    },
+
+    { "name": "CRISPY POTATO SKINS STRIPS",
+      "ingredient": "Seasoned Salt or Fine Sea Salt"
+    },
+
+
+    { "name": "LOADED FRIES FOR TWO",
+      "ingredient": "1 lb red potatoes, washed dried and cut into 1 inch pieces"
+    },
+    { "name": "LOADED FRIES FOR TWO",
+      "ingredient": "1 tablespoon olive oil, (or substitute your favorite cooking oil)"
+    },
+    { "name": "LOADED FRIES FOR TWO",
+      "ingredient": "2-3 teaspoons Sriracha sauce"
+    },
+    { "name": "LOADED FRIES FOR TWO",
+      "ingredient": "1/4 teaspoon garlic salt, (optional)"
+    },
+    { "name": "LOADED FRIES FOR TWO",
+      "ingredient": "Salt and Pepper"
+    },
+    { "name": "LOADED FRIES FOR TWO",
+      "ingredient": "1 tablespoon finely chopped fresh parsley, (optional)"
+    },
+
 
     { "name": "Oven Toasted Bacon",
       "ingredient": "Bacon"
     }
-
-
 
 
 

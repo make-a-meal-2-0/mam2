@@ -86,12 +86,15 @@ Roast potatoes at 450 F for 30 to 35 minutes. Stir potatoes about every 10 minut
 Remove potatoes once they are crispy on the outside and fork tender. 
 Transfer cooked potatoes to a bowl, sprinkle with salt, pepper and fresh parsley. Enjoy!
 
-Ingredients: {1 lb red potatoes, washed dried and cut into 1 inch pieces,
+Ingredients: {
+1 lb red potatoes, washed dried and cut into 1 inch pieces,
 1 tablespoon olive oil, (or substitute your favorite cooking oil),
 2-3 teaspoons Sriracha sauce,
 1/4 teaspoon garlic salt, (optional)
 Salt and Pepper,
-1 tablespoon finely chopped fresh parsley, (optional)}
+1 tablespoon finely chopped fresh parsley, (optional)
+
+}
 
 Serving: 1
 
@@ -152,47 +155,9 @@ Tools: Toaster Oven
 
 }
 
-LOAD FRIES FOR TWO {
-
-Prep Time: 30 MINUTES
-
-Instructions: 
-
-FOR THE FRIES:
-In a large bowl combine frozen fries, oil, and seasoning. Stir well to coat.
-Arrange fries in an even layer on a small wire baking rack. Place rack in a pan and cook in your toaster oven according to the package directions. While the fries bake prepare the yogurt sauce.
-FOR THE YOGURT SAUCE:
-In a small bowl, whisk together the yogurt, lemon juice, and garlic powder until smooth. Stir in parsley. Taste and add salt, pepper, and more garlic or lemon as desired. 
-TO ASSEMBLE:
-Place half of the baked fries on a plate, dollop with half of the yogurt and sprinkle with half of the toppings. Create a second layer with remaining fries, sauce, and toppings. 
-Sprinkle with fresh parsley and add lemon wedges for squeezing. Then dig in!
-
-Ingredients: {8 oz frozen crinkle cut fries
-2 teaspoons vegetable oil,
-1/4 teaspoon each dried oregano, cumin, garlic powder, 
-fine sea salt, 
-black pepper,
-1/4 cup plain Greek yogurt, (non-fat, 2% and whole milk will work)
-2 teaspoons lemon juice,
-1/8 teaspoon garlic powder,
-1 tablespoon fresh chopped parsley,
-salt and pepper, to taste,
-1/4 cup crumbled feta, about 1oz
-1 shallot, finely chopped,
-1/4 cup chopped cucumber
-1/4 cup chopped red bell pepper,
-2 tablespoons sliced Kalamata olives,
-fresh parsley, chopped
-lemon wedges}
-
-Serving: 1
-
-Tools: Toaster Oven
-
-}
 
 
-LOAD FRIES FOR TWO {
+LOADED FRIES FOR TWO {
 
 Prep Time: 40 MINUTES
 

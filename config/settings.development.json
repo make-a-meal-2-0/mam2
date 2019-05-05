@@ -37,7 +37,7 @@
       "owner": ["john@foo.com","admin@foo.com"]},
 
     { "name": "Southwest Chicken Casserole",
-      "tool": "George Foreman Grill",
+      "tool": "Microwave",
       "servingSize": "1",
       "time": "15 min",
       "directions": " In a large bowl, combine the chicken, chiles, soup, cheese, onions, salt, pepper and water and pour the mixture into a microwave safe 9x13 inch casserole dish.\n Add the rice. The mixture should be the consistency of soupy pancake batter.\n    Cover the dish with a lid or plastic wrap and microwave for about 15 minutes (depending on the microwave). Serve with mexicorn and green salad if desired.",
@@ -46,8 +46,19 @@
       "isNutAllergySafe": true,
       "isDairyAllergySafe": false,
       "isSeafoodAllergySafe": false,
-      "owner": ["john@foo.com","admin@foo.com"]}
+      "owner": ["john@foo.com","admin@foo.com"]},
 
+    { "name": "Microwaved Parmesan Chicken",
+      "tool": "Microwave",
+      "servingSize": "2",
+      "time": "10 min",
+      "directions": "Place chicken in a microwave-safe dish. Top with soy sauce, garlic powder and pepper. Sprinkle with cheese and dot with butter. Cover and cook on high for 4-5 minutes or until a thermometer reads 170°.",
+      "isVegetarian": false,
+      "isVegan": false,
+      "isNutAllergySafe": true,
+      "isDairyAllergySafe": false,
+      "isSeafoodAllergySafe": false,
+      "owner": ["john@foo.com","admin@foo.com"]}
 
     ],
   
@@ -108,6 +119,25 @@
 
     { "name": "Southwest Chicken Casserole",
       "ingredient": "2 cups instant rice"
+    },
+
+    { "name": "Microwaved Parmesan Chicken",
+      "ingredient": "2 boneless skinless chicken breast halves (4 ounces each)"
+    },
+    { "name": "Microwaved Parmesan Chicken",
+      "ingredient": "4 teaspoons reduced-sodium soy sauce"
+    },
+    { "name": "Microwaved Parmesan Chicken",
+      "ingredient": "1/4 teaspoon garlic powder"
+    },
+    { "name": "Microwaved Parmesan Chicken",
+      "ingredient": "1/8 teaspoon pepper"
+    },
+    { "name": "Microwaved Parmesan Chicken",
+      "ingredient": "1/4 cup grated Parmesan cheese"
+    },
+    { "name": "Microwaved Parmesan Chicken",
+      "ingredient": "1 teaspoon butter"
     }
 
 

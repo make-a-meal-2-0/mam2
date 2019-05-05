@@ -1,7 +1,7 @@
 import React from 'react';
-import { Recipes, RecipeSchema } from '/imports/api/recipe/recipe';
+import { Recipes, RecipeSchema, RecipeSchema1 } from '/imports/api/recipe/recipe';
 import { Ingredients } from '/imports/api/ingredient/ingredient';
-import { Grid, Segment, Header, Form } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form, } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
@@ -12,19 +12,87 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import Ingredient from '../components/Recipe';
-import AddIngredient from '../components/AddIngredient';
+import Ingredient from '../components/Ingredient';
+import AddIngredient from './AddIngredient';
+
+
+// const options = [
+//   { key: 'vegan', text: 'Vegan', value: 'vegan' },
+//   { key: 'vegetarian', text: 'Vegetarian', value: 'vegetarian' },
+//   { key: 'nutfree', text: 'Nut free', value: 'nutfree' },
+//   { key: 'dairyfree', text: 'Dairy free', value: 'dairyfree' },
+//   { key: 'seafree', text: 'Seafood free', value: 'seafree' },
+// ];
+
+const options = [
+  { key: 'isVegan', text: 'Vegan', value: false },
+  { key: 'isVegetarian', text: 'Vegetarian', value: false },
+  { key: 'isNutFree', text: 'Nut', value: false },
+  { key: 'isDairyAllergyFree', text: 'Dairy', value: false },
+  { key: 'isSeafoodFree', text: 'Seafood', value: false },
+];
+
 
 /** Renders the Page for adding a document. */
 class AddRecipe extends React.Component {
+
+  // const options = [
+  //   { key: 'isVegan', text: 'Vegan' , value:'isVegan', isChosen:false}
+  // ]
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   /** Bind 'this' so that a ref to the Form can be saved in formRef and communicated between render() and submit(). */
   constructor(props) {
     super(props);
+    // this.state = {isChecked: false};
+    //this.handleChecked = this.handleCheck.bind(this);
+    this.handleCheckedv = this.handleCheckedv.bind(this);
+    this.handleCheckedveg = this.handleCheckedveg.bind(this);
+    this.handleCheckednut = this.handleCheckednut.bind(this);
+    this.handleCheckeddairy = this.handleCheckeddairy.bind(this);
+    this.handleCheckedsea = this.handleCheckedsea.bind(this);
+    // this.state.vegan = {isChecked: false};
+    // this.state.vegetarian = {isChecked: false};
+    // this.state.nut = {isChecked: false};
+    // this.state.dairy = {isChecked: false};
+    // this.state.seafood = {isChecked: false};
+    // this.state = {
+    //   vegan: { isChecked: false },
+    //   vegetarian: { isChecked: false },
+    //   nut: { isChecked: false },
+    //   dairy: { isChecked: false },
+    //   seafood: { isChecked: false },
+    // };
+    this.state = {
+        vegan: false,
+        vegetarian: false,
+        nut: false ,
+        dairy: false,
+        seafood: false,
+      };
     this.submit = this.submit.bind(this);
     this.insertCallback = this.insertCallback.bind(this);
     this.formRef = null;
   }
+
+  // onClickCheckbox(name) {
+  //   this.setState({
+  //     [name]: !this.state[name],
+  //   });
+  // }
+
+//   myFunction() {
+//   //Get the checkbox
+//     let checkBox = document.getElementById('myCheck');
+//      Get the output text
+//     let text = document.getElementById('text');
+//
+//     // If the checkbox is checked, display the output text
+//     if (checkBox.checked == true){
+//       text.style.display = "block";
+//     } else {
+//       text.style.display = "none";
+//     }
+//   }
 
   /** Notify the user of the results of the submit. If successful, clear the form. */
   insertCallback(error) {
@@ -36,32 +104,118 @@ class AddRecipe extends React.Component {
     }
   }
 
+    // handleChecked (data) {
+    //   this.setState(
+    //       { data: { isChecked: false }}
+    //
+    //       );
+
+  // handleCheckedv () {
+  //   this.setState(
+  //       { vegan: { isChecked: false }}
+  //   { vegetarian: { isChecked: false }}
+  //   { nut: { isChecked: false }}
+  //   { dairy: { isChecked: false }}
+  //   { vegan: { isChecked: false }}
+  //
+  //       );
+//}
+
+handleCheckedv () {
+  this.setState({ vegan: !this.state.vegan});
+}
+  handleCheckedveg () {
+    this.setState({ vegetarian: !this.state.vegetarian});
+  }
+  handleCheckednut () {
+    this.setState({ nut: !this.state.nut});
+  }
+  handleCheckeddairy () {
+    this.setState({ dairy: !this.state.dairy});
+  }
+  handleCheckedsea () {
+    this.setState({ seafood: !this.state.fish});
+  }
+
   /** On submit, insert the data. */
   submit(data) {
+     const isVegan = options[0].value /*isVegetarian, isNutFree, isDairyAllergySafe, isSeafoodFree*/;
+    const isVegetarian = options[1].value;
+    const isNutAllergySafe = options[2].value;
+    const isDairyAllergySafe = options[3].value;
+    const isSeafoodAllergySafe = options[4].value;
+    // const isVegetarian = true;
+    // const isNutAllergySafe = true;
+    // const isDairyAllergySafe = true;
+    // const isSeafoodAllergySafe = true;
+    // if (options.vegan.valueOf() === 'vegan') {
+    //   isVegan = true;
+    // } else {
+    //   isVegan = false;
+    // }
     const {
-      name, time, directions, servingSize, tool, /*isVegan, isVegetarian, isNutAllergySafe,
-      isNutFree, isDairyAllergySafe,*/
+      name, time, directions, servingSize, tool, /*isVegan, isVegetarian,
+      isNutAllergySafe, isSeaFoodAllergySafe, isDairyAllergySafe,*/
     } = data;
     const owner = Meteor.user().username;
     Recipes.insert({
-      name, time, directions, owner, servingSize, tool, /*isVegan, isVegetarian, isNutAllergySafe,
-      isNutFree, isDairyAllergySafe,*/
+      name, time, directions, owner, servingSize, tool, isVegan, isVegetarian,
+      isNutAllergySafe, isSeafoodAllergySafe, isDairyAllergySafe,
     }, this.insertCallback);
     Ingredients.insert(name);
     this.formRef.reset();
 
   }
 
+
+
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
     const textStyle = { color: 'black' };
+
+    if (this.state.vegan) {
+      options[0].value = true;
+    } else {
+      options[0].value = false;
+    }
+
+    if (this.state.vegetarian) {
+      options[1].value = true;
+    } else {
+      options[1].value = false;
+    }
+
+    if (this.state.nut) {
+      options[2].value = true;
+    } else {
+      options[2].value = false;
+    }
+
+    if (this.state.dairy) {
+      options[3].value = true;
+    } else {
+      options[3].value = false;
+    }
+
+    if (this.state.seafood) {
+      options[4].value = true;
+    } else {
+      options[4].value = false;
+    }
+    // let { vegan } = this.state;
+    // let {myVegan} = false;
+    // let {myVeg} = false;
+    // let {myN} = false;
+    // let {myD} = false;
+    // let {myS} = false;
+
     return (
         <div className='AddBackground'>
           <Grid container centered>
             <Grid.Column>
               <AutoForm ref={(ref) => {
                 this.formRef = ref;
-              }} schema={RecipeSchema} onSubmit={this.submit}>
+              }} schema={RecipeSchema1} onSubmit={this.submit}>
                 <Segment>
                   <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
                   <TextField name='name' placeholder='Grilled Cheese'/>
@@ -71,7 +225,30 @@ class AddRecipe extends React.Component {
                   <AddIngredient ingredient={this.props.ingredient}/>
                   <Form.Group grouped>
                     <label>Diet Type</label>
-                    {/*<Form.Checkbox label='Vegan' name = "isVegan" unchecked = {this.state.vegan === false} checked={this.state.vegan === true} onCheck={(e, checked) => this.onChange(checked)}/>*/}
+                    <Form.Checkbox // checked = {vegan.value}
+                                   // defaultChecked = {false}
+                                   // onClick={this.onClickCheckbox.bind(this, 'vegan')}
+                                   // value = {this.state.vegan}
+                                   label = 'Vegan'
+                                   name= 'vegan'
+                                   onChange={ this.handleCheckedv}
+                                   // name = 'isVegan'
+                                   //checked={this.state.vegan.value}
+                                   //checked = {this.state.vegan.checked}
+                                   // onClick={() => !options[0].value}
+                                   // id='vegan'
+
+                    />
+                    <Form.Checkbox label = 'Vegetarian' name= 'Vegetarian' onChange={ this.handleCheckedveg} />
+                    <Form.Checkbox label = 'Nut-Free' name= 'Nut-Free' onChange={ this.handleCheckednut} />
+                    <Form.Checkbox label = 'Non-Dairy' name= 'Non-Dairy' onChange={ this.handleCheckeddairy} />
+                    <Form.Checkbox label = 'Seafood Free' name= 'Seafood Free' onChange={ this.handleCheckedsea} />
+
+
+                    {/*<Form.Checkbox defaultChecked = {false} label = 'Vegetarian' name= 'isVegetarian' onClick={() => !options[1].value}/>*/}
+                    {/*<Form.Checkbox label = 'Nut-Free' onClick={() => !options[2].value}/>*/}
+                    {/*<Form.Checkbox label = 'Non-Dairy' onClick={() => !options[3].value}/>*/}
+                    {/*<Form.Checkbox label = 'Seafood Free' onClick={() => !options[4].value}/>*/}
                     {/*<Form.Checkbox label='Vegetarian' control='input' type='checkbox' value='isVegetarian'/>*/}
                     {/*<Form.Checkbox label='Nut-Free' control='input' type='checkbox' value='isNutFree' />*/}
                     {/*<Form.Checkbox label='Non-Dairy/Lactose Intolerant' control='input' type='checkbox'*/}

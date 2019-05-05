@@ -18,5 +18,5 @@ if (Ingredients.find().count() === 0) {
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Ingredients', function publish() {
-    return Ingredients.find({});
+  return Ingredients.find({});
 });

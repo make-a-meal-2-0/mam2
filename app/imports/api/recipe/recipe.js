@@ -12,6 +12,12 @@ const RecipeSchema = new SimpleSchema({
   time: String,
   servingSize: String,
   directions: String,
+  /*
+  isVegan: Boolean,
+  isVegetarian: Boolean,
+  isNutAllergySafe: Boolean,
+  isSeafoodAllergySafe: Boolean,
+  isDairyAllergySafe: Boolean, */
   owner: [String],
 }, { tracker: Tracker });
 

@@ -24,6 +24,7 @@
       "directions": "Preheat your Foreman Grill for 5 minutes with lid closed. Use the high settings if your grill has the temperature controls.\n\n    Layout tortilla on a flat surface. Cover only half the tortilla with cheese and add chicken, green onions, coriander and tomatoes. Fold other half of the tortilla over the top of the cheese and chicken and then brush both top and bottom with olive oil. Grill for 4 – 6 minutes until cheese is nice and melted and tortilla is golden brown.\n\n    Remove from grill and use a knife or pizza cutter and slice the quesadilla into 4 pieces.\n\n    Serve with sour cream and guacamole.",
       "owner": "john@foo.com"},
 
+
     { "name": "Salmon",
       "tool": "George Foreman Grill",
       "servingSize": "1 Salmon",
@@ -61,7 +62,7 @@
       "owner": ["john@foo.com","admin@foo.com"]}
 
     ],
-  
+
   "defaultIngredients": [
     { "name": "Chicken Quesadilla",
       "ingredient": "Grilled chicken breast pieces"

@@ -1,10 +1,8 @@
 import React from 'react';
-import { Button, Card, Label } from 'semantic-ui-react';
+import { Button, Card, Label, Feed } from 'semantic-ui-react';
 import { Recipes, OwnerSchema } from '/imports/api/recipe/recipe';
-import { Ingredients, IngredientSchema } from '/imports/api/ingredient/ingredient';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
@@ -14,22 +12,38 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import Ingredient from '../components/Ingredient';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class Recipe extends React.Component {
+class RecipesAdmin extends React.Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
     this.insertCallback = this.insertCallback.bind(this);
+    this.delete = this.delete.bind(this);
+    this.deleteCallback = this.deleteCallback.bind(this);
     this.formRef = null;
   }
 
   /** Notify the user of the results of the submit. If successful, clear the form. */
   insertCallback(error) {
     if (error) {
-      Bert.alert({ type: 'danger', message: `Failed to save recipe: ${error.message}` });
+      Bert.alert({ type: 'danger', message: `Save failed: ${error.message}` });
     } else {
-      Bert.alert({ type: 'success', message: 'Recipe saved :D' });
+      Bert.alert({ type: 'success', message: 'Save succeeded' });
       this.formRef.reset();
     }
+  }
+
+  deleteCallback(error) {
+    if (error) {
+      Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` });
+    } else {
+      Bert.alert({ type: 'success', message: 'Delete succeeded' });
+      this.formRef.reset();
+    }
+  }
+
+  delete() {
+    Recipes.remove((this.props.recipe._id),
+        this.deleteCallback);
   }
 
   /** On submit, insert the data. */
@@ -64,20 +78,26 @@ class Recipe extends React.Component {
               </Label>
             </Card.Meta>
             <Card.Meta>
-              {this.props.ingredients.map((ingredients, index) => <Ingredient key={index} ingredients={ingredients}/>)}
+                {this.props.ingredients.map((ingredients, index) => <Ingredient
+                    key={index} ingredients={ingredients}/>)}
             </Card.Meta>
             <Card.Description>
               {this.props.recipe.directions}
             </Card.Description>
             <Card.Content extra>
+            <Button.Group>
+              <Button onClick={this.delete} name='Delete' color='red'>Delete</Button>
             <AutoForm ref={(ref) => {
               this.formRef = ref;
             }} schema={OwnerSchema}
                       onSubmit={this.submit}>
+              <Card.Content extra>
                 <Button value='Save' color='green' onClick={SubmitField}>Save</Button>
+              </Card.Content>
               <ErrorsField/>
               <HiddenField name='owner' value='fakeuser@foo.com'/>
             </AutoForm>
+            </Button.Group>
             </Card.Content>
           </Card.Content>
         </Card>
@@ -86,16 +106,11 @@ class Recipe extends React.Component {
 }
 
 /** Require a document to be passed to this component. */
-Recipe.propTypes = {
+RecipesAdmin.propTypes = {
   recipe: PropTypes.object.isRequired,
   ingredients: PropTypes.array.isRequired,
 };
 
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withTracker(() => {
-  const subscriptionI = Meteor.subscribe('Ingredients');
-  return {
-    readyI: subscriptionI.ready(),
-  };
-})(Recipe);
+export default withRouter(RecipesAdmin);

@@ -15,6 +15,7 @@ import PropTypes from 'prop-types';
 import Ingredient from '../components/Ingredient';
 import AddIngredient from './AddIngredient';
 
+
 // const options = [
 //   { key: 'vegan', text: 'Vegan', value: 'vegan' },
 //   { key: 'vegetarian', text: 'Vegetarian', value: 'vegetarian' },

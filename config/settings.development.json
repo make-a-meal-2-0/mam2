@@ -10,9 +10,10 @@
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
+
   "defaultRecipes": [
     { "name": "Chicken Quesadilla",
-      "tool": "Some Grill",
+      "tool": "George Foreman Grill",
       "servingSize": "1 Quesadilla",
       "time": "20 min",
       "isVegan": false,
@@ -24,15 +25,24 @@
       "owner": "john@foo.com"},
 
     { "name": "Salmon",
-      "ingredient": "Salmon, Cajun seasoning or garlic salt and lemon pepper",
-      "tool": "Some Grill",
+      "tool": "George Foreman Grill",
       "servingSize": "1 Salmon",
-      "time": "30 min",
-      "directions": "Eat",
-      "tools": "Some Grill",
+      "time": " 10 min – Prep time: 2 min – Cook time: 8 min",
+      "directions": "First warm up your Foreman Grill for about 5 minutes with lid closed. Use the high settings if your grill has the temperature controls.\n\n  Now dry rub your salmon on one side. You don’t need any oils or butter. You can use pretty much any seasoning you like. Personally I prefer cajun seasoning. Cajun blackened salmon is just the best. If it’s too spicy for your kids, then garlic salt and lemon pepper will be a good choice.\n\n  Next place your salmon on the grill with the spiced side down. When it’s on the grill, rub the seasoning on the other side of the salmon. Try not to burn your hands.\n\n  Close the lid and let it cook. Good time for salmon fillet is 3-4 minutes and salmon steak 6-8 minutes. I suggest you to cook for the minimum time first and then start to check the salmon for readiness. Salmon fillet is done when it turns opaque and flakes when you stick it with a fork.\n\n  Enjoy your perfectly blackened salmon!",
       "isVegetarian": false,
       "isVegan": false,
-      "isNonDairy": false,
+      "isNutAllergySafe": true,
+      "isDairyAllergySafe": true,
+      "isSeafoodAllergySafe": false,
+      "owner": ["john@foo.com","admin@foo.com"]},
+
+    { "name": "Southwest Chicken Casserole",
+      "tool": "George Foreman Grill",
+      "servingSize": "1",
+      "time": "15 min",
+      "directions": " In a large bowl, combine the chicken, chiles, soup, cheese, onions, salt, pepper and water and pour the mixture into a microwave safe 9x13 inch casserole dish.\n Add the rice. The mixture should be the consistency of soupy pancake batter.\n    Cover the dish with a lid or plastic wrap and microwave for about 15 minutes (depending on the microwave). Serve with mexicorn and green salad if desired.",
+      "isVegetarian": false,
+      "isVegan": false,
       "isNutAllergySafe": true,
       "isDairyAllergySafe": false,
       "isSeafoodAllergySafe": false,
@@ -66,7 +76,41 @@
     },
     { "name": "Salmon",
       "ingredient": "Salmon Fillet"
+    },
+    { "name": "Salmon",
+      "ingredient": "Cajun seasoning or garlic salt and lemon pepper"
+    },
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "1 (5 ounce) can chicken chunks, drained"
+    },
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "1 (4 ounce) can diced green chiles"
+    },
+
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "1 (10.75 ounce) can condensed cream of mushroom soup"
+    },
+
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "2 cups shredded Cheddar cheese"
+    },
+
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "2 tablespoons dried minced onion"
+    },
+
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "salt and pepper to taste"
+    },
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "1 1/4 cups water"
+    },
+
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "2 cups instant rice"
     }
+
+
 
   ],
   "defaultVendors": [

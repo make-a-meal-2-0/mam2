@@ -10,6 +10,7 @@
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
+
   "defaultRecipes": [
     { "name": "Chicken Quesadilla",
       "tool": "Some Grill",
@@ -87,6 +88,7 @@
       "quantity": "",
       "measurement": ""}
   ],
+
   "defaultVendors": [
     { "name": "7-Eleven", "address": "2646 S King St, Honolulu, HI 96826", "phone": "808-947-2747", "operation": "24 Hours", "image": "/images/711.png" },
     { "name": "7-Eleven", "address": "2028 Wilder Ave, Honolulu, HI 96822", "phone": "808-947-9448", "operation": "24 Hours", "image": "/images/711.png" },

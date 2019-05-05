@@ -1,7 +1,7 @@
 import React from 'react';
 import { Recipes, RecipeSchema, RecipeSchema1 } from '/imports/api/recipe/recipe';
 import { Ingredients } from '/imports/api/ingredient/ingredient';
-import { Grid, Segment, Header, Form, Dropdown, } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form, } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
@@ -13,7 +13,6 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import Ingredient from '../components/Ingredient';
-import MyCheckbox from '../components/MyCheckbox';
 import AddIngredient from './AddIngredient';
 
 // const options = [

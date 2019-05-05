@@ -1,8 +1,6 @@
 import React from 'react';
 import { Recipes, RecipeSchema } from '/imports/api/recipe/recipe';
-import { Ingredients, IngredientSchema } from '/imports/api/ingredient/ingredient';
-import { DietType, DietTypeSchema } from '/imports/api/dietType/dietType';
-import { RecipeFull, RecipeFullSchema } from '/imports/api/recipeFull/recipeFull';
+import { Ingredients } from '/imports/api/ingredient/ingredient';
 import { Grid, Segment, Header, Form } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
@@ -13,6 +11,9 @@ import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
+import PropTypes from 'prop-types';
+import Ingredient from '../components/Recipe';
+import AddIngredient from '../components/AddIngredient';
 
 /** Renders the Page for adding a document. */
 class AddRecipe extends React.Component {
@@ -37,43 +38,49 @@ class AddRecipe extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { name, time, directions, servingSize, tool } = data;
-/*    const { ingredient, quantity, measurement } = data;
-    const { isAtkins, isZone, isKeto, isVegan, isNonDairy, isNutFree } = data;
-    const { recipe, ingredients, dietType } = data;*/
+    const {
+      name, time, directions, servingSize, tool, /*isVegan, isVegetarian, isNutAllergySafe,
+      isNutFree, isDairyAllergySafe,*/
+    } = data;
     const owner = Meteor.user().username;
- /*   Ingredients.insert({ ingredient, quantity, measurement }, this.insertCallback);
-    DietType.insert({ isAtkins, isZone, isKeto, isVegan, isNonDairy, isNutFree }, this.insertCallback);*/
-    Recipes.insert({ name, time, directions, owner, servingSize, tool }, this.insertCallback);
-    //RecipeFull.insert({ recipe, ingredients, dietType });
+    Recipes.insert({
+      name, time, directions, owner, servingSize, tool, /*isVegan, isVegetarian, isNutAllergySafe,
+      isNutFree, isDairyAllergySafe,*/
+    }, this.insertCallback);
+    Ingredients.insert(name);
+    this.formRef.reset();
+
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
-    const textStyle = { color: 'white' };
+    const textStyle = { color: 'black' };
     return (
-        <div className='Background'>
+        <div className='AddBackground'>
           <Grid container centered>
             <Grid.Column>
-              <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
               <AutoForm ref={(ref) => {
                 this.formRef = ref;
               }} schema={RecipeSchema} onSubmit={this.submit}>
                 <Segment>
-                  <TextField name='name'/>
-                  <TextField name='time'/>
-                  <TextField name='servingSize'/>
-                  <TextField name='tool' label='Tools Required'/>
+                  <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
+                  <TextField name='name' placeholder='Grilled Cheese'/>
+                  <TextField name='time' placeholder='40-60 minutes'/>
+                  <TextField name='servingSize' label='Serving Size' placeholder='1 Grilled Cheese'/>
+                  <TextField name='tool' label='Tools Required' placeholder='Pan, Knife'/>
+                  <AddIngredient ingredient={this.props.ingredient}/>
                   <Form.Group grouped>
                     <label>Diet Type</label>
-                    <Form.Checkbox label='Atkins' control='input' type='checkbox'/>
-                    <Form.Checkbox label='The Zone' control='input' type='checkbox'/>
-                    <Form.Checkbox label='Ketogenic' control='input' type='checkbox'/>
-                    <Form.Checkbox label='Vegetarian/Vegan' control='input' type='checkbox'/>
-                    <Form.Checkbox label='Non-Dairy/Lactose Intolerant' control='input' type='checkbox'/>
-                    <Form.Checkbox label='Nut-Free' control='input' type='checkbox'/>
+                    {/*<Form.Checkbox label='Vegan' name = "isVegan" unchecked = {this.state.vegan === false} checked={this.state.vegan === true} onCheck={(e, checked) => this.onChange(checked)}/>*/}
+                    {/*<Form.Checkbox label='Vegetarian' control='input' type='checkbox' value='isVegetarian'/>*/}
+                    {/*<Form.Checkbox label='Nut-Free' control='input' type='checkbox' value='isNutFree' />*/}
+                    {/*<Form.Checkbox label='Non-Dairy/Lactose Intolerant' control='input' type='checkbox'*/}
+                                   {/*value='isNonDairy'/>*/}
+                    {/*<Form.Checkbox label='Seafood Free' control='input' type='checkbox'*/}
+                                   {/*value='isSeaFoodFree'/>*/}
+
                   </Form.Group>
-                  <LongTextField name='directions'/>
+                  <LongTextField name='directions' placeholder='Add Sauce'/>
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
                   <HiddenField name='owner' value='fakeuser@foo.com'/>
@@ -86,20 +93,17 @@ class AddRecipe extends React.Component {
   }
 }
 
+/** Require an array of Stuff documents in the props. */
+AddRecipe.propTypes = {
+  ingredient: PropTypes.array.isRequired,
+  // ready: PropTypes.bool.isRequired,
+};
+
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscriptionRecipe = Meteor.subscribe('Recipes');
   const subscriptionIngredient = Meteor.subscribe('Ingredients');
-  const subscriptionDietType = Meteor.subscribe('DietType');
-  const subscriptionRecipeFull = Meteor.subscribe('RecipeFull');
   return {
-    recipe: Recipes.find({}).fetch(),
-/*    ingredient: Ingredients.find({}).fetch(),
-    dietType: DietType.find({}).fetch(),
-    recipefull: RecipeFull.find({}).fetch(), */
-    readyRecipe: subscriptionRecipe.ready(),
-/*  readyIngredient: subscriptionIngredient.ready(),
-    readyDietType: subscriptionDietType.ready(),
-    readyRecipeFull: subscriptionRecipeFull.ready(),*/
+    ingredient: Ingredients.find({}).fetch(),
+    readyIngredient: subscriptionIngredient.ready(),
   };
 })(AddRecipe);

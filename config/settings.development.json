@@ -10,57 +10,139 @@
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
   ],
+
   "defaultRecipes": [
     { "name": "Chicken Quesadilla",
-      "tool": "Some Grill",
+      "tool": "George Foreman Grill",
       "servingSize": "1 Quesadilla",
       "time": "20 min",
+      "isVegan": false,
+      "isVegetarian": false,
+      "isNutAllergySafe": true,
+      "isSeafoodAllergySafe": true,
+      "isDairyAllergySafe": false,
       "directions": "Preheat your Foreman Grill for 5 minutes with lid closed. Use the high settings if your grill has the temperature controls.\n\n    Layout tortilla on a flat surface. Cover only half the tortilla with cheese and add chicken, green onions, coriander and tomatoes. Fold other half of the tortilla over the top of the cheese and chicken and then brush both top and bottom with olive oil. Grill for 4 – 6 minutes until cheese is nice and melted and tortilla is golden brown.\n\n    Remove from grill and use a knife or pizza cutter and slice the quesadilla into 4 pieces.\n\n    Serve with sour cream and guacamole.",
       "owner": "john@foo.com"},
-    
-    { "name": "Chicken Quesadilla",
-      "tool": "Some Grill",
-      "servingSize": "1 Quesadilla",
-      "time": "20 min",
-      "directions": "Preheat your Foreman Grill for 5 minutes with lid closed. Use the high settings if your grill has the temperature controls.\n\n    Layout tortilla on a flat surface. Cover only half the tortilla with cheese and add chicken, green onions, coriander and tomatoes. Fold other half of the tortilla over the top of the cheese and chicken and then brush both top and bottom with olive oil. Grill for 4 – 6 minutes until cheese is nice and melted and tortilla is golden brown.\n\n    Remove from grill and use a knife or pizza cutter and slice the quesadilla into 4 pieces.\n\n    Serve with sour cream and guacamole.",
-      "owner": "john@foo.com"}
+
+
+    { "name": "Salmon",
+      "tool": "George Foreman Grill",
+      "servingSize": "1 Salmon",
+      "time": " 10 min – Prep time: 2 min – Cook time: 8 min",
+      "directions": "First warm up your Foreman Grill for about 5 minutes with lid closed. Use the high settings if your grill has the temperature controls.\n\n  Now dry rub your salmon on one side. You don’t need any oils or butter. You can use pretty much any seasoning you like. Personally I prefer cajun seasoning. Cajun blackened salmon is just the best. If it’s too spicy for your kids, then garlic salt and lemon pepper will be a good choice.\n\n  Next place your salmon on the grill with the spiced side down. When it’s on the grill, rub the seasoning on the other side of the salmon. Try not to burn your hands.\n\n  Close the lid and let it cook. Good time for salmon fillet is 3-4 minutes and salmon steak 6-8 minutes. I suggest you to cook for the minimum time first and then start to check the salmon for readiness. Salmon fillet is done when it turns opaque and flakes when you stick it with a fork.\n\n  Enjoy your perfectly blackened salmon!",
+      "isVegetarian": false,
+      "isVegan": false,
+      "isNutAllergySafe": true,
+      "isDairyAllergySafe": true,
+      "isSeafoodAllergySafe": false,
+      "owner": ["john@foo.com","admin@foo.com"]},
+
+    { "name": "Southwest Chicken Casserole",
+      "tool": "Microwave",
+      "servingSize": "1",
+      "time": "15 min",
+      "directions": " In a large bowl, combine the chicken, chiles, soup, cheese, onions, salt, pepper and water and pour the mixture into a microwave safe 9x13 inch casserole dish.\n Add the rice. The mixture should be the consistency of soupy pancake batter.\n    Cover the dish with a lid or plastic wrap and microwave for about 15 minutes (depending on the microwave). Serve with mexicorn and green salad if desired.",
+      "isVegetarian": false,
+      "isVegan": false,
+      "isNutAllergySafe": true,
+      "isDairyAllergySafe": false,
+      "isSeafoodAllergySafe": false,
+      "owner": ["john@foo.com","admin@foo.com"]},
+
+    { "name": "Microwaved Parmesan Chicken",
+      "tool": "Microwave",
+      "servingSize": "2",
+      "time": "10 min",
+      "directions": "Place chicken in a microwave-safe dish. Top with soy sauce, garlic powder and pepper. Sprinkle with cheese and dot with butter. Cover and cook on high for 4-5 minutes or until a thermometer reads 170°.",
+      "isVegetarian": false,
+      "isVegan": false,
+      "isNutAllergySafe": true,
+      "isDairyAllergySafe": false,
+      "isSeafoodAllergySafe": false,
+      "owner": ["john@foo.com","admin@foo.com"]}
+
     ],
 
   "defaultIngredients": [
     { "name": "Chicken Quesadilla",
-      "ingredients": "Grilled chicken breast pieces",
-      "quantity": "",
-      "measurement": ""},
-
+      "ingredient": "Grilled chicken breast pieces"
+    },
     { "name": "Chicken Quesadilla",
-      "ingredients": "fresh diced tomatoes",
-      "quantity": "1/2",
-      "measurement": "cup"},
-
+      "ingredient": "1/2 cup fresh diced tomatoes"
+    },
+    {
+      "name": "Chicken Quesadilla",
+      "ingredient": "1 teaspoon coriander"
+    },
     { "name": "Chicken Quesadilla",
-      "ingredients": "coriander",
-      "quantity": "1",
-      "measurement": "teaspoon"},
-
+      "ingredient": "2 tablespoons fresh chopped green onions"
+    },
     { "name": "Chicken Quesadilla",
-      "ingredients": "fresh chopped green onions",
-      "quantity": "2",
-      "measurement": "tablespoons"},
-
+      "ingredient": "1 large flour tortilla"
+    },
     { "name": "Chicken Quesadilla",
-      "ingredients": "large flour tortilla",
-      "quantity": "1",
-      "measurement": ""},
-
+      "ingredient": "1/2 cup shredded Mexican cheese "
+    },
     { "name": "Chicken Quesadilla",
-      "ingredients": "shredded Mexican cheese",
-      "quantity": "1/2",
-      "measurement": "cup"},
+      "ingredient": "Olive oil to brush tortilla"
+    },
+    { "name": "Salmon",
+      "ingredient": "Salmon Fillet"
+    },
+    { "name": "Salmon",
+      "ingredient": "Cajun seasoning or garlic salt and lemon pepper"
+    },
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "1 (5 ounce) can chicken chunks, drained"
+    },
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "1 (4 ounce) can diced green chiles"
+    },
 
-    { "name": "Chicken Quesadilla",
-      "ingredients": "Olive oil to brush tortilla",
-      "quantity": "",
-      "measurement": ""}
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "1 (10.75 ounce) can condensed cream of mushroom soup"
+    },
+
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "2 cups shredded Cheddar cheese"
+    },
+
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "2 tablespoons dried minced onion"
+    },
+
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "salt and pepper to taste"
+    },
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "1 1/4 cups water"
+    },
+
+    { "name": "Southwest Chicken Casserole",
+      "ingredient": "2 cups instant rice"
+    },
+
+    { "name": "Microwaved Parmesan Chicken",
+      "ingredient": "2 boneless skinless chicken breast halves (4 ounces each)"
+    },
+    { "name": "Microwaved Parmesan Chicken",
+      "ingredient": "4 teaspoons reduced-sodium soy sauce"
+    },
+    { "name": "Microwaved Parmesan Chicken",
+      "ingredient": "1/4 teaspoon garlic powder"
+    },
+    { "name": "Microwaved Parmesan Chicken",
+      "ingredient": "1/8 teaspoon pepper"
+    },
+    { "name": "Microwaved Parmesan Chicken",
+      "ingredient": "1/4 cup grated Parmesan cheese"
+    },
+    { "name": "Microwaved Parmesan Chicken",
+      "ingredient": "1 teaspoon butter"
+    }
+
+
+
   ],
   "defaultVendors": [
     { "name": "7-Eleven", "address": "2646 S King St, Honolulu, HI 96826", "phone": "808-947-2747", "operation": "24 Hours", "image": "/images/711.png" }

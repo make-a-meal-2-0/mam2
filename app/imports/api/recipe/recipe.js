@@ -10,13 +10,24 @@ const RecipeSchema = new SimpleSchema({
   name: String,
   tool: String,
   time: String,
-  directions: String,
   servingSize: String,
-  owner: String,
+  directions: String,
+  /*
+  isVegan: Boolean,
+  isVegetarian: Boolean,
+  isNutAllergySafe: Boolean,
+  isSeafoodAllergySafe: Boolean,
+  isDairyAllergySafe: Boolean, */
+  owner: [String],
+}, { tracker: Tracker });
+
+const OwnerSchema = new SimpleSchema({
+  owner: [String],
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
 Recipes.attachSchema(RecipeSchema);
+Recipes.attachSchema(OwnerSchema);
 
 /** Make the collection and schema available to other code. */
-export { Recipes, RecipeSchema };
+export { Recipes, RecipeSchema, OwnerSchema };

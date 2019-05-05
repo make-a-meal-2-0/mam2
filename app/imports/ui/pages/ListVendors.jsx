@@ -17,14 +17,16 @@ class ListVendors extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
-          <Header as="h2" textAlign="center" inverted>Vendors</Header>
-          <Card.Group>
-            {this.props.vendors.map((vendor, index) => <Vendor key={index}
-                                                                  vendor={vendor}
-                                                                  />)}
-          </Card.Group>
-        </Container>
+        <div className='Background'>
+          <Container>
+            <Header as="h2" textAlign="center" inverted>Vendors</Header>
+            <Card.Group>
+              {this.props.vendors.map((vendor, index) => <Vendor key={index}
+                                                                 vendor={vendor}
+              />)}
+            </Card.Group>
+          </Container>
+        </div>
     );
   }
 }
@@ -38,10 +40,10 @@ ListVendors.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-   // const subscription = Meteor.subscribe('Vendors');
+  // const subscription = Meteor.subscribe('Vendors');
   Meteor.subscribe('Vendors');
   return {
     vendors: Vendors.find({}).fetch(),
-   // ready: subscription.ready(),
+    // ready: subscription.ready(),
   };
 })(ListVendors);

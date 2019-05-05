@@ -96,7 +96,6 @@ Recipe.propTypes = {
 export default withTracker(() => {
   const subscriptionI = Meteor.subscribe('Ingredients');
   return {
-    ingredients: Ingredients.find({}).fetch(),
     readyI: subscriptionI.ready(),
   };
 })(Recipe);

@@ -13,7 +13,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import Ingredient from '../components/Ingredient';
-import AddIngredient from './AddIngredient';
+import AddIngredient from '../components/AddIngredient';
 
 
 // const options = [
@@ -65,7 +65,7 @@ class AddRecipe extends React.Component {
     this.state = {
         vegan: false,
         vegetarian: false,
-        nut: false ,
+        nut: false,
         dairy: false,
         seafood: false,
       };

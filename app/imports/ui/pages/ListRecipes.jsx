@@ -20,11 +20,11 @@ class ListRecipes extends React.Component {
   renderPage() {
     return (
         <div className='Background'>
-          <Container grid>
+          <Container>
             <Header as='h2' textAlign='center' inverted>List Recipes</Header>
             <Card.Group content>
-              {this.props.recipes.map((recipe) => <Recipe
-                  key={recipe._id}
+              {this.props.recipes.map((recipe, index) => <Recipe
+                  key={index}
                   recipe={recipe}
                   ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
             </Card.Group>

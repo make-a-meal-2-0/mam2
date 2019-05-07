@@ -2,14 +2,10 @@ import React from 'react';
 import { Loader, Header, Icon, Divider, Segment, Container, Label } from 'semantic-ui-react';
 import { Recipes } from '/imports/api/recipe/recipe';
 import { Ingredients } from '/imports/api/ingredient/ingredient';
-import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import IngredientPage from '../components/IngredientPage';
-import IngredientPageList from '../components/IngredientPageList';
-import Recipe from './ListRecipes';
-
 
 /** Renders the Page for editing a single document. */
 class RecipePage extends React.Component {
@@ -37,8 +33,9 @@ class RecipePage extends React.Component {
                   <Label size='medium' color='yellow'> Ingredients </Label>
                 </Header>
               </Divider>
-              {this.props.ingredients.filter(ingredient => (ingredient.name === this.props.recipe.name)).map((ingredients, index) => <IngredientPage key={index} ingredients={ingredients}/>)}
-              {/*{this.props.ingredients.map((ingredients, index) => <IngredientPageList key={index} ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === this.recipe.name))}/>)}*/}
+              {this.props.ingredients.filter(ingredient => (ingredient.name ===
+                  this.props.recipe.name)).map((ingredients, index) => <IngredientPage
+                  key={index} ingredients={ingredients}/>)}
               <Divider horizontal>
                 <Header as='h4'>
                   <Label size='medium' color='yellow'> <Icon name='clock'/>Preparation Time </Label>

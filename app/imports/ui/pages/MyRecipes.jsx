@@ -18,7 +18,7 @@ class MyRecipes extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <div className='Background'>
+        <div className='ListBackground'>
           <Container>
             <Header as='h2' textAlign='center' inverted>List Recipes</Header>
             <Card.Group content>

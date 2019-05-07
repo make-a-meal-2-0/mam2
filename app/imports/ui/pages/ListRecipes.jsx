@@ -51,13 +51,16 @@ class ListRecipes extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const { vegan, vegetarian, nut, dairy, seafood } = this.state;
-    // const veganRecipes = this.props.recipes.filter(recipe => (recipe.isVegan === true));
-    // const mappedV = veganRecipes.map((recipe) => <Recipe
-    //     key={recipe._id}
-    //     recipe={recipe}
-    //     ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>);
-    // console.log(veganRecipes);
-    // console.log(mappedV);
+    const final = this.props.recipes.filter(recipe =>
+        (
+            (recipe.isVegan && vegan) ||
+            (recipe.isVegetarian && vegetarian) ||
+            (recipe.isNutAllergySafe && nut) ||
+            (recipe.isDairyAllergySafe && dairy) ||
+            (recipe.isSeafoodAllergySafe && seafood)
+        ),
+    );
+
     return (
         <div className='Background'>
           <Container>
@@ -86,36 +89,41 @@ class ListRecipes extends React.Component {
                      {/*recipe={recipe}*/}
                      {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}*/}
               <Card.Group>
-                {vegan ? (
-                    this.props.recipes.filter(recipe => (recipe.isVegan === true)).map((recipe) => <Recipe
-                        key={recipe._id}
-                        recipe={recipe}
-                        ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)
-                ) : null}
-                {vegetarian ? (
-                    this.props.recipes.filter(recipe => (recipe.isVegetarian === true)).map((recipe) => <Recipe
-                        key={recipe._id}
-                        recipe={recipe}
-                        ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)
-                ) : null}
-                {nut ? (
-                    this.props.recipes.filter(recipe => (recipe.isNutAllergySafe === true)).map((recipe) => <Recipe
-                        key={recipe._id}
-                        recipe={recipe}
-                        ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)
-                ) : null}
-                {dairy ? (
-                    this.props.recipes.filter(recipe => (recipe.isDairyAllergySafe === true)).map((recipe) => <Recipe
-                        key={recipe._id}
-                        recipe={recipe}
-                        ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)
-                ) : null}
-                {seafood ? (
-                    this.props.recipes.filter(recipe => (recipe.isSeafoodAllergySafe === true)).map((recipe) => <Recipe
-                        key={recipe._id}
-                        recipe={recipe}
-                        ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)
-                ) : null}
+                {final.map((recipe) => <Recipe
+                  key={recipe._id}
+                  recipe={recipe}
+                  ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
+
+                {/*{vegan ? (*/}
+                    {/*this.props.recipes.filter(recipe => (recipe.isVegan === true)).map((recipe) => <Recipe*/}
+                        {/*key={recipe._id}*/}
+                        {/*recipe={recipe}*/}
+                        {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)*/}
+                {/*) : null}*/}
+                {/*{vegetarian ? (*/}
+                    {/*this.props.recipes.filter(recipe => (recipe.isVegetarian === true)).map((recipe) => <Recipe*/}
+                        {/*key={recipe._id}*/}
+                        {/*recipe={recipe}*/}
+                        {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)*/}
+                {/*) : null}*/}
+                {/*{nut ? (*/}
+                    {/*this.props.recipes.filter(recipe => (recipe.isNutAllergySafe === true)).map((recipe) => <Recipe*/}
+                        {/*key={recipe._id}*/}
+                        {/*recipe={recipe}*/}
+                        {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)*/}
+                {/*) : null}*/}
+                {/*{dairy ? (*/}
+                    {/*this.props.recipes.filter(recipe => (recipe.isDairyAllergySafe === true)).map((recipe) => <Recipe*/}
+                        {/*key={recipe._id}*/}
+                        {/*recipe={recipe}*/}
+                        {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)*/}
+                {/*) : null}*/}
+                {/*{seafood ? (*/}
+                    {/*this.props.recipes.filter(recipe => (recipe.isSeafoodAllergySafe === true)).map((recipe) => <Recipe*/}
+                        {/*key={recipe._id}*/}
+                        {/*recipe={recipe}*/}
+                        {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)*/}
+                {/*) : null}*/}
               </Card.Group>
 
              {/*</Card.Group>*/}

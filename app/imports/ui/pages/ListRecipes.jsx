@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Card, Divider, Checkbox, Grid, Visibility, Ref} from 'semantic-ui-react';
+import { Container, Header, Card, Divider, Checkbox, Grid, Visibility, Ref, Segment} from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Recipes } from '/imports/api/recipe/recipe';
@@ -10,17 +10,25 @@ import Recipe from '../components/Recipe';
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListRecipes extends React.Component {
   state = {
-    calculations: {
-      visible: false,
-    },
-    showVegan: true,
-  }
-  
-
-  handleUpdate = (e, { calculations }) => this.setState({ calculations })
+    vegan: false,
+    // vegetarian: false,
+    // nut: false,
+    // dairy: false,
+    // seafood: false,
+    // gforeman: false,
+    // microwave: false,
+    // toaster: false,
+    //
+    // {this.props.recipes.map((recipe) => <Recipe
+    //     key={recipe._id}
+    //     recipe={recipe}
+    //     ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
+    //
+    //props.recipes.filter(recipe => (recipe.isVegan === true))
+  };
 
   handleVegan = (e, { checked }) =>
-      this.setState({ showVegan: checked })
+      this.setState({ vegan: checked })
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -30,7 +38,7 @@ class ListRecipes extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const { calculations, showVegan } = this.state
+    const { vegan } = this.state;
     return (
 
         <div className='Background'>
@@ -38,7 +46,7 @@ class ListRecipes extends React.Component {
             <Header as='h2' textAlign='center' inverted>List Recipes</Header>
             <Grid>
               <Grid.Column width={2}>
-            <Checkbox toggle label = 'Vegan' />
+            <Checkbox toggle label = 'Vegan' checked={vegan} onChange={this.handleVegan} />
               </Grid.Column>
               <Grid.Column width={2}>
                 <Checkbox toggle label = 'Vegetarian' />
@@ -55,16 +63,23 @@ class ListRecipes extends React.Component {
             <Divider/>
             </Grid>
             <Card.Group content>
-              {this.props.recipes.filter(recipe => (.map((recipe, index) => <Recipe
-                  key={index}
-                  recipe={recipe}
-                  ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
+              {(vegan) ? (
+                  {this.props.}
+                )
+              ) : null }
+
             </Card.Group>
           </Container>
         </div>
     );
   }
 }
+
+// {this.props.recipes.filter(recipe => (recipe.isVegan === true)).map((recipe) => <Recipe
+//     key={recipe._id}
+//     recipe={recipe}
+//     ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}}
+
 
 /** Require an array of Stuff documents in the props. */
 ListRecipes.propTypes = {
@@ -85,3 +100,4 @@ export default withTracker(() => {
     ready: (subscriptionR.ready() && subscriptionI.ready()),
   };
 })(ListRecipes);
+

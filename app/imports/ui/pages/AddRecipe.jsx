@@ -12,8 +12,7 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import Ingredient from '../components/Ingredient';
-import AddIngredient from './AddIngredient';
+import AddIngredient from '/imports/ui/components/AddIngredient';
 
 
 // const options = [
@@ -32,67 +31,30 @@ const options = [
   { key: 'isSeafoodFree', text: 'Seafood', value: false },
 ];
 
-
 /** Renders the Page for adding a document. */
 class AddRecipe extends React.Component {
-
-  // const options = [
-  //   { key: 'isVegan', text: 'Vegan' , value:'isVegan', isChosen:false}
-  // ]
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
-  /** Bind 'this' so that a ref to the Form can be saved in formRef and communicated between render() and submit(). */
+  /** Bind 'this' so that a ref to the Form can be saved in formRef and
+   * communicated between render() and submit(). */
   constructor(props) {
     super(props);
-    // this.state = {isChecked: false};
-    //this.handleChecked = this.handleCheck.bind(this);
+
     this.handleCheckedv = this.handleCheckedv.bind(this);
     this.handleCheckedveg = this.handleCheckedveg.bind(this);
     this.handleCheckednut = this.handleCheckednut.bind(this);
     this.handleCheckeddairy = this.handleCheckeddairy.bind(this);
     this.handleCheckedsea = this.handleCheckedsea.bind(this);
-    // this.state.vegan = {isChecked: false};
-    // this.state.vegetarian = {isChecked: false};
-    // this.state.nut = {isChecked: false};
-    // this.state.dairy = {isChecked: false};
-    // this.state.seafood = {isChecked: false};
-    // this.state = {
-    //   vegan: { isChecked: false },
-    //   vegetarian: { isChecked: false },
-    //   nut: { isChecked: false },
-    //   dairy: { isChecked: false },
-    //   seafood: { isChecked: false },
-    // };
     this.state = {
-        vegan: false,
-        vegetarian: false,
-        nut: false ,
-        dairy: false,
-        seafood: false,
-      };
+      vegan: false,
+      vegetarian: false,
+      nut: false,
+      dairy: false,
+      seafood: false,
+    };
     this.submit = this.submit.bind(this);
     this.insertCallback = this.insertCallback.bind(this);
     this.formRef = null;
   }
-
-  // onClickCheckbox(name) {
-  //   this.setState({
-  //     [name]: !this.state[name],
-  //   });
-  // }
-
-//   myFunction() {
-//   //Get the checkbox
-//     let checkBox = document.getElementById('myCheck');
-//      Get the output text
-//     let text = document.getElementById('text');
-//
-//     // If the checkbox is checked, display the output text
-//     if (checkBox.checked == true){
-//       text.style.display = "block";
-//     } else {
-//       text.style.display = "none";
-//     }
-//   }
 
   /** Notify the user of the results of the submit. If successful, clear the form. */
   insertCallback(error) {
@@ -104,70 +66,43 @@ class AddRecipe extends React.Component {
     }
   }
 
-    // handleChecked (data) {
-    //   this.setState(
-    //       { data: { isChecked: false }}
-    //
-    //       );
+  handleCheckedv() {
+    this.setState({ vegan: !this.state.vegan });
+  }
 
-  // handleCheckedv () {
-  //   this.setState(
-  //       { vegan: { isChecked: false }}
-  //   { vegetarian: { isChecked: false }}
-  //   { nut: { isChecked: false }}
-  //   { dairy: { isChecked: false }}
-  //   { vegan: { isChecked: false }}
-  //
-  //       );
-//}
+  handleCheckedveg() {
+    this.setState({ vegetarian: !this.state.vegetarian });
+  }
 
-handleCheckedv () {
-  this.setState({ vegan: !this.state.vegan});
-}
-  handleCheckedveg () {
-    this.setState({ vegetarian: !this.state.vegetarian});
+  handleCheckednut() {
+    this.setState({ nut: !this.state.nut });
   }
-  handleCheckednut () {
-    this.setState({ nut: !this.state.nut});
+
+  handleCheckeddairy() {
+    this.setState({ dairy: !this.state.dairy });
   }
-  handleCheckeddairy () {
-    this.setState({ dairy: !this.state.dairy});
-  }
-  handleCheckedsea () {
-    this.setState({ seafood: !this.state.fish});
+
+  handleCheckedsea() {
+    this.setState({ seafood: !this.state.fish });
   }
 
   /** On submit, insert the data. */
   submit(data) {
-     const isVegan = options[0].value /*isVegetarian, isNutFree, isDairyAllergySafe, isSeafoodFree*/;
+    const isVegan = options[0].value
     const isVegetarian = options[1].value;
     const isNutAllergySafe = options[2].value;
     const isDairyAllergySafe = options[3].value;
     const isSeafoodAllergySafe = options[4].value;
-    // const isVegetarian = true;
-    // const isNutAllergySafe = true;
-    // const isDairyAllergySafe = true;
-    // const isSeafoodAllergySafe = true;
-    // if (options.vegan.valueOf() === 'vegan') {
-    //   isVegan = true;
-    // } else {
-    //   isVegan = false;
-    // }
     const {
-      name, time, directions, servingSize, tool, /*isVegan, isVegetarian,
-      isNutAllergySafe, isSeaFoodAllergySafe, isDairyAllergySafe,*/
+      name, time, directions, servingSize, tool,
     } = data;
     const owner = Meteor.user().username;
     Recipes.insert({
-      name, time, directions, owner, servingSize, tool, isVegan, isVegetarian,
-      isNutAllergySafe, isSeafoodAllergySafe, isDairyAllergySafe,
+      name, time, directions, owner, servingSize, tool,
     }, this.insertCallback);
-    Ingredients.insert(name);
     this.formRef.reset();
 
   }
-
-
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
@@ -268,6 +203,47 @@ handleCheckedv () {
         </div>
     );
   }
+}
+
+    return (
+        <div className='AddBackground'>
+          <Grid container centered>
+            <Grid.Column>
+              <AutoForm ref={(ref) => {
+                this.formRef = ref;
+              }} schema={RecipeSchema} onSubmit={this.submit}>
+                <Segment>
+                  <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
+                  <TextField name='name' label='Recipe Name' placeholder='Grilled Cheese'/>
+                  <TextField name='time' placeholder='40-60 minutes'/>
+                  <TextField name='servingSize' label='Serving Size' placeholder='1 Grilled Cheese, 3 People...'/>
+                  <TextField name='tool' label='Tools Required' placeholder='Pan, Knife'/>
+                  <AddIngredient ingredient={this.props.ingredient}/>
+                  <Form.Group grouped>
+                    <label>Diet Type</label>
+                    <Form.Checkbox
+                        label='Vegan'
+                        name='vegan'
+                        onChange={this.handleCheckedv}
+                    />
+                    <Form.Checkbox label='Vegetarian' name='Vegetarian' onChange={this.handleCheckedveg}/>
+                    <Form.Checkbox label='Nut-Free' name='Nut-Free' onChange={this.handleCheckednut}/>
+                    <Form.Checkbox label='Non-Dairy' name='Non-Dairy' onChange={this.handleCheckeddairy}/>
+                    <Form.Checkbox label='Seafood Free' name='Seafood Free' onChange={this.handleCheckedsea}/>
+
+                  </Form.Group>
+                  <LongTextField name='directions' placeholder='Preheat Oven to 450 degrees... Cook...'/>
+                  <SubmitField value='Submit'/>
+                  <ErrorsField/>
+                  <HiddenField name='owner' value='fakeuser@foo.com'/>
+                </Segment>
+              </AutoForm>
+            </Grid.Column>
+          </Grid>
+        </div>
+    );
+  }
+
 }
 
 /** Require an array of Stuff documents in the props. */

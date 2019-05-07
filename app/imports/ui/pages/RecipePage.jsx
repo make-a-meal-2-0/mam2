@@ -8,7 +8,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import IngredientPage from '../components/IngredientPage';
 import IngredientPageList from '../components/IngredientPageList';
-import Ingredient from '../components/Recipe';
 
 
 /** Renders the Page for editing a single document. */
@@ -37,9 +36,11 @@ class RecipePage extends React.Component {
                   <Label size='medium' color='yellow'> Ingredients </Label>
                 </Header>
               </Divider>
-              {this.props.ingredients.map((ingredients, index) => <IngredientPage
-                  key={index}
-                  ingredients={ingredients}/>).filter(ingredient => (ingredient.name === this.props.recipe.name))}
+              {this.props.ingredients.map((recipe) => <IngredientPageList
+                  key={recipe._id}
+                  recipe={recipe}
+                  ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
+
               <Divider horizontal>
                 <Header as='h4'>
                   <Label size='medium' color='yellow'> <Icon name='clock'/>Preparation Time </Label>

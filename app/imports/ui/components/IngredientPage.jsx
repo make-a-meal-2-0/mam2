@@ -1,5 +1,5 @@
 import React from 'react';
-import { Label } from 'semantic-ui-react';
+import { Label, Container } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -8,9 +8,11 @@ class IngredientPage extends React.Component {
 
   render() {
     return (
-        <Label tab color='orange'>
+        <Container>
+          <Label ribbon color='orange'>
             {this.props.ingredients.ingredient}
-        </Label>
+          </Label>
+        </Container>
     );
   }
 }

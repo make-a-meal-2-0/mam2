@@ -20,7 +20,7 @@ class ListRecipes extends React.Component {
   renderPage() {
     return (
         <div className='Background'>
-          <Container grid>
+          <Container>
             <Header as='h2' textAlign='center' inverted>List Recipes</Header>
             <Card.Group content>
               {this.props.recipes.map((recipe) => <Recipe

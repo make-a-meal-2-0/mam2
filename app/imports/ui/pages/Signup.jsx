@@ -5,16 +5,17 @@ import { Accounts } from 'meteor/accounts-base';
 import { Menu } from 'semantic-ui-react/dist/commonjs/collections/Menu';
 
 
-const options = [
-  { key: 'isVegan', text: 'Vegan', value: false },
-  { key: 'isVegetarian', text: 'Vegetarian', value: false },
-  { key: 'isNutFree', text: 'Nut', value: false },
-  { key: 'isDairyAllergyFree', text: 'Dairy', value: false },
-  { key: 'isSeafoodFree', text: 'Seafood', value: false },
-  { key: 'isGForeman', text: 'GForeman', value: false },
-  { key: 'isMicrowave', text: 'Microwave', value: false },
-  { key: 'isToasterOven', text: 'Toaster Oven', value: false },
-];
+// const options = [
+//   { key: 'isVegan', text: 'Vegan', value: false },
+//   { key: 'isVegetarian', text: 'Vegetarian', value: false },
+//   { key: 'isNutFree', text: 'Nut', value: false },
+//   { key: 'isDairyAllergyFree', text: 'Dairy', value: false },
+//   { key: 'isSeafoodFree', text: 'Seafood', value: false },
+//   { key: 'isGForeman', text: 'GForeman', value: false },
+//   { key: 'isMicrowave', text: 'Microwave', value: false },
+//   { key: 'isToasterOven', text: 'Toaster Oven', value: false },
+// ];
+
 /**
  * Signup component is similar to signin component, but we attempt to create a new user instead.
  */

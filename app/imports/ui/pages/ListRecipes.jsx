@@ -61,9 +61,21 @@ class ListRecipes extends React.Component {
               </Grid.Column>
               <Divider/>
             </Grid>
-            <Card.Group content>
+            {/*<Card.Group content>*/}
+               {/*{this.props.recipes.map((recipe) => <Recipe*/}
+                     {/*key={recipe._id}*/}
+                     {/*recipe={recipe}*/}
+                     {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}*/}
 
-            </Card.Group>
+              {vegan ? (
+                  <Card.Group>
+                    {this.props.recipes.filter(recipe => (recipe.isVegan === true)).map((recipe) => <Recipe
+                        key={recipe._id}
+                        recipe={recipe}
+                        ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
+                  </Card.Group>
+              ) : null}
+             {/*</Card.Group>*/}
           </Container>
         </div>
     );

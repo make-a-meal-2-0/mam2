@@ -16,26 +16,6 @@ function createUser(email, password, role) {
   }
 }
 
-Accounts.onCreateUser((options, user) => {
-  const customizedUser = Object.assign({
-    vegan: options.vegan,
-    vegetarian: options.vegetarian,
-    nut: options.nut,
-    dairy: options.dairy,
-    seafood: options.seafood,
-    gforeman: options.gforeman,
-    microwave: options.microwave,
-    toaster: options.toaster,
-  }, user);
-
-  // We still want the default hook's 'profile' behavior.
-  if (options.profile) {
-    customizedUser.profile = options.profile;
-  }
-
-  return customizedUser;
-});
-
 /** When running app for first time, pass a settings file to set up a default user account. */
 if (Meteor.users.find().count() === 0) {
   if (Meteor.settings.defaultAccounts) {

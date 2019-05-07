@@ -144,7 +144,7 @@ class AddRecipe extends React.Component {
             <Grid.Column>
               <AutoForm ref={(ref) => {
                 this.formRef = ref;
-              }} schema={RecipeSchema} onSubmit={this.submit}>
+              }} schema={RecipeSchema1} onSubmit={this.submit}>
                 <Segment>
                   <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
                   <TextField name='name' placeholder='Grilled Cheese'/>

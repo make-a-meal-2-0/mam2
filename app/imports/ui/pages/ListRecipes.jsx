@@ -11,10 +11,10 @@ import Recipe from '../components/Recipe';
 class ListRecipes extends React.Component {
   state = {
     vegan: false,
-    // vegetarian: false,
-    // nut: false,
-    // dairy: false,
-    // seafood: false,
+    vegetarian: false,
+    nut: false,
+    dairy: false,
+    seafood: false,
     // gforeman: false,
     // microwave: false,
     // toaster: false,
@@ -30,6 +30,18 @@ class ListRecipes extends React.Component {
   handleVegan = (e, { checked }) =>
       this.setState({ vegan: checked })
 
+  handleVege = (e, { checked }) =>
+      this.setState({ vegetarian: checked })
+
+  handleNut = (e, { checked }) =>
+      this.setState({ nut: checked })
+
+  handleDairy = (e, { checked }) =>
+      this.setState({ dairy: checked })
+
+  handleSea = (e, { checked }) =>
+      this.setState({ seafood: checked })
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     // return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -38,7 +50,14 @@ class ListRecipes extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const { vegan } = this.state;
+    const { vegan, vegetarian, nut, dairy, seafood } = this.state;
+    // const veganRecipes = this.props.recipes.filter(recipe => (recipe.isVegan === true));
+    // const mappedV = veganRecipes.map((recipe) => <Recipe
+    //     key={recipe._id}
+    //     recipe={recipe}
+    //     ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>);
+    // console.log(veganRecipes);
+    // console.log(mappedV);
     return (
         <div className='Background'>
           <Container>
@@ -48,16 +67,16 @@ class ListRecipes extends React.Component {
                 <Checkbox toggle label = 'Vegan' checked={vegan} onChange={this.handleVegan} />
               </Grid.Column>
               <Grid.Column width={2}>
-                <Checkbox toggle label = 'Vegetarian' />
+                <Checkbox toggle label = 'Vegetarian' checked={vegetarian} onChange={this.handleVege} />
               </Grid.Column>
               <Grid.Column width={2}>
-                <Checkbox toggle label = 'Nut Free' />
+                <Checkbox toggle label = 'Nut Free' checked={nut} onChange={this.handleNut} />
               </Grid.Column>
               <Grid.Column width={2}>
-                <Checkbox toggle label = 'Dairy Free' />
+                <Checkbox toggle label = 'Dairy Free' checked={dairy} onChange={this.handleDairy} />
               </Grid.Column>
               <Grid.Column width={2}>
-                <Checkbox toggle label = 'Seafood Free' />
+                <Checkbox toggle label = 'Seafood Free' checked={seafood} onChange={this.handleSea} />
               </Grid.Column>
               <Divider/>
             </Grid>
@@ -66,15 +85,39 @@ class ListRecipes extends React.Component {
                      {/*key={recipe._id}*/}
                      {/*recipe={recipe}*/}
                      {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}*/}
-
-              {vegan ? (
-                  <Card.Group>
-                    {this.props.recipes.filter(recipe => (recipe.isVegan === true)).map((recipe) => <Recipe
+              <Card.Group>
+                {vegan ? (
+                    this.props.recipes.filter(recipe => (recipe.isVegan === true)).map((recipe) => <Recipe
                         key={recipe._id}
                         recipe={recipe}
-                        ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
-                  </Card.Group>
-              ) : null}
+                        ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)
+                ) : null}
+                {vegetarian ? (
+                    this.props.recipes.filter(recipe => (recipe.isVegetarian === true)).map((recipe) => <Recipe
+                        key={recipe._id}
+                        recipe={recipe}
+                        ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)
+                ) : null}
+                {nut ? (
+                    this.props.recipes.filter(recipe => (recipe.isNutAllergySafe === true)).map((recipe) => <Recipe
+                        key={recipe._id}
+                        recipe={recipe}
+                        ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)
+                ) : null}
+                {dairy ? (
+                    this.props.recipes.filter(recipe => (recipe.isDairyAllergySafe === true)).map((recipe) => <Recipe
+                        key={recipe._id}
+                        recipe={recipe}
+                        ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)
+                ) : null}
+                {seafood ? (
+                    this.props.recipes.filter(recipe => (recipe.isSeafoodAllergySafe === true)).map((recipe) => <Recipe
+                        key={recipe._id}
+                        recipe={recipe}
+                        ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)
+                ) : null}
+              </Card.Group>
+
              {/*</Card.Group>*/}
           </Container>
         </div>
@@ -107,4 +150,3 @@ export default withTracker(() => {
     ready: (subscriptionR.ready() && subscriptionI.ready()),
   };
 })(ListRecipes);
-

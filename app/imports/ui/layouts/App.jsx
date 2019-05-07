@@ -13,6 +13,7 @@ import ListRecipesAdmin from '../pages/ListRecipesAdmin';
 import AddRecipe from '../pages/AddRecipe';
 import MyRecipes from '../pages/MyRecipes';
 import EditStuff from '../pages/EditStuff';
+import RecipePage from '../pages/RecipePage';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -29,11 +30,12 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
-              <Route path="/searchR" component={ListRecipes}/>
+              <Route path="/recipes" component={ListRecipes}/>
               <ProtectedRoute path="/list" component={MyRecipes}/>
               <ProtectedRoute path="/add" component={AddRecipe}/>
               <Route path="/searchV" component={ListVendors}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <Route path="/r/:_id" component={RecipePage}/>
               <AdminProtectedRoute path="/admin" component={ListRecipesAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>

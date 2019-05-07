@@ -1,7 +1,7 @@
 import React from 'react';
-import { Recipes, RecipeSchema } from '/imports/api/recipe/recipe';
+import { Recipes, RecipeSchema, RecipeSchema1 } from '/imports/api/recipe/recipe';
 import { Ingredients } from '/imports/api/ingredient/ingredient';
-import { Grid, Segment, Header, Form } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form, } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
@@ -12,6 +12,10 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
+<<<<<<< HEAD
+=======
+import Ingredient from '../components/Ingredient';
+>>>>>>> master
 import AddIngredient from '../components/AddIngredient';
 
 const options = [
@@ -130,6 +134,52 @@ class AddRecipe extends React.Component {
     } else {
       options[4].value = false;
     }
+    // let { vegan } = this.state;
+    // let {myVegan} = false;
+    // let {myVeg} = false;
+    // let {myN} = false;
+    // let {myD} = false;
+    // let {myS} = false;
+
+    return (
+        <div className='AddBackground'>
+          <Grid container centered>
+            <Grid.Column>
+              <AutoForm ref={(ref) => {
+                this.formRef = ref;
+              }} schema={RecipeSchema} onSubmit={this.submit}>
+                <Segment>
+                  <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
+                  <TextField name='name' placeholder='Grilled Cheese'/>
+                  <TextField name='time' placeholder='40-60 minutes'/>
+                  <TextField name='servingSize' label='Serving Size' placeholder='1 Grilled Cheese'/>
+                  <TextField name='tool' label='Tools Required' placeholder='Pan, Knife'/>
+                  <AddIngredient ingredient={this.props.ingredient}/>
+                  <Form.Group grouped>
+                    <label>Diet Type</label>
+                    <Form.Checkbox
+                        label='Vegan'
+                        name='vegan'
+                        onChange={this.handleCheckedv}
+                    />
+                    <Form.Checkbox label='Vegetarian' name='Vegetarian' onChange={this.handleCheckedveg}/>
+                    <Form.Checkbox label='Nut-Free' name='Nut-Free' onChange={this.handleCheckednut}/>
+                    <Form.Checkbox label='Non-Dairy' name='Non-Dairy' onChange={this.handleCheckeddairy}/>
+                    <Form.Checkbox label='Seafood Free' name='Seafood Free' onChange={this.handleCheckedsea}/>
+                  </Form.Group>
+                  <LongTextField name='directions' placeholder='Add Sauce'/>
+                  <SubmitField value='Submit'/>
+                  <ErrorsField/>
+                  <HiddenField name='owner' value='fakeuser@foo.com'/>
+                </Segment>
+              </AutoForm>
+            </Grid.Column>
+          </Grid>
+        </div>
+    );
+  }
+}
+
 
     return (
         <div className='AddBackground'>

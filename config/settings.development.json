@@ -821,8 +821,15 @@
 
 
   ],
+
   "defaultVendors": [
-    { "name": "7-Eleven", "address": "2646 S King St, Honolulu, HI 96826", "phone": "808-947-2747", "operation": "24 Hours", "image": "/images/711.png" }
+    { "name": "7-Eleven", "address": "2646 S King St, Honolulu, HI 96826", "phone": "808-947-2747", "operation": "24 Hours", "image": "/images/711.png" },
+    { "name": "7-Eleven", "address": "2028 Wilder Ave, Honolulu, HI 96822", "phone": "808-947-9448", "operation": "24 Hours", "image": "/images/711.png" },
+    { "name": "Aloha Island Mart", "address": "1001 Kapahulu Ave, Honolulu, HI 96816", "phone": "808-733-7677", "operation": "24 Hours", "image": "/images/aloha_island_mart.jpg" },
+    { "name": "Safeway", "address": "2855 E Manoa Rd, Honolulu, HI 96822", "phone": "808-988-2058", "operation": "24 Hours", "image": "/images/safeway.png" },
+    { "name": "Nijiya Market", "address": "1009 University Ave #101, Honolulu, HI 96826", "phone": "808-979-8977", "operation": "9AM-9PM, Everyday", "image": "/images/nijiya.jpeg" },
+    { "name": "Down to Earth", "address": "2525 S King St, Honolulu, HI 96826", "phone": "808-947-7678", "operation": "7AM-10PM, Everyday", "image": "/images/down_to_earth.jpg" },
+    { "name": "Foodland", "address": "2939 Harding Ave, Honolulu, HI 96816", "phone": "808-734-6303", "operation": "5AM-1AM, Everyday", "image": "/images/foodland.jpeg" }
   ]
 }
 

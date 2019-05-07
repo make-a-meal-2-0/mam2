@@ -55,8 +55,8 @@ class ListRecipes extends React.Component {
             <Divider/>
             </Grid>
             <Card.Group content>
-              {this.props.recipes.filter(recipe => (.map((recipe, index) => <Recipe
-                  key={index}
+              {this.props.recipes.map((recipe) => <Recipe
+                  key={recipe._id}
                   recipe={recipe}
                   ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
             </Card.Group>

@@ -44,11 +44,13 @@ class AddIngredient extends React.Component {
         }} schema={IngredientSchema} onSubmit={this.submit}>
           <Segment>
             <TextField
+                icon='spoon'
+                placeholder='Grilled Cheese' label="Recipe Name" name='name'/>
+            <TextField
                 icon='food'
                 placeholder='2 ounces of milk' label="Ingredient (Amount, Name, Measurement)" name='ingredient'/>
             <Button value='Add Ingredient' label='Add Ingredient' icon='plus' color='green' onClick={this.submit}/>
             <ErrorsField/>
-            <HiddenField name='name' value='Something'/>
           </Segment>
         </AutoForm>
     );

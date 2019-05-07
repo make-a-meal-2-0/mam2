@@ -170,6 +170,7 @@ class AddRecipe extends React.Component {
   }
 }
 
+
 /** Require an array of Stuff documents in the props. */
 AddRecipe.propTypes = {
   ingredient: PropTypes.array.isRequired,

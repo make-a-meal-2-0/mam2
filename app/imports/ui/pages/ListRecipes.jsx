@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Card, Divider, Checkbox, Grid, Visibility, Ref, Segment} from 'semantic-ui-react';
+import { Container, Header, Card, Divider, Checkbox, Grid, Visibility, Ref, Segment } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Recipes } from '/imports/api/recipe/recipe';
@@ -15,32 +15,17 @@ class ListRecipes extends React.Component {
     nut: false,
     dairy: false,
     seafood: false,
-    // gforeman: false,
-    // microwave: false,
-    // toaster: false,
-    //
-    // {this.props.recipes.map((recipe) => <Recipe
-    //     key={recipe._id}
-    //     recipe={recipe}
-    //     ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
-    //
-    //props.recipes.filter(recipe => (recipe.isVegan === true))
   };
 
-  handleVegan = (e, { checked }) =>
-      this.setState({ vegan: checked })
+  handleVegan = (e, { checked }) => this.setState({ vegan: checked })
 
-  handleVege = (e, { checked }) =>
-      this.setState({ vegetarian: checked })
+  handleVege = (e, { checked }) => this.setState({ vegetarian: checked })
 
-  handleNut = (e, { checked }) =>
-      this.setState({ nut: checked })
+  handleNut = (e, { checked }) => this.setState({ nut: checked })
 
-  handleDairy = (e, { checked }) =>
-      this.setState({ dairy: checked })
+  handleDairy = (e, { checked }) => this.setState({ dairy: checked })
 
-  handleSea = (e, { checked }) =>
-      this.setState({ seafood: checked })
+  handleSea = (e, { checked }) => this.setState({ seafood: checked })
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -51,15 +36,12 @@ class ListRecipes extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const { vegan, vegetarian, nut, dairy, seafood } = this.state;
-    const final = this.props.recipes.filter(recipe =>
-        (
+    const final = this.props.recipes.filter(recipe => (
             (recipe.isVegan && vegan) ||
             (recipe.isVegetarian && vegetarian) ||
             (recipe.isNutAllergySafe && nut) ||
             (recipe.isDairyAllergySafe && dairy) ||
-            (recipe.isSeafoodAllergySafe && seafood)
-        ),
-    );
+            (recipe.isSeafoodAllergySafe && seafood)));
 
     return (
         <div className='Background'>
@@ -67,78 +49,33 @@ class ListRecipes extends React.Component {
             <Header as='h2' textAlign='center' inverted>List Recipes</Header>
             <Grid>
               <Grid.Column width={2}>
-                <Checkbox toggle label = 'Vegan' checked={vegan} onChange={this.handleVegan} />
+                <Checkbox toggle label='Vegan' checked={vegan} onChange={this.handleVegan}/>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Checkbox toggle label = 'Vegetarian' checked={vegetarian} onChange={this.handleVege} />
+                <Checkbox toggle label='Vegetarian' checked={vegetarian} onChange={this.handleVege}/>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Checkbox toggle label = 'Nut Free' checked={nut} onChange={this.handleNut} />
+                <Checkbox toggle label='Nut Free' checked={nut} onChange={this.handleNut}/>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Checkbox toggle label = 'Dairy Free' checked={dairy} onChange={this.handleDairy} />
+                <Checkbox toggle label='Dairy Free' checked={dairy} onChange={this.handleDairy}/>
               </Grid.Column>
               <Grid.Column width={2}>
-                <Checkbox toggle label = 'Seafood Free' checked={seafood} onChange={this.handleSea} />
+                <Checkbox toggle label='Seafood Free' checked={seafood} onChange={this.handleSea}/>
               </Grid.Column>
               <Divider/>
             </Grid>
-            {/*<Card.Group content>*/}
-               {/*{this.props.recipes.map((recipe) => <Recipe*/}
-                     {/*key={recipe._id}*/}
-                     {/*recipe={recipe}*/}
-                     {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}*/}
-              <Card.Group>
-                {final.map((recipe) => <Recipe
+            <Card.Group>
+              {final.map((recipe) => <Recipe
                   key={recipe._id}
                   recipe={recipe}
                   ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
-
-                {/*{vegan ? (*/}
-                    {/*this.props.recipes.filter(recipe => (recipe.isVegan === true)).map((recipe) => <Recipe*/}
-                        {/*key={recipe._id}*/}
-                        {/*recipe={recipe}*/}
-                        {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)*/}
-                {/*) : null}*/}
-                {/*{vegetarian ? (*/}
-                    {/*this.props.recipes.filter(recipe => (recipe.isVegetarian === true)).map((recipe) => <Recipe*/}
-                        {/*key={recipe._id}*/}
-                        {/*recipe={recipe}*/}
-                        {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)*/}
-                {/*) : null}*/}
-                {/*{nut ? (*/}
-                    {/*this.props.recipes.filter(recipe => (recipe.isNutAllergySafe === true)).map((recipe) => <Recipe*/}
-                        {/*key={recipe._id}*/}
-                        {/*recipe={recipe}*/}
-                        {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)*/}
-                {/*) : null}*/}
-                {/*{dairy ? (*/}
-                    {/*this.props.recipes.filter(recipe => (recipe.isDairyAllergySafe === true)).map((recipe) => <Recipe*/}
-                        {/*key={recipe._id}*/}
-                        {/*recipe={recipe}*/}
-                        {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)*/}
-                {/*) : null}*/}
-                {/*{seafood ? (*/}
-                    {/*this.props.recipes.filter(recipe => (recipe.isSeafoodAllergySafe === true)).map((recipe) => <Recipe*/}
-                        {/*key={recipe._id}*/}
-                        {/*recipe={recipe}*/}
-                        {/*ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)*/}
-                {/*) : null}*/}
-              </Card.Group>
-
-             {/*</Card.Group>*/}
+            </Card.Group>
           </Container>
         </div>
     );
   }
 }
-
-// {this.props.recipes.filter(recipe => (recipe.isVegan === true)).map((recipe) => <Recipe
-//     key={recipe._id}
-//     recipe={recipe}
-//     ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}}
-
-
 /** Require an array of Stuff documents in the props. */
 ListRecipes.propTypes = {
   recipes: PropTypes.array.isRequired,

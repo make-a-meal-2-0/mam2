@@ -1,5 +1,5 @@
 import React from 'react';
-import { Loader, Header, Table, Icon, Divider,Segment } from 'semantic-ui-react';
+import { Loader, Header, Text, Icon, Divider, Segment } from 'semantic-ui-react';
 import { Recipes } from '/imports/api/recipe/recipe';
 import { Ingredients } from '/imports/api/ingredient/ingredient';
 import { Bert } from 'meteor/themeteorchef:bert';
@@ -7,6 +7,8 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import IngredientPage from '../components/IngredientPage';
+import Recipe from './ListRecipes';
+import Ingredient from '../components/Recipe';
 
 /** Renders the Page for editing a single document. */
 class RecipePage extends React.Component {
@@ -21,49 +23,58 @@ class RecipePage extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-        <div className='Background'>
-        <React.Fragment>
+        <div className='RecipeBackground'>
+          <React.Fragment>
+            <Segment>
+              <Divider horizontal>
+                <Header as='h4'>
+                  <Icon name='food'/>
+                  {this.props.recipe.name}
+                </Header>
+              </Divider>
+              <Divider horizontal>
+                <Header as='h4'>
+                  <Icon name='food'/>
+                  Ingredients
+                </Header>
+              </Divider>
+              {this.props.ingredients.map((recipe) => <IngredientPage
+                  key={recipe._id}
+                  recipe={recipe}
+                  ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
 
-          <Divider horizontal >
-            <Header as='h4'>
-              <Icon name='food' />
-              {this.props.recipe.name}
-            </Header>
-          </Divider>
+              <Divider horizontal>
+                <Header as='h4'>
+                  <Icon name='clock'/>
+                  Preparation Time
+                </Header>
+              </Divider>
+              <Text> {this.props.recipe.time} </Text>
 
-          <Table>
-            <Table.Body>
-              <Table.Row>
-                <Table.Cell>Ingredients</Table.Cell>
-                <Table.Cell>
-                  {this.props.ingredients.map((ingredients, index) => <Segment><IngredientPage
-                      key={index} ingredients={ingredients}/></Segment>)}
-                </Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell width={2}>Preparation Time</Table.Cell>
-                <Table.Cell>{this.props.recipe.time}</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>Serving Size</Table.Cell>
-                <Table.Cell>{this.props.recipe.servingSize}</Table.Cell>
-              </Table.Row>
-              <Table.Row>
-                <Table.Cell>Tools</Table.Cell>
-                <Table.Cell>{this.props.recipe.tools}</Table.Cell>
-              </Table.Row>
-            </Table.Body>
-          </Table>
-          <Divider horizontal>
-            <Header as='h4'>
-              <Icon name='spoon' />
-              Directions
-            </Header>
-          </Divider>
-          <Segment inverted color='red' >
-            {this.props.recipe.directions}
-          </Segment>
-        </React.Fragment>
+              <Divider horizontal>
+                <Header as='h4'>
+                  <Icon name='spoon'/>
+                  Serving Size
+                </Header>
+              </Divider>
+              <Text> {this.props.recipe.servingSize} </Text>
+
+              <Divider horizontal>
+                <Header as='h4'>
+                  <Icon name='spoon'/>
+                  Tools
+                </Header>
+              </Divider>
+              <Text> {this.props.recipe.tool} </Text>
+              <Divider horizontal>
+                <Header as='h4'>
+                  <Icon name='spoon'/>
+                  Directions
+                </Header>
+              </Divider>
+              {this.props.recipe.directions}
+            </Segment>
+          </React.Fragment>
         </div>
     );
   }
@@ -83,6 +94,7 @@ export default withTracker(({ match }) => {
   // Get access to Ingredient and Recipes documents.
   const subscriptionIngredient = Meteor.subscribe('Ingredients');
   const subscription = Meteor.subscribe('Recipes');
+  Meteor.subscribe('ListRecipes');
   return {
     recipe: Recipes.findOne({ _id: documentId }),
     ingredients: Ingredients.find({}).fetch(),

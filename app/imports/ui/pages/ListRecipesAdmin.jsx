@@ -21,7 +21,7 @@ class ListRecipesAdmin extends React.Component {
     return (
         <div className='Background'>
           <Container>
-            <Header as='h2' textAlign='center' inverted>List Recipes</Header>
+            <Header as='h2' textAlign='center' inverted>Admin Control of Recipes</Header>
             <Card.Group content>
               {this.props.recipes.map((recipe, index) => <RecipesAdmin
                   key={index}

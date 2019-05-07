@@ -6,7 +6,6 @@ import { Dropdown } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
-    const logoStyle = { color: 'yellow' };
     return (
         <div className='Background'>
           <Grid verticalAlign='middle' textAlign='center' column={1} stackable container>

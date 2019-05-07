@@ -1,9 +1,7 @@
 import React from 'react';
 import { Button, Card, Label } from 'semantic-ui-react';
 import { Recipes, OwnerSchema } from '/imports/api/recipe/recipe';
-import { Ingredients, IngredientSchema } from '/imports/api/ingredient/ingredient';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import SubmitField from 'uniforms-semantic/SubmitField';

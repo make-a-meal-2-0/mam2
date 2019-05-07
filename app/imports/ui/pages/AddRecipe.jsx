@@ -21,7 +21,6 @@ const options = [
   { key: 'isDairyAllergyFree', text: 'Dairy', value: false },
   { key: 'isSeafoodFree', text: 'Seafood', value: false },
 ];
-
     /** Renders the Page for adding a document. */
     class AddRecipe extends React.Component {
       /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -167,6 +166,7 @@ const options = [
             </div>
         );
       }
+
     }
 
 /** Require an array of Stuff documents in the props. */

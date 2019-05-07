@@ -65,7 +65,7 @@ class AddRecipe extends React.Component {
                   <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
                   <TextField name='name' label='Recipe Name' placeholder='Grilled Cheese'/>
                   <TextField name='time' placeholder='40-60 minutes'/>
-                  <TextField name='servingSize' label='Serving Size' placeholder='1 Grilled Cheese'/>
+                  <TextField name='servingSize' label='Serving Size' placeholder='1 Grilled Cheese, 3 People...'/>
                   <TextField name='tool' label='Tools Required' placeholder='Pan, Knife'/>
                   <AddIngredient ingredient={this.props.ingredient}/>
                   <Form.Group grouped>

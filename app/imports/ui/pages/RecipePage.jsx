@@ -1,5 +1,5 @@
 import React from 'react';
-import { Loader, Header, Text, Icon, Divider, Segment } from 'semantic-ui-react';
+import { Loader, Header, Icon, Divider, Segment, Container, Label } from 'semantic-ui-react';
 import { Recipes } from '/imports/api/recipe/recipe';
 import { Ingredients } from '/imports/api/ingredient/ingredient';
 import { Bert } from 'meteor/themeteorchef:bert';
@@ -28,14 +28,12 @@ class RecipePage extends React.Component {
             <Segment>
               <Divider horizontal>
                 <Header as='h4'>
-                  <Icon name='food'/>
-                  {this.props.recipe.name}
+                  <Label size='massive' color='red'> <Icon name='food'/> {this.props.recipe.name} </Label>
                 </Header>
               </Divider>
               <Divider horizontal>
                 <Header as='h4'>
-                  <Icon name='food'/>
-                  Ingredients
+                  <Label size='medium' color='yellow'> Ingredients </Label>
                 </Header>
               </Divider>
               {this.props.ingredients.map((recipe) => <IngredientPage
@@ -45,34 +43,30 @@ class RecipePage extends React.Component {
 
               <Divider horizontal>
                 <Header as='h4'>
-                  <Icon name='clock'/>
-                  Preparation Time
+                  <Label size='medium' color='yellow'> <Icon name='clock'/>Preparation Time </Label>
                 </Header>
               </Divider>
-              <Text> {this.props.recipe.time} </Text>
+              <Container> {this.props.recipe.time} </Container>
 
               <Divider horizontal>
                 <Header as='h4'>
-                  <Icon name='spoon'/>
-                  Serving Size
+                  <Label size='medium' color='yellow'> <Icon name='balance'/> Serving Size </Label>
                 </Header>
               </Divider>
-              <Text> {this.props.recipe.servingSize} </Text>
+              <Container> {this.props.recipe.servingSize} </Container>
 
               <Divider horizontal>
                 <Header as='h4'>
-                  <Icon name='spoon'/>
-                  Tools
+                  <Label size='medium' color='yellow'><Icon name='beer'/> Tools </Label>
                 </Header>
               </Divider>
-              <Text> {this.props.recipe.tool} </Text>
+              <Container> {this.props.recipe.tool} </Container>
               <Divider horizontal>
                 <Header as='h4'>
-                  <Icon name='spoon'/>
-                  Directions
+                  <Label size='medium' color='yellow'><Icon name='clipboard'/> Directions </Label>
                 </Header>
               </Divider>
-              {this.props.recipe.directions}
+              <Container>{this.props.recipe.directions}</Container>
             </Segment>
           </React.Fragment>
         </div>

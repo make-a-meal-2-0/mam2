@@ -21,13 +21,23 @@ const RecipeSchema = new SimpleSchema({
   owner: [String],
 }, { tracker: Tracker });
 
+const RecipeSchema1 = new SimpleSchema({
+  name: String,
+  tool: String,
+  time: String,
+  servingSize: String,
+  directions: String,
+  owner: [String],
+}, { tracker: Tracker });
+
 const OwnerSchema = new SimpleSchema({
   owner: [String],
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
 Recipes.attachSchema(RecipeSchema);
+Recipes.attachSchema(RecipeSchema1);
 Recipes.attachSchema(OwnerSchema);
 
 /** Make the collection and schema available to other code. */
-export { Recipes, RecipeSchema, OwnerSchema };
+export { Recipes, RecipeSchema, RecipeSchema1, OwnerSchema };

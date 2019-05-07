@@ -9,6 +9,16 @@
   font-family: 'proxima-nova-soft', sans-serif;
 }
 
+.SignBackground {
+  background: url('/images/MiddleCenter.jpg') center center no-repeat fixed;;
+  background-size: cover;
+  color: black;
+  font-weight: bolder;
+  height: 700px;
+  margin-top: 1px;
+  font-family: 'proxima-nova-soft', sans-serif;
+}
+
 .AddBackground {
   background: url('/images/MiddleCenter.jpg') center center no-repeat fixed;;
   background-size: cover;

@@ -12,7 +12,9 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import AddIngredient from '/imports/ui/components/AddIngredient';
+import Ingredient from '../components/Ingredient';
+import AddIngredient from '../components/AddIngredient';
+
 
 const options = [
   { key: 'isVegan', text: 'Vegan', value: false },
@@ -166,6 +168,171 @@ const options = [
             </div>
         );
       }
+
+
+
+/** Renders the Page for adding a document. */
+class AddRecipe extends React.Component {
+
+  // const options = [
+  //   { key: 'isVegan', text: 'Vegan' , value:'isVegan', isChosen:false}
+  // ]
+  /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
+  /** Bind 'this' so that a ref to the Form can be saved in formRef and communicated between render() and submit(). */
+  constructor(props) {
+    super(props);
+    // this.state = {isChecked: false};
+    //this.handleChecked = this.handleCheck.bind(this);
+    this.handleCheckedv = this.handleCheckedv.bind(this);
+    this.handleCheckedveg = this.handleCheckedveg.bind(this);
+    this.handleCheckednut = this.handleCheckednut.bind(this);
+    this.handleCheckeddairy = this.handleCheckeddairy.bind(this);
+    this.handleCheckedsea = this.handleCheckedsea.bind(this);
+    // this.state.vegan = {isChecked: false};
+    // this.state.vegetarian = {isChecked: false};
+    // this.state.nut = {isChecked: false};
+    // this.state.dairy = {isChecked: false};
+    // this.state.seafood = {isChecked: false};
+    // this.state = {
+    //   vegan: { isChecked: false },
+    //   vegetarian: { isChecked: false },
+    //   nut: { isChecked: false },
+    //   dairy: { isChecked: false },
+    //   seafood: { isChecked: false },
+    // };
+    this.state = {
+        vegan: false,
+        vegetarian: false,
+        nut: false,
+        dairy: false,
+        seafood: false,
+      };
+    this.submit = this.submit.bind(this);
+    this.insertCallback = this.insertCallback.bind(this);
+    this.formRef = null;
+  }
+
+  // onClickCheckbox(name) {
+  //   this.setState({
+  //     [name]: !this.state[name],
+  //   });
+  // }
+
+//   myFunction() {
+//   //Get the checkbox
+//     let checkBox = document.getElementById('myCheck');
+//      Get the output text
+//     let text = document.getElementById('text');
+//
+//     // If the checkbox is checked, display the output text
+//     if (checkBox.checked == true){
+//       text.style.display = "block";
+//     } else {
+//       text.style.display = "none";
+//     }
+//   }
+
+  /** Notify the user of the results of the submit. If successful, clear the form. */
+  insertCallback(error) {
+    if (error) {
+      Bert.alert({ type: 'danger', message: `Add failed: ${error.message}` });
+    } else {
+      Bert.alert({ type: 'success', message: 'Add succeeded' });
+      this.formRef.reset();
+    }
+  }
+
+    // handleChecked (data) {
+    //   this.setState(
+    //       { data: { isChecked: false }}
+    //
+    //       );
+
+  // handleCheckedv () {
+  //   this.setState(
+  //       { vegan: { isChecked: false }}
+  //   { vegetarian: { isChecked: false }}
+  //   { nut: { isChecked: false }}
+  //   { dairy: { isChecked: false }}
+  //   { vegan: { isChecked: false }}
+  //
+  //       );
+//}
+
+handleCheckedv () {
+  this.setState({ vegan: !this.state.vegan});
+}
+  handleCheckedveg () {
+    this.setState({ vegetarian: !this.state.vegetarian});
+  }
+  handleCheckednut () {
+    this.setState({ nut: !this.state.nut});
+  }
+  handleCheckeddairy () {
+    this.setState({ dairy: !this.state.dairy});
+  }
+  handleCheckedsea () {
+    this.setState({ seafood: !this.state.fish});
+  }
+
+  /** On submit, insert the data. */
+  submit(data) {
+     const isVegan = options[0].value /*isVegetarian, isNutFree, isDairyAllergySafe, isSeafoodFree*/;
+    const isVegetarian = options[1].value;
+    const isNutAllergySafe = options[2].value;
+    const isDairyAllergySafe = options[3].value;
+    const isSeafoodAllergySafe = options[4].value;
+    // const isVegetarian = true;
+    // const isNutAllergySafe = true;
+    // const isDairyAllergySafe = true;
+    // const isSeafoodAllergySafe = true;
+    // if (options.vegan.valueOf() === 'vegan') {
+    //   isVegan = true;
+    // } else {
+    //   isVegan = false;
+    // }
+    const {
+      name, time, directions, servingSize, tool, /*isVegan, isVegetarian,
+      isNutAllergySafe, isSeaFoodAllergySafe, isDairyAllergySafe,*/
+    } = data;
+    const owner = Meteor.user().username;
+    Recipes.insert({
+      name, time, directions, owner, servingSize, tool, isVegan, isVegetarian,
+      isNutAllergySafe, isSeafoodAllergySafe, isDairyAllergySafe,
+    }, this.insertCallback);
+    Ingredients.insert(name);
+    this.formRef.reset();
+
+  }
+
+
+
+  /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
+  render() {
+    const textStyle = { color: 'black' };
+
+    if (this.state.vegan) {
+      options[0].value = true;
+    } else {
+      options[0].value = false;
+    }
+
+    if (this.state.vegetarian) {
+      options[1].value = true;
+    } else {
+      options[1].value = false;
+    }
+
+    if (this.state.nut) {
+      options[2].value = true;
+    } else {
+      options[2].value = false;
+    }
+
+    if (this.state.dairy) {
+      options[3].value = true;
+    } else {
+      options[3].value = false;
 
     }
 

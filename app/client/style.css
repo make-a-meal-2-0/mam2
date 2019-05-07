@@ -10,12 +10,20 @@
   font-family: 'proxima-nova-soft', sans-serif;
 }
 
+.SignBackground {
+  background: url('/images/MiddleCenter.jpg') center center no-repeat fixed;;
+  background-size: cover;
+  color: black;
+  font-weight: bolder;
+  margin-top: 1px;
+  font-family: 'proxima-nova-soft', sans-serif;
+}
+
 .AddBackground {
   background: url('/images/MiddleCenter.jpg') center center no-repeat fixed;;
   background-size: cover;
   color: white;
   font-weight: bold;
-  height: 1250px;
   font-family: 'proxima-nova-soft', sans-serif;
 }
 
@@ -24,10 +32,17 @@
   background-size: cover;
   color: black;
   font-weight: bolder;
-  height: 1000px;
   font-family: 'proxima-nova-soft', sans-serif;
 }
 
+.ListBackground {
+  background: url('/images/MiddleCenter.jpg') center center no-repeat fixed;;
+  background-size: cover;
+  color: white;
+  font-weight: bolder;
+  margin-top: 1px;
+  font-family: 'proxima-nova-soft', sans-serif;
+}
 .Navbar {
   font-family: 'proxima-nova-soft', sans-serif;
   font-weight: bold;

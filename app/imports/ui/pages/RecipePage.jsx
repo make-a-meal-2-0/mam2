@@ -7,8 +7,6 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import IngredientPage from '../components/IngredientPage';
-import Recipe from './ListRecipes';
-import Ingredient from '../components/Recipe';
 
 /** Renders the Page for editing a single document. */
 class RecipePage extends React.Component {

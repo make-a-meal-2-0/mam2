@@ -1,7 +1,7 @@
 import React from 'react';
-import { Recipes, RecipeSchema, RecipeSchema1 } from '/imports/api/recipe/recipe';
+import { Recipes, RecipeSchema } from '/imports/api/recipe/recipe';
 import { Ingredients } from '/imports/api/ingredient/ingredient';
-import { Grid, Segment, Header, Form, } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
@@ -130,12 +130,6 @@ class AddRecipe extends React.Component {
     } else {
       options[4].value = false;
     }
-    // let { vegan } = this.state;
-    // let {myVegan} = false;
-    // let {myVeg} = false;
-    // let {myN} = false;
-    // let {myD} = false;
-    // let {myS} = false;
 
     return (
         <div className='AddBackground'>
@@ -158,10 +152,10 @@ class AddRecipe extends React.Component {
                         name='vegan'
                         onChange={this.handleCheckedv}
                     />
-                    <Form.Checkbox label='Vegetarian' name='Vegetarian' onChange={this.handleCheckedveg}/>
-                    <Form.Checkbox label='Nut-Free' name='Nut-Free' onChange={this.handleCheckednut}/>
-                    <Form.Checkbox label='Non-Dairy' name='Non-Dairy' onChange={this.handleCheckeddairy}/>
-                    <Form.Checkbox label='Seafood Free' name='Seafood Free' onChange={this.handleCheckedsea}/>
+                    <Form.Checkbox label = 'Vegetarian' name= 'Vegetarian' onChange={ this.handleCheckedveg} />
+                    <Form.Checkbox label = 'Nut-Free' name= 'Nut-Free' onChange={ this.handleCheckednut} />
+                    <Form.Checkbox label = 'Non-Dairy' name= 'Non-Dairy' onChange={ this.handleCheckeddairy} />
+                    <Form.Checkbox label = 'Seafood Free' name= 'Seafood Free' onChange={ this.handleCheckedsea} />
                   </Form.Group>
                   <LongTextField name='directions' placeholder='Add Sauce'/>
                   <SubmitField value='Submit'/>

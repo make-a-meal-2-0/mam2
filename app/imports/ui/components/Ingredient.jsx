@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from 'semantic-ui-react';
+import { List, Label } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -9,7 +9,9 @@ class Ingredient extends React.Component {
   render() {
     return (
         <List bulleted>
-          <List.Item>{this.props.ingredients.ingredient}</List.Item>
+          <List.Item>
+            <Label color='yellow' ribbon>{this.props.ingredients.ingredient}</Label>
+          </List.Item>
         </List>
     );
   }

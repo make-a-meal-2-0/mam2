@@ -5,8 +5,6 @@
   background-size: cover;
   color: white;
   font-weight: bolder;
-<<<<<<< HEAD
-=======
   height: 700px;
   margin-top: 1px;
   font-family: 'proxima-nova-soft', sans-serif;
@@ -17,18 +15,33 @@
   background-size: cover;
   color: black;
   font-weight: bolder;
->>>>>>> parent of 50e8a5b... Merge branch 'master' into issue-15
   height: 700px;
   margin-top: 1px;
   font-family: 'proxima-nova-soft', sans-serif;
 }
 
+.ListBackground {
+  background: url('/images/MiddleCenter.jpg') center center no-repeat fixed;;
+  background-size: cover;
+  color: white;
+  font-weight: bold;
+  font-family: 'proxima-nova-soft', sans-serif;
+}
+
+.RecipeBackground {
+  background: url('/images/MiddleCenter.jpg') center center no-repeat fixed;;
+  background-size: cover;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'proxima-nova-soft', sans-serif;
+}
 .AddBackground {
   background: url('/images/MiddleCenter.jpg') center center no-repeat fixed;;
   background-size: cover;
   color: white;
   font-weight: bold;
-  height: 1250px;
+  height: 1500px;
   font-family: 'proxima-nova-soft', sans-serif;
 }
 

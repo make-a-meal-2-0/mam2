@@ -144,79 +144,6 @@ class AddRecipe extends React.Component {
             <Grid.Column>
               <AutoForm ref={(ref) => {
                 this.formRef = ref;
-              }} schema={RecipeSchema1} onSubmit={this.submit}>
-                <Segment>
-                  <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
-                  <TextField name='name' placeholder='Grilled Cheese'/>
-                  <TextField name='time' placeholder='40-60 minutes'/>
-                  <TextField name='servingSize' label='Serving Size' placeholder='1 Grilled Cheese'/>
-                  <TextField name='tool' label='Tools Required' placeholder='Pan, Knife'/>
-                  <AddIngredient ingredient={this.props.ingredient}/>
-                  <Form.Group grouped>
-                    <label>Diet Type</label>
-                    <Form.Checkbox // checked = {vegan.value}
-                        // defaultChecked = {false}
-                        // onClick={this.onClickCheckbox.bind(this, 'vegan')}
-                        // value = {this.state.vegan}
-                        label = 'Vegan'
-                        name= 'vegan'
-                        onChange={ this.handleCheckedv}
-                        // name = 'isVegan'
-                        //checked={this.state.vegan.value}
-                        //checked = {this.state.vegan.checked}
-                        // onClick={() => !options[0].value}
-                        // id='vegan'
-
-                    />
-                    <Form.Checkbox label = 'Vegetarian' name= 'Vegetarian' onChange={ this.handleCheckedveg} />
-                    <Form.Checkbox label = 'Nut-Free' name= 'Nut-Free' onChange={ this.handleCheckednut} />
-                    <Form.Checkbox label = 'Non-Dairy' name= 'Non-Dairy' onChange={ this.handleCheckeddairy} />
-                    <Form.Checkbox label = 'Seafood Free' name= 'Seafood Free' onChange={ this.handleCheckedsea} />
-
-
-                    {/*<Form.Checkbox defaultChecked = {false} label = 'Vegetarian' name= 'isVegetarian' onClick={() => !options[1].value}/>*/}
-                    {/*<Form.Checkbox label = 'Nut-Free' onClick={() => !options[2].value}/>*/}
-                    {/*<Form.Checkbox label = 'Non-Dairy' onClick={() => !options[3].value}/>*/}
-                    {/*<Form.Checkbox label = 'Seafood Free' onClick={() => !options[4].value}/>*/}
-                    {/*<Form.Checkbox label='Vegetarian' control='input' type='checkbox' value='isVegetarian'/>*/}
-                    {/*<Form.Checkbox label='Nut-Free' control='input' type='checkbox' value='isNutFree' />*/}
-                    {/*<Form.Checkbox label='Non-Dairy/Lactose Intolerant' control='input' type='checkbox'*/}
-                    {/*value='isNonDairy'/>*/}
-                    {/*<Form.Checkbox label='Seafood Free' control='input' type='checkbox'*/}
-                    {/*value='isSeaFoodFree'/>*/}
-
-                  </Form.Group>
-                  <LongTextField name='directions' placeholder='Add Sauce'/>
-                  <SubmitField value='Submit'/>
-                  <ErrorsField/>
-                  <HiddenField name='owner' value='fakeuser@foo.com'/>
-                </Segment>
-              </AutoForm>
-            </Grid.Column>
-          </Grid>
-        </div>
-    );
-  }
-}
-
-    if (this.state.dairy) {
-      options[3].value = true;
-    } else {
-      options[3].value = false;
-    }
-
-    if (this.state.seafood) {
-      options[4].value = true;
-    } else {
-      options[4].value = false;
-    }
-
-    return (
-        <div className='AddBackground'>
-          <Grid container centered>
-            <Grid.Column>
-              <AutoForm ref={(ref) => {
-                this.formRef = ref;
               }} schema={RecipeSchema} onSubmit={this.submit}>
                 <Segment>
                   <Header as="h2" textAlign="center" style={textStyle}>Add Recipe</Header>
@@ -231,13 +158,11 @@ class AddRecipe extends React.Component {
                         label='Vegan'
                         name='vegan'
                         onChange={this.handleCheckedv}
-
                     />
                     <Form.Checkbox label='Vegetarian' name='Vegetarian' onChange={this.handleCheckedveg}/>
                     <Form.Checkbox label='Nut-Free' name='Nut-Free' onChange={this.handleCheckednut}/>
                     <Form.Checkbox label='Non-Dairy' name='Non-Dairy' onChange={this.handleCheckeddairy}/>
                     <Form.Checkbox label='Seafood Free' name='Seafood Free' onChange={this.handleCheckedsea}/>
-
                   </Form.Group>
                   <LongTextField name='directions' placeholder='Add Sauce'/>
                   <SubmitField value='Submit'/>
@@ -251,6 +176,7 @@ class AddRecipe extends React.Component {
     );
   }
 }
+
 
 /** Require an array of Stuff documents in the props. */
 AddRecipe.propTypes = {

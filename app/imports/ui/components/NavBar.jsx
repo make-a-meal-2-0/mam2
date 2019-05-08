@@ -13,13 +13,15 @@ class NavBar extends React.Component {
   render() {
     const menuStyle = { backgroundColor: '#dc100f' };
     return (
+        <div className='Navbar'>
           <Menu style={menuStyle} attached="top" borderless inverted>
             <Menu.Item as={NavLink} activeClassName="" exact to="/">
               <Image size='tiny' src="/images/Icon.PNG"/>
             </Menu.Item>
             {this.props.currentUser ? (
                 [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Recipe</Menu.Item>,
-                  <Menu.Item as={NavLink} activeClassName="active" exact to="/myrecipes" key='myrecipes'>My Recipes</Menu.Item>,
+                  <Menu.Item as={NavLink} activeClassName="active"
+                             exact to="/myrecipes" key='myrecipes'>My Recipes</Menu.Item>,
                   <Menu.Item as={NavLink} activeClassName="active" exact to="/listrecipes"
                              key='listrecipes'>Recipes</Menu.Item>,
                   <Menu.Item as={NavLink} activeClassName="active" exact to="/searchV"
@@ -27,7 +29,8 @@ class NavBar extends React.Component {
                 ]
             ) : ''}
             {this.props.currentUser === '' ? (
-                [<Menu.Item as={NavLink} activeClassName="active" exact to="/listrecipes" key='listrecipes'>Recipes</Menu.Item>,
+                [<Menu.Item as={NavLink} activeClassName="active"
+                            exact to="/listrecipes" key='listrecipes'>Recipes</Menu.Item>,
                   <Menu.Item as={NavLink} activeClassName="active" exact to="/searchV"
                              key='searchV'>Vendors</Menu.Item>]
             ) : ''}
@@ -53,6 +56,7 @@ class NavBar extends React.Component {
               )}
             </Menu.Item>
           </Menu>
+        </div>
     );
   }
 }

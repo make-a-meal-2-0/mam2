@@ -63,7 +63,7 @@ class ListRecipes extends React.Component {
               </Grid.Column>
               <Divider/>
             </Grid>
-            <Card.Group>
+            <Card.Group center>
               {final.map((recipe) => <Recipe
                   key={recipe._id}
                   recipe={recipe}

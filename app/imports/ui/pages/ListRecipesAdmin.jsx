@@ -22,7 +22,7 @@ class ListRecipesAdmin extends React.Component {
         <div className='ListBackground'>
           <Container>
             <Header as='h2' textAlign='center' inverted>Admin Control of Recipes</Header>
-            <Card.Group content>
+            <Card.Group center>
               {this.props.recipes.map((recipe, index) => <RecipesAdmin
                   key={index}
                   recipe={recipe}

@@ -20,7 +20,7 @@ class MyRecipes extends React.Component {
     return (
         <div className='ListBackground'>
           <Container>
-            <Header as='h2' textAlign='center' inverted>List Recipes</Header>
+            <Header as='h2' textAlign='center' inverted>My Recipes</Header>
             <Card.Group content>
               {this.props.recipes.map((recipe, index) => <Recipe
                   key={index}

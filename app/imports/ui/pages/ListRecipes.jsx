@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Card, Divider, Checkbox, Grid, Visibility, Ref, Segment } from 'semantic-ui-react';
+import { Container, Header, Card, Divider, Checkbox, Grid } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Recipes } from '/imports/api/recipe/recipe';
@@ -29,7 +29,6 @@ class ListRecipes extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    // return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
     return this.renderPage();
   }
 
@@ -37,35 +36,35 @@ class ListRecipes extends React.Component {
   renderPage() {
     const { vegan, vegetarian, nut, dairy, seafood } = this.state;
     const final = this.props.recipes.filter(recipe => ((recipe.isVegan && vegan) ||
-        (recipe.isVegetarian && vegetarian) ||
-        (recipe.isNutAllergySafe && nut) ||
-        (recipe.isDairyAllergySafe && dairy) ||
-        (recipe.isSeafoodAllergySafe && seafood)));
+            (recipe.isVegetarian && vegetarian) ||
+            (recipe.isNutAllergySafe && nut) ||
+            (recipe.isDairyAllergySafe && dairy) ||
+            (recipe.isSeafoodAllergySafe && seafood)));
 
     return (
-        <div className='ListBackground'>
+        <div className='Background'>
           <Container>
             <Header as='h2' textAlign='center' inverted>List Recipes</Header>
             <Grid>
               <Grid.Column width={2}>
-                <Checkbox toggle label='Vegan' checked={vegan} onChange={this.handleVegan}/>
+                <Checkbox toggle label = 'Vegan' checked={vegan} onChange={this.handleVegan} />
               </Grid.Column>
               <Grid.Column width={2}>
-                <Checkbox toggle label='Vegetarian' checked={vegetarian} onChange={this.handleVege}/>
+                <Checkbox toggle label = 'Vegetarian' checked={vegetarian} onChange={this.handleVege} />
               </Grid.Column>
               <Grid.Column width={2}>
-                <Checkbox toggle label='Nut Free' checked={nut} onChange={this.handleNut}/>
+                <Checkbox toggle label = 'Nut Free' checked={nut} onChange={this.handleNut} />
               </Grid.Column>
               <Grid.Column width={2}>
-                <Checkbox toggle label='Dairy Free' checked={dairy} onChange={this.handleDairy}/>
+                <Checkbox toggle label = 'Dairy Free' checked={dairy} onChange={this.handleDairy} />
               </Grid.Column>
               <Grid.Column width={2}>
-                <Checkbox toggle label='Seafood Free' checked={seafood} onChange={this.handleSea}/>
+                <Checkbox toggle label = 'Seafood Free' checked={seafood} onChange={this.handleSea} />
               </Grid.Column>
               <Divider/>
             </Grid>
             <Card.Group>
-              {this.props.recipes.map((recipe) => <Recipe
+              {final.map((recipe) => <Recipe
                   key={recipe._id}
                   recipe={recipe}
                   ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
@@ -75,6 +74,7 @@ class ListRecipes extends React.Component {
     );
   }
 }
+
 
 /** Require an array of Stuff documents in the props. */
 ListRecipes.propTypes = {
@@ -86,7 +86,7 @@ ListRecipes.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscriptionR = Meteor.subscribe('ListRecipes');
+  const subscriptionR = Meteor.subscribe('Recipes');
   const subscriptionI = Meteor.subscribe('Ingredients');
   Meteor.subscribe('ListRecipes');
   return {

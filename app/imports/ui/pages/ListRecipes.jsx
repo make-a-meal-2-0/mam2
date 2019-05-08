@@ -69,6 +69,12 @@ class ListRecipes extends React.Component {
                   recipe={recipe}
                   ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
             </Card.Group>
+              <Card.Group>
+                {final.map((recipe) => <Recipe
+                  key={recipe._id}
+                  recipe={recipe}
+                  ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
+              </Card.Group>
           </Container>
         </div>
     );

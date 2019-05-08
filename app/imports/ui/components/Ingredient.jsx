@@ -8,11 +8,7 @@ class Ingredient extends React.Component {
 
   render() {
     return (
-        <List bulleted>
-          <List.Item>
             <Label color='yellow' ribbon>{this.props.ingredients.ingredient}</Label>
-          </List.Item>
-        </List>
     );
   }
 }

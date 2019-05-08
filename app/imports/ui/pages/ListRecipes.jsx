@@ -36,15 +36,14 @@ class ListRecipes extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const { vegan, vegetarian, nut, dairy, seafood } = this.state;
-    const final = this.props.recipes.filter(recipe => (
-            (recipe.isVegan && vegan) ||
-            (recipe.isVegetarian && vegetarian) ||
-            (recipe.isNutAllergySafe && nut) ||
-            (recipe.isDairyAllergySafe && dairy) ||
-            (recipe.isSeafoodAllergySafe && seafood)));
+    const final = this.props.recipes.filter(recipe => ((recipe.isVegan && vegan) ||
+        (recipe.isVegetarian && vegetarian) ||
+        (recipe.isNutAllergySafe && nut) ||
+        (recipe.isDairyAllergySafe && dairy) ||
+        (recipe.isSeafoodAllergySafe && seafood)));
 
     return (
-        <div className='Background'>
+        <div className='ListBackground'>
           <Container>
             <Header as='h2' textAlign='center' inverted>List Recipes</Header>
             <Grid>
@@ -66,7 +65,7 @@ class ListRecipes extends React.Component {
               <Divider/>
             </Grid>
             <Card.Group>
-              {final.map((recipe) => <Recipe
+              {this.props.recipes.map((recipe) => <Recipe
                   key={recipe._id}
                   recipe={recipe}
                   ingredients={this.props.ingredients.filter(ingredient => (ingredient.name === recipe.name))}/>)}
@@ -76,6 +75,7 @@ class ListRecipes extends React.Component {
     );
   }
 }
+
 /** Require an array of Stuff documents in the props. */
 ListRecipes.propTypes = {
   recipes: PropTypes.array.isRequired,
@@ -86,9 +86,9 @@ ListRecipes.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscriptionR = Meteor.subscribe('Recipes');
+  const subscriptionR = Meteor.subscribe('ListRecipes');
   const subscriptionI = Meteor.subscribe('Ingredients');
-  // Meteor.subscribe('ListRecipes');
+  Meteor.subscribe('ListRecipes');
   return {
     ingredients: Ingredients.find({}).fetch(),
     recipes: Recipes.find({}).fetch(),

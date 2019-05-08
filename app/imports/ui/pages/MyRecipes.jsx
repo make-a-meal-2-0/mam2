@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Recipes } from '/imports/api/recipe/recipe'
+import { Recipes } from '/imports/api/recipe/recipe';
 import { Ingredients } from '/imports/api/ingredient/ingredient';
 import Recipe from '../components/Recipe';
 
@@ -43,7 +43,6 @@ MyRecipes.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscriptionR = Meteor.subscribe('Recipes');
-  const subscriptionI = Meteor.subscribe('Ingredients');
   Meteor.subscribe('MyRecipes');
   return {
     ingredients: Ingredients.find({}).fetch(),

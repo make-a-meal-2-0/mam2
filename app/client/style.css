@@ -24,8 +24,8 @@
   background: url('/images/MiddleCenter.jpg') center center no-repeat fixed;;
   background-size: cover;
   color: white;
-  font-weight: bold;
-  padding-bottom: 30px;
+  font-weight: bolder;
+  padding-bottom: 15px;
   font-family: 'proxima-nova-soft', sans-serif;
 }
 

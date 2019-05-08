@@ -51,7 +51,7 @@ class ListRecipes extends React.Component {
     );
 
     return (
-        <div className='Background'>
+        <div className='ListBackground'>
           <Container>
             <Header as='h2' textAlign='center' inverted>List Recipes</Header>
             <Grid>
